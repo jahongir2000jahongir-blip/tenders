@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тендеры 15 стран — tenders.best</title>
+  <meta name="description" content="Государственные закупки 15 стран в одном поиске: Центральная Азия, Россия, Беларусь, Украина, Молдова, Кавказ и ЕС. Обновление каждые 3 часа.">
+  <link rel="icon" type="image/png" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/assets/css/fonts.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/catalog.css">
+</head>
+<body class="catalog">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  </defs>
+</svg>
+
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__bar">
+      <a href="/" class="brand" aria-label="tenders.best — на главную">
+        <img class="brand__mark" src="/assets/img/logo-mark.png" alt="" width="44" height="44">
+        <span class="brand__name">tenders<b>.best</b></span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="/tenders" class="is-active" data-i="nav_tenders">Тендеры</a>
+        <a href="/#platform" data-i="nav_platform">Возможности</a>
+        <a href="/#how" data-i="nav_how">Как это работает</a>
+        <a href="#sources" data-i="nav_sources">Источники</a>
+      </nav>
+      <div class="header__actions">
+        <div class="seg" role="group" aria-label="Язык"><button type="button" data-lang="ru" aria-pressed="true">RU</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
+        <a href="/#cta" class="btn btn--primary btn--sm" data-i="buy">Купить подписку <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/tenders">Тендеры</a>
+  <a href="/#platform">Возможности</a>
+  <a href="/#how">Как это работает</a>
+  <a href="#sources">Источники</a>
+  <a href="/#cta" class="btn btn--primary btn--lg">Купить подписку</a>
+</div>
+
+<main>
+  <section class="chero">
+    <div class="chero__card">
+      <div class="container">
+        <div class="chero__grid">
+          <div class="chero__copy">
+            <span class="eyebrow" data-i="eyebrow">Госзакупки 15 стран</span>
+            <h1 data-i="h1">Тендеры пятнадцати стран в одном поиске</h1>
+            <p data-i="lead">Центральная Азия, Россия, Беларусь, Украина, Молдова, Азербайджан и страны ЕС. Ищите по отрасли, бюджету и сроку подачи, сравнивайте суммы в долларах.</p>
+            <form class="search" id="searchForm" role="search">
+              <svg class="icon"><use href="#i-search"/></svg>
+              <input id="q" type="search" autocomplete="off" placeholder="Например: школьная мебель, трансформатор, ремонт дороги">
+              <button type="submit" class="btn btn--primary" data-i="find">Найти</button>
+            </form>
+            <div class="chero__meta" id="meta"></div>
+          </div>
+        </div>
+        <div class="countries" id="countryStrip" role="group" aria-label="Страны"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cmain container" id="tenders">
+    <aside class="filters" id="filters" aria-label="Фильтры">
+      <div class="filters__head"><b data-i="filters">Фильтры</b><span class="filters__head-actions"><button type="button" class="link" id="reset" data-i="reset">Сбросить</button><button type="button" class="btn btn--primary btn--sm filters-close" id="filtersClose" data-i="done">Готово</button></span></div>
+      <div class="fgroup"><div class="fgroup__title" data-i="country">Страна</div><div class="fchips" id="fCountries"></div></div>
+      <div class="fgroup"><div class="fgroup__title" data-i="category">Отрасль</div><div class="flist" id="fCats"></div></div>
+      <div class="fgroup"><div class="fgroup__title" data-i="budget">Бюджет, USD</div>
+        <div class="frange"><input type="number" id="minUsd" min="0" step="1000" placeholder="от" data-ph="from"><span>—</span><input type="number" id="maxUsd" min="0" step="1000" placeholder="до" data-ph="to"></div></div>
+      <div class="fgroup"><div class="fgroup__title" data-i="deadline">Срок подачи</div>
+        <label class="fradio"><input type="radio" name="dl" value="" checked><span data-i="any">Любой</span></label>
+        <label class="fradio"><input type="radio" name="dl" value="7"><span data-i="d7">Закрывается за 7 дней</span></label>
+        <label class="fradio"><input type="radio" name="dl" value="30"><span data-i="d30">В ближайшие 30 дней</span></label></div>
+      <div class="fgroup">
+        <label class="fcheck"><input type="checkbox" id="onlyOpen" checked><span data-i="only_open">Только открытые</span></label>
+        <label class="fcheck"><input type="checkbox" id="onlyFav"><span data-i="favs_only">Только избранное</span></label>
+      </div>
+    </aside>
+
+    <div class="results">
+      <div class="results__head">
+        <div class="results__count" id="count"></div>
+        <div class="results__ctrls">
+          <button type="button" class="btn btn--ghost btn--sm filters-toggle" id="filtersToggle"><svg class="icon"><use href="#i-filter"/></svg><span data-i="filters">Фильтры</span></button>
+          <div class="seg" role="group" id="curSeg"><button type="button" data-cur="usd" aria-pressed="true">USD</button><button type="button" data-cur="local" aria-pressed="false" data-i="cur_local">Местная</button></div>
+          <select class="sel" id="sort" aria-label="Сортировка">
+            <option value="new" data-i="s_new">Сначала новые</option>
+            <option value="deadline" data-i="s_dead">Ближайший срок подачи</option>
+            <option value="amount_desc" data-i="s_bud_d">Бюджет: больше</option>
+            <option value="amount_asc" data-i="s_bud_a">Бюджет: меньше</option>
+          </select>
+        </div>
+      </div>
+      <div class="list" id="list" aria-live="polite"></div>
+      <div class="results__more"><button type="button" class="btn btn--ghost" id="more" data-i="more">Показать ещё</button></div>
+    </div>
+  </section>
+
+  <section class="cblock container" id="alerts">
+    <div class="subscribe">
+      <div>
+        <span class="eyebrow eyebrow--blue" data-i="sub_eyebrow">Уведомления</span>
+        <h2 data-i="sub_h">Новые тендеры на почту</h2>
+        <p data-i="sub_p">Выберите страны и ключевые слова. Как только на порталах появится подходящий тендер, пришлём письмо.</p>
+      </div>
+      <form class="subform" id="subForm" novalidate>
+        <label><span data-i="email">Электронная почта</span><input type="email" id="subEmail" placeholder="name@company.com" required></label>
+        <div><span class="lbl" data-i="country">Страна</span><div class="fchips fchips--sub" id="subCountries"></div></div>
+        <label><span data-i="keywords">Ключевые слова через запятую</span><input type="text" id="subKw" placeholder="дорога, трансформатор, мебель"></label>
+        <div class="subform__actions"><button class="btn btn--primary" type="submit" data-i="sub_btn">Подписаться</button><span class="formmsg" id="subMsg" role="status"></span></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="cblock container" id="sources">
+    <div class="section-head section-head--left">
+      <span class="eyebrow" data-i="src_eyebrow">Источники</span>
+      <h2 data-i="src_h">Откуда берутся тендеры</h2>
+      <p data-i="src_p">Объявления собираются с официальных порталов каждые 3 часа. Дубликаты одного тендера из разных источников не показываются.</p>
+    </div>
+    <div class="tablewrap"><table class="srctable" id="srcTable"></table></div>
+  </section>
+</main>
+
+<footer class="cfooter container">
+  <span>© 2026 tenders.best</span>
+  <nav><a href="/">Главная</a><a href="/tenders">Тендеры</a><a href="#sources">Источники</a><a href="/admin/login">Вход</a></nav>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="drawer__head"><span class="drawer__id" id="dId"></span><button class="iconbtn" id="dClose" type="button" aria-label="Закрыть"><svg class="icon"><use href="#i-x"/></svg></button></div>
+  <div class="drawer__body" id="dBody"></div>
+  <div class="drawer__actions" id="dActions"></div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/assets/js/catalog.js" defer></script>
+</body>
+</html>

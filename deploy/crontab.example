@@ -1,0 +1,3 @@
+# Alternative to the built-in scheduler (set TB_SCHEDULER=0 in /opt/tenders/.env).
+# Collect from all portals every 3 hours; duplicates are skipped by the pipeline.
+0 */3 * * * cd /opt/tenders && .venv/bin/python -m server.collect >> /var/log/tenders-collect.log 2>&1
