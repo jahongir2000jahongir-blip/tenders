@@ -1,6 +1,13 @@
 /* tenders.best — landing page dictionary (RU is the source of truth in the markup) */
 window.TB_I18N = {
   en: {
+    hero_note: 'Official portals of 15 countries · updated every 3 hours · RU / EN / TJ',
+    tr1_b: '15 countries', tr1_s: 'Official procurement portals of Central Asia, CIS and EU', tr2_b: 'Every 3 hours', tr2_s: 'Automatic catalogue update without duplicates',
+    tr3_b: 'Link to the original', tr3_s: 'Every notice shows its source portal', tr4_b: 'Three languages', tr4_s: 'Russian, English and Tajik interface',
+    d_1: 'Versions with change history', d_2: 'Completeness check before submission', d_3: 'Templates for portal requirements',
+    r_1: 'Bid funnel, team load, finance', r_2: 'Export to XLSX, PDF and CSV', r_3: 'Scheduled delivery to several recipients',
+    sc_eyebrow: 'Interface example', sc_h2: 'Bid card: deadlines, documents, team and money on one screen', sc_p: 'This is how a bid looks inside tenders.best. All sections are linked: deadline, document set, approval and security.',
+    src_m3: 'Collection status is visible on the sources page',
     nav_catalog: 'Tender catalogue', nav_features: 'Features', nav_how: 'How it works', nav_sources: 'Sources', login: 'Sign in', buy: 'Buy subscription',
     hero_eyebrow: 'Platform for tender work', hero_h1: 'Tenders, bids and documents in one system',
     hero_lead: 'Find suitable procurements, control submission deadlines, prepare documents and run team work in one workspace.',
@@ -39,6 +46,13 @@ window.TB_I18N = {
     foot_privacy: 'Privacy policy', foot_terms: 'Terms of use',
   },
   tj: {
+    hero_note: 'Порталҳои расмии 15 кишвар · навсозӣ ҳар 3 соат · RU / EN / TJ',
+    tr1_b: '15 кишвар', tr1_s: 'Порталҳои расмии хариди Осиёи Марказӣ, ИДМ ва ИА', tr2_b: 'Ҳар 3 соат', tr2_s: 'Навсозии худкори феҳрист бе такрор',
+    tr3_b: 'Пайванд ба асл', tr3_s: 'Дар ҳар эълон портали манбаъ нишон дода шудааст', tr4_b: 'Се забон', tr4_s: 'Интерфейс бо русӣ, англисӣ ва тоҷикӣ',
+    d_1: 'Нусхаҳо бо таърихи тағйирот', d_2: 'Санҷиши пуррагӣ пеш аз пешниҳод', d_3: 'Намунаҳо мувофиқи талаботи майдонча',
+    r_1: 'Воронкаи дархостҳо, сарбории даста, молия', r_2: 'Содирот ба XLSX, PDF ва CSV', r_3: 'Ирсол аз рӯи ҷадвал ба якчанд гиранда',
+    sc_eyebrow: 'Намунаи интерфейс', sc_h2: 'Корти дархост: мӯҳлатҳо, ҳуҷҷатҳо, даста ва маблағҳо дар як экран', sc_p: 'Дархост дар дохили tenders.best чунин менамояд. Ҳама бахшҳо пайвастанд: мӯҳлат, маҷмӯи ҳуҷҷатҳо, мувофиқа ва таъминот.',
+    src_m3: 'Ҳолати ҷамъоварӣ дар саҳифаи манбаъҳо намоён аст',
     nav_catalog: 'Феҳристи тендерҳо', nav_features: 'Имкониятҳо', nav_how: 'Ҷараёни кор', nav_sources: 'Манбаъҳо', login: 'Ворид шудан', buy: 'Харидани обуна',
     hero_eyebrow: 'Платформа барои кори тендерӣ', hero_h1: 'Тендерҳо, дархостҳо ва ҳуҷҷатҳо дар як низом',
     hero_lead: 'Хариди мувофиқро ёбед, мӯҳлати пешниҳодро назорат кунед, ҳуҷҷатҳоро омода созед ва кори дастаро дар як фазои корӣ пеш баред.',

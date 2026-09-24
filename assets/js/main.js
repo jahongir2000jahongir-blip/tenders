@@ -1,69 +1,27 @@
-/* tenders.best — landing interactions */
+/* tenders.best — landing page */
 (function () {
   'use strict';
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const $ = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const { $, $$ } = window.TBUI;
 
-  /* ---------- language ---------- */
-  const LANGS = { ru: 'RU', en: 'EN', tj: 'TJ' };
+  /* ---------- i18n ---------- */
   const original = new Map();
-  const applyLang = (lang) => {
-    if (!LANGS[lang]) lang = 'ru';
-    const dict = (window.TB_I18N || {})[lang] || {};
+  const applyLang = (code) => {
+    if (!['ru', 'en', 'tj'].includes(code)) code = 'ru';
+    const dict = (window.TB_I18N || {})[code] || {};
     $$('[data-i]').forEach((el) => {
       if (!original.has(el)) original.set(el, el.innerHTML);
       const v = dict[el.dataset.i];
-      el.innerHTML = lang === 'ru' || v == null ? original.get(el) : v;
+      el.innerHTML = code === 'ru' || v == null ? original.get(el) : v;
     });
-    document.documentElement.lang = lang === 'tj' ? 'tg' : lang;
-    $$('[data-set-lang]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.setLang === lang)));
-    $$('[data-lang-label]').forEach((el) => { el.textContent = LANGS[lang]; });
-    $$('[data-flag]').forEach((el) => { el.className = 'flag flag--' + lang; });
-    try { localStorage.setItem('tb_lang', lang); } catch (e) { /* ignore */ }
+    document.documentElement.lang = code === 'tj' ? 'tg' : code;
+    try { localStorage.setItem('tb_lang', code); } catch (e) { /* ignore */ }
   };
+  const sync = window.TBUI.lang(applyLang);
   let saved = 'ru';
   try { saved = localStorage.getItem('tb_lang') || 'ru'; } catch (e) { /* ignore */ }
-  applyLang(saved);
+  applyLang(saved); sync(saved);
 
-  const lang = $('#lang');
-  if (lang) {
-    const btn = $('.lang__btn', lang);
-    const toggle = (open) => { lang.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); };
-    btn.addEventListener('click', () => toggle(!lang.classList.contains('is-open')));
-    document.addEventListener('click', (e) => { if (!lang.contains(e.target)) toggle(false); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
-  }
-  document.addEventListener('click', (e) => {
-    const b = e.target.closest('[data-set-lang]');
-    if (!b) return;
-    applyLang(b.dataset.setLang);
-    if (lang) lang.classList.remove('is-open');
-  });
-
-  /* ---------- header: compact after scroll, hidden on scroll down ---------- */
-  const header = $('#header');
-  const menu = $('#mobileMenu');
-  let lastY = window.scrollY, ticking = false;
-  const updateHeader = () => {
-    const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 8);
-    if (y > lastY + 6 && y > 200 && !menu.classList.contains('is-open')) header.classList.add('is-hidden');
-    else if (y < lastY - 6 || y < 120) header.classList.remove('is-hidden');
-    lastY = y; ticking = false;
-  };
-  window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; } }, { passive: true });
-  updateHeader();
-
-  /* ---------- mobile menu ---------- */
-  const burger = $('#burger');
-  const setMenu = (open) => {
-    burger.classList.toggle('is-open', open); menu.classList.toggle('is-open', open);
-    burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : '';
-    if (open) header.classList.remove('is-hidden');
-  };
-  burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
-  $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  window.TBUI.header();
 
   /* ---------- scroll spy ---------- */
   const navLinks = $$('.nav a[href^="#"]');
@@ -75,7 +33,7 @@
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* ---------- charts ---------- */
+  /* ---------- charts + reveal ---------- */
   const C = 2 * Math.PI * 40;
   const runDonut = (svg) => {
     if (svg.dataset.done) return;
@@ -88,38 +46,39 @@
     });
   };
   const animateIn = (root) => { root.classList.add('is-in'); $$('.donut svg', root).forEach(runDonut); };
-  const targets = $$('[data-reveal], [data-anim]');
-  if ('IntersectionObserver' in window && !reduceMotion) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { animateIn(e.target); io.unobserve(e.target); } });
-    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
-    targets.forEach((el) => io.observe(el));
-  } else {
-    targets.forEach(animateIn);
-  }
+  window.TBUI.reveal(animateIn);
 
   /* ---------- feature tabs ---------- */
   const tabs = $$('.tab'), panels = $$('.tab-panel');
-  tabs.forEach((tab) => {
-    tab.addEventListener('click', () => {
-      if (tab.classList.contains('is-active')) return;
-      tabs.forEach((t) => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-      tab.classList.add('is-active'); tab.setAttribute('aria-selected', 'true');
-      panels.forEach((p) => {
-        const on = p.dataset.panel === tab.dataset.tab;
-        p.classList.toggle('is-active', on);
-        if (!on) return;
-        const vis = $('[data-anim]', p);
-        if (!vis) return;
-        vis.classList.remove('is-in');
-        $$('.donut svg', vis).forEach((s) => { delete s.dataset.done; $$('.donut__seg', s).forEach((seg) => { seg.style.strokeDasharray = '0 999'; }); });
-        void vis.offsetWidth;
-        setTimeout(() => animateIn(vis), 40);
-      });
+  const activate = (tab) => {
+    if (tab.classList.contains('is-active')) return;
+    tabs.forEach((t) => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); t.tabIndex = -1; });
+    tab.classList.add('is-active'); tab.setAttribute('aria-selected', 'true'); tab.tabIndex = 0;
+    panels.forEach((p) => {
+      const on = p.dataset.panel === tab.dataset.tab;
+      p.classList.toggle('is-active', on);
+      if (!on) return;
+      const vis = $('[data-anim]', p);
+      if (!vis) return;
+      vis.classList.remove('is-in');
+      $$('.donut svg', vis).forEach((s) => { delete s.dataset.done; $$('.donut__seg', s).forEach((seg) => { seg.style.strokeDasharray = '0 999'; }); });
+      void vis.offsetWidth;
+      setTimeout(() => animateIn(vis), 40);
+    });
+  };
+  tabs.forEach((tab, i) => {
+    tab.tabIndex = tab.classList.contains('is-active') ? 0 : -1;
+    tab.addEventListener('click', () => activate(tab));
+    tab.addEventListener('keydown', (e) => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const next = tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length];
+      next.focus(); activate(next);
     });
   });
 
   /* ---------- smooth anchors ---------- */
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   $$('a[href^="#"]').forEach((a) => {
     a.addEventListener('click', (e) => {
       const id = a.getAttribute('href');
@@ -127,7 +86,7 @@
       const target = $(id);
       if (!target) return;
       e.preventDefault();
-      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: reduceMotion ? 'auto' : 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 84, behavior: reduce ? 'auto' : 'smooth' });
     });
   });
 })();
