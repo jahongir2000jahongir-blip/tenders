@@ -3,73 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tenders.best — тендеры, заявки и документы в одной системе</title>
-  <meta name="description" content="Каталог государственных закупок 15 стран и рабочее пространство для подготовки заявок: сроки, документы, согласование, бюджет, команда.">
-  <meta property="og:title" content="tenders.best — тендеры, заявки и документы в одной системе">
-  <meta property="og:description" content="Каталог закупок 15 стран с обновлением каждые 3 часа и рабочее пространство тендерного отдела.">
+  <title>tenders.best — платформа для тендеров и закупок</title>
+  <meta name="description" content="tenders.best помогает компаниям находить тендеры, контролировать сроки, работать с документами, анализировать закупки и повышать процент побед.">
+  <meta property="og:title" content="tenders.best — управляйте тендерами и выигрывайте закупки">
+  <meta property="og:description" content="Поиск тендеров, контроль сроков, документы, бюджет и аналитика — в одной системе.">
   <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/inter-600-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/manrope-800-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/fonts.css">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
-<!-- Icon sprite: Lucide (lucide.dev), stroke 1.75. Flags: flag-icons style SVG (flagicons.lipis.dev). -->
+<!-- ============ icon sprite ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b5cf6" stop-opacity="0.18"/><stop offset="1" stop-color="#2b5cf6" stop-opacity="0"/></linearGradient>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d6ef0"/><stop offset="1" stop-color="#c42be0"/></linearGradient>
+    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c3aed" stop-opacity="0.28"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></linearGradient>
+    <linearGradient id="orbitGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d6ef0"/><stop offset="1" stop-color="#c42be0"/></linearGradient>
+    <linearGradient id="donutA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f8bff"/><stop offset="1" stop-color="#0b3c8c"/></linearGradient>
+    <linearGradient id="donutB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a35bff"/><stop offset="1" stop-color="#5b21b6"/></linearGradient>
+    <linearGradient id="donutC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd257"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+    <linearGradient id="donutD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e05cf5"/><stop offset="1" stop-color="#9d1fb8"/></linearGradient>
+
     <symbol id="flag-ru" viewBox="0 0 640 480"><path fill="#fff" d="M0 0h640v160H0z"/><path fill="#0039a6" d="M0 160h640v160H0z"/><path fill="#d52b1e" d="M0 320h640v160H0z"/></symbol>
     <symbol id="flag-en" viewBox="0 0 640 480"><path fill="#012169" d="M0 0h640v480H0z"/><path fill="#fff" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/><path fill="#c8102e" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"/><path fill="#fff" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/><path fill="#c8102e" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/></symbol>
     <symbol id="flag-tj" viewBox="0 0 640 480"><path fill="#c00" d="M0 0h640v137H0z"/><path fill="#fff" d="M0 137h640v206H0z"/><path fill="#060" d="M0 343h640v137H0z"/><path fill="#f8c300" d="M280 262c8-14 22-24 40-24s32 10 40 24c-12-6-26-10-40-10s-28 4-40 10zm40-42a12 12 0 1 0 0-24 12 12 0 0 0 0 24zm-62 24 8-4 3 9-5 6zm124 0-8-4-3 9 5 6zm-93-12 7-6 5 8-7 5zm62 0-7-6-5 8 7 5z"/></symbol>
-
-    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
-    <symbol id="i-file" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
-    <symbol id="i-files" viewBox="0 0 24 24"><path d="M20 7h-3a2 2 0 0 1-2-2V2"/><path d="M9 18a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h7l5 5v9a2 2 0 0 1-2 2Z"/><path d="M3 7.6v12.8A1.6 1.6 0 0 0 4.6 22h9.8"/></symbol>
-    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
-    <symbol id="i-layout" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
-    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
-    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
-    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
-    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
-    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
-    <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
     <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
-    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
-    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
-    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
-    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
-    <symbol id="i-languages" viewBox="0 0 24 24"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></symbol>
-    <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol>
-    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></symbol>
-    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
     <symbol id="i-contract" viewBox="0 0 24 24"><path d="M20 19.5v.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8.5L18 5.5v3"/><path d="M14 2v4h4"/><path d="M8 18h2"/><path d="M18.4 9.6a2 2 0 1 1 3 3L17 17l-4 1 1-4Z"/></symbol>
-    <symbol id="i-calc" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-money" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 2 8h20z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-line" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-gavel" viewBox="0 0 24 24"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9V3z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3Z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></symbol>
     <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
-    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
-    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></symbol>
-    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.37 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.9-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 2.9-.7 1.4 0 1.8.7 3 .7s2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.2-3.5zM14.1 5.8c.6-.7 1-1.7.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z"/></symbol>
+    <symbol id="i-gplay" viewBox="0 0 24 24"><path d="M4 3.5v17c0 .6.7 1 1.2.7l14.6-8.5c.5-.3.5-1 0-1.3L5.2 2.9C4.7 2.6 4 2.9 4 3.5z"/><path d="M4.3 3.1 14.9 12 4.3 20.9" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/></symbol>
   </defs>
 </svg>
+
+<div class="page-aura" aria-hidden="true"></div>
 
 <!-- ============ header ============ -->
 <header class="header" id="header">
   <div class="container">
     <div class="header__bar">
-      <a href="/" class="brand" aria-label="tenders.best — на главную">
-        <img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="34" height="34">
+      <a href="#top" class="brand" aria-label="tenders.best — на главную">
+        <img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="44" height="44">
         <span class="brand__name">tenders<b>.best</b></span>
       </a>
       <nav class="nav" aria-label="Основная навигация">
-        <a href="/tenders" data-i="nav_catalog">Каталог тендеров</a>
-        <a href="#features" data-i="nav_features">Возможности</a>
-        <a href="#how" data-i="nav_how">Как проходит работа</a>
-        <a href="#sources" data-i="nav_sources">Источники</a>
+        <a href="/tenders" data-i="nav_tenders">Тендеры</a>
+        <a href="#platform" data-i="nav_platform">Возможности</a>
+        <a href="#why" data-i="nav_why">Почему мы</a>
+        <a href="#features" data-i="nav_features">Решения</a>
+        <a href="#how" data-i="nav_how">Как это работает</a>
+        <a href="#reviews" data-i="nav_reviews">Отзывы</a>
       </nav>
       <div class="header__actions">
         <div class="lang" id="lang">
@@ -80,26 +119,25 @@
             <button type="button" role="option" data-set-lang="tj" aria-selected="false"><span class="flag"><svg><use href="#flag-tj"/></svg></span>Тоҷикӣ<svg class="icon"><use href="#i-check"/></svg></button>
           </div>
         </div>
-        <a href="/admin/login" class="header__login" data-i="login">Войти</a>
-        <a href="#cta" class="btn btn--primary btn--sm" data-i="buy">Купить подписку</a>
+        <a href="#" class="header__login" data-i="login">Войти</a>
+        <a href="#cta" class="btn btn--primary btn--sm"><span data-i="buy">Купить подписку</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/tenders" data-i="nav_catalog">Каталог тендеров</a>
-  <a href="#features" data-i="nav_features">Возможности</a>
-  <a href="#how" data-i="nav_how">Как проходит работа</a>
-  <a href="#sources" data-i="nav_sources">Источники</a>
+  <a href="/tenders" data-i="nav_tenders">Тендеры</a>
+  <a href="#platform" data-i="nav_platform">Возможности</a>
+  <a href="#why" data-i="nav_why">Почему мы</a>
+  <a href="#features" data-i="nav_features">Решения</a>
+  <a href="#how" data-i="nav_how">Как это работает</a>
+  <a href="#reviews" data-i="nav_reviews">Отзывы</a>
+  <a href="#cta" class="btn btn--primary btn--lg" data-i="buy">Купить подписку</a>
   <div class="mobile-menu__langs">
     <button type="button" data-set-lang="ru" aria-selected="true"><span class="flag"><svg><use href="#flag-ru"/></svg></span>RU</button>
     <button type="button" data-set-lang="en" aria-selected="false"><span class="flag"><svg><use href="#flag-en"/></svg></span>EN</button>
     <button type="button" data-set-lang="tj" aria-selected="false"><span class="flag"><svg><use href="#flag-tj"/></svg></span>TJ</button>
-  </div>
-  <div class="mobile-menu__row">
-    <a href="/admin/login" class="btn btn--secondary" data-i="login">Войти</a>
-    <a href="#cta" class="btn btn--primary" data-i="buy">Купить подписку</a>
   </div>
 </div>
 
@@ -107,104 +145,457 @@
 
 <!-- ============ hero ============ -->
 <section class="hero">
-  <div class="container">
-    <div class="hero__copy">
-      <span class="eyebrow" data-reveal style="--i:0" data-i="hero_eyebrow">Платформа для тендерной работы</span>
-      <h1 class="hero__title" data-reveal style="--i:1" data-i="hero_h1">Тендеры, заявки и документы в&nbsp;одной системе</h1>
-      <p class="hero__lead" data-reveal style="--i:2" data-i="hero_lead">Находите подходящие закупки, контролируйте сроки подачи, готовьте документы и ведите работу команды в одном рабочем пространстве.</p>
-      <div class="hero__cta" data-reveal style="--i:3">
-        <a href="/tenders" class="btn btn--primary btn--lg" data-i="hero_cta">Открыть каталог тендеров</a>
-        <a href="#features" class="btn btn--secondary btn--lg" data-i="hero_cta2">Смотреть возможности</a>
-      </div>
-      <p class="hero__note" data-reveal style="--i:4" data-i="hero_note">Официальные порталы 15 стран · обновление каждые 3 часа · RU / EN / TJ</p>
-    </div>
+  <div class="hero__card">
+    <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
 
-    <div class="hero__stage" data-reveal style="--i:3">
-      <div class="hero__product">
-        <div class="window">
-          <div class="window__bar"><div class="window__dots"><i></i><i></i><i></i></div><span class="window__url"><svg class="icon"><use href="#i-lock"/></svg>app.tenders.best/bids</span></div>
-          <div class="app" data-anim>
-            <aside class="app__side">
-              <div class="app__ws"><img src="assets/img/logo-mark.png" alt=""><div>Тендерный отдел<small>ООО «Компания»</small></div></div>
-              <a class="app__nav"><svg class="icon"><use href="#i-layout"/></svg>Обзор</a>
-              <a class="app__nav"><svg class="icon"><use href="#i-search"/></svg>Каталог<b>550</b></a>
-              <a class="app__nav is-active"><svg class="icon"><use href="#i-files"/></svg>Заявки<b>17</b></a>
-              <a class="app__nav"><svg class="icon"><use href="#i-folder"/></svg>Документы</a>
-              <a class="app__nav"><svg class="icon"><use href="#i-calendar"/></svg>Календарь<b>5</b></a>
-              <div class="app__group">Финансы</div>
-              <a class="app__nav"><svg class="icon"><use href="#i-wallet"/></svg>Бюджет</a>
-              <a class="app__nav"><svg class="icon"><use href="#i-chart"/></svg>Отчёты</a>
-              <div class="app__group">Команда</div>
-              <a class="app__nav"><svg class="icon"><use href="#i-users"/></svg>Участники<b>4</b></a>
-              <a class="app__nav"><svg class="icon"><use href="#i-settings"/></svg>Настройки</a>
-            </aside>
-            <div class="app__main">
-              <div class="app__top">
-                <h4>Заявки<small>17 в работе · 5 дедлайнов на этой неделе</small></h4>
-                <div class="app__search"><svg class="icon"><use href="#i-search"/></svg>Поиск по заявкам</div>
-                <span class="app__btn"><svg class="icon"><use href="#i-filter"/></svg>Фильтр</span>
-                <span class="app__btn app__btn--primary"><svg class="icon"><use href="#i-plus"/></svg>Новая заявка</span>
-              </div>
-              <div class="app__body">
-                <div class="app__kpis">
-                  <div class="kpi"><div class="kpi__label">В работе</div><div class="kpi__value">17</div><div class="kpi__delta">4 новых за неделю</div></div>
-                  <div class="kpi"><div class="kpi__label">Дедлайны на 7 дней</div><div class="kpi__value">5</div><div class="kpi__delta hot">2 срочных</div></div>
-                  <div class="kpi"><div class="kpi__label">На согласовании</div><div class="kpi__value">6<small>док.</small></div><div class="kpi__delta">юрист, сметчик</div></div>
-                  <div class="kpi"><div class="kpi__label">Обеспечение заявок</div><div class="kpi__value">3,4<small>млн</small></div><div class="kpi__delta">по 4 заявкам</div></div>
-                </div>
-                <div class="app__panel">
-                  <div class="app__panel-head"><div class="app__tabs"><span class="on">Все · 17</span><span>Подготовка · 6</span><span>Согласование · 4</span><span>Поданы · 7</span></div><span>Сортировка: дедлайн</span></div>
-                  <table class="table">
-                    <thead><tr><th>Тендер</th><th>Страна</th><th>Дедлайн</th><th>НМЦ</th><th>Ответственный</th><th>Готовность</th><th class="keep">Статус</th></tr></thead>
-                    <tbody>
-                      <tr><td class="t wrap">Ремонт дорожного полотна, 4,2 км</td><td><span class="cc"><b>KZ</b>Караганда</span></td><td class="num" style="color:var(--danger)">26 сен · 2 дня</td><td class="r num">24,8 млн</td><td><span class="ava">АК</span></td><td style="width:110px"><div class="progress"><i style="--w:89%;--i:0"></i></div></td><td class="keep"><span class="status status--review">Согласование</span></td></tr>
-                      <tr><td class="t wrap">ИТ-инфраструктура университета</td><td><span class="cc"><b>UZ</b>Ташкент</span></td><td class="num">30 сен · 6 дней</td><td class="r num">12,4 млн</td><td><span class="ava v">МС</span></td><td><div class="progress progress--violet"><i style="--w:62%;--i:1"></i></div></td><td class="keep"><span class="status status--draft">Подготовка</span></td></tr>
-                      <tr><td class="t wrap">Поставка спецтехники, 3 ед.</td><td><span class="cc"><b>KG</b>Бишкек</span></td><td class="num">4 окт · 10 дней</td><td class="r num">48,0 млн</td><td><span class="ava w">ДВ</span></td><td><div class="progress progress--success"><i style="--w:100%;--i:2"></i></div></td><td class="keep"><span class="status status--win">Подана</span></td></tr>
-                      <tr><td class="t wrap">Капитальный ремонт поликлиники №7</td><td><span class="cc"><b>KZ</b>Астана</span></td><td class="num">9 окт · 15 дней</td><td class="r num">18,2 млн</td><td><span class="ava">АК</span></td><td><div class="progress"><i style="--w:35%;--i:3"></i></div></td><td class="keep"><span class="status status--draft">Подготовка</span></td></tr>
-                      <tr><td class="t wrap">Расходные материалы для реанимации</td><td><span class="cc"><b>TJ</b>Душанбе</span></td><td class="num">12 окт · 18 дней</td><td class="r num">6,9 млн</td><td><span class="ava g">ЕЛ</span></td><td><div class="progress progress--violet"><i style="--w:48%;--i:4"></i></div></td><td class="keep"><span class="status status--review">Согласование</span></td></tr>
-                      <tr><td class="t wrap">Школьная мебель, 110 комплектов</td><td><span class="cc"><b>PL</b>Kraków</span></td><td class="num">15 окт · 21 день</td><td class="r num">96 тыс. €</td><td><span class="ava v">МС</span></td><td><div class="progress progress--success"><i style="--w:100%;--i:5"></i></div></td><td class="keep"><span class="status status--win">Подана</span></td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow" data-reveal style="--i:0" data-i="hero_eyebrow">Платформа для тендеров и закупок</span>
+        <h1 class="hero__title" data-reveal style="--i:1" data-i="hero_h1">Управляйте тендерами и&nbsp;побеждайте в&nbsp;закупках</h1>
+        <p class="hero__lead" data-reveal style="--i:2" data-i="hero_lead">tenders.best помогает командам находить актуальные тендеры, контролировать сроки подачи, работать с документами, следить за бюджетом и повышать процент побед.</p>
+        <div class="hero__cta" data-reveal style="--i:3">
+          <a href="/tenders" class="btn btn--primary btn--lg"><span data-i="hero_cta">Открыть каталог тендеров</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          <a href="#how" class="btn btn--ghost btn--lg" data-i="hero_cta2">Как это работает</a>
+        </div>
+        <div class="hero__proof" data-reveal style="--i:4">
+          <div class="avatars"><span>АК</span><span>МС</span><span>ДВ</span><span>ЕЛ</span></div>
+          <div>
+            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+            <span data-i="hero_proof"><b>4.9/5</b> · более 2 400 компаний уже работают в системе</span>
           </div>
         </div>
       </div>
 
-      <div class="fcard fcard--1 fcard--float">
-        <div class="fcard__head"><svg class="icon"><use href="#i-clock"/></svg>Дедлайн подачи<i class="status status--danger">2 дня</i></div>
-        <div class="fcard__title">Ремонт дорожного полотна</div>
-        <div class="fcard__sub">26 сентября, 10:00 · goszakup.gov.kz</div>
-      </div>
-      <div class="fcard fcard--2 fcard--float d">
-        <div class="fcard__head"><svg class="icon"><use href="#i-files"/></svg>Активные заявки</div>
-        <div class="fcard__big">17<small>в работе</small></div>
-        <div class="spark"><i style="--h:30%"></i><i style="--h:45%"></i><i style="--h:38%"></i><i style="--h:60%"></i><i style="--h:52%"></i><i style="--h:74%"></i><i class="on" style="--h:100%"></i></div>
-      </div>
-      <div class="fcard fcard--3">
-        <div class="fcard__head"><svg class="icon"><use href="#i-contract"/></svg>Согласование</div>
-        <div class="fcard__title">Проект договора · v2</div>
-        <div class="fcard__row" style="margin-top:8px"><span class="fcard__sub">Проверяет юрист</span><span class="avatars"><span>АК</span><span>МС</span><span>ДВ</span></span></div>
-      </div>
-      <div class="fcard fcard--4">
-        <div class="fcard__head"><svg class="icon"><use href="#i-check-circle"/></svg>Готовность документов</div>
-        <div class="fcard__row"><span class="fcard__title">8 из 9</span><span class="fcard__sub num">89%</span></div>
-        <div class="bar"><i style="--w:89%"></i></div>
-        <div class="fcard__sub" style="margin-top:8px">Не загружена банковская гарантия</div>
+      <div class="hero__visual" id="heroVisual">
+        <div class="hero__scene">
+          <!-- dashboard -->
+          <div class="laptop" data-reveal>
+            <div class="laptop__screen">
+            <span class="laptop__cam"></span>
+            <div class="dash" data-anim>
+              <aside class="dash__side">
+                <div class="dash__logo"><img src="assets/img/logo-mark.png" alt="">tenders.best</div>
+                <a class="dash__nav is-active"><svg class="icon"><use href="#i-grid"/></svg> Дашборд</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-search"/></svg> Тендеры</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-file"/></svg> Заявки</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-folder"/></svg> Документы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-wallet"/></svg> Финансы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-users"/></svg> Команда</a>
+                <div class="dash__side-foot"><b>Pro-тариф</b>Осталось 24 дня<div class="progress" style="margin-top:6px"><i style="--w:68%"></i></div></div>
+              </aside>
+              <div class="dash__main">
+                <div class="dash__top">
+                  <h4>Обзор закупок<small>Сегодня, 24 сентября</small></h4>
+                  <div class="dash__search"><svg class="icon"><use href="#i-search"/></svg> Поиск по тендерам…</div>
+                  <div class="dash__user"><span class="dash__bell"><svg class="icon"><use href="#i-bell"/></svg></span><i>АК</i></div>
+                </div>
+                <div class="kpis">
+                  <div class="kpi"><div class="kpi__label">Тендеры</div><div class="kpi__value"><span data-count="128">0</span></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+12%</span></div>
+                  <div class="kpi"><div class="kpi__label">Процент побед</div><div class="kpi__value"><span data-count="42">0</span><small>%</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+4,1%</span></div>
+                  <div class="kpi"><div class="kpi__label">Бюджет заявок</div><div class="kpi__value"><span data-count="84.6" data-decimals="1">0</span><small>млн ₽</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+8%</span></div>
+                  <div class="kpi kpi--accent"><div class="kpi__label">Контракты</div><div class="kpi__value"><span data-count="312">0</span><small>млн ₽</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+18%</span></div>
+                </div>
+                <div class="dash__row">
+                  <div class="panel">
+                    <div class="panel__head"><b>Заявки по месяцам</b><span>Поданы · Выиграны</span></div>
+                    <div class="bars">
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:30%;--i:0"></div><div class="bars__bar" style="--h:22%;--i:0"></div></div><span class="bars__label">Апр</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:34%;--i:1"></div><div class="bars__bar" style="--h:30%;--i:1"></div></div><span class="bars__label">Май</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:26%;--i:2"></div><div class="bars__bar" style="--h:38%;--i:2"></div></div><span class="bars__label">Июн</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:30%;--i:3"></div><div class="bars__bar bars__bar--blue" style="--h:46%;--i:3"></div></div><span class="bars__label">Июл</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:22%;--i:4"></div><div class="bars__bar" style="--h:52%;--i:4"></div></div><span class="bars__label">Авг</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:20%;--i:5"></div><div class="bars__bar bars__bar--gold" style="--h:64%;--i:5"></div></div><span class="bars__label">Сен</span></div>
+                    </div>
+                  </div>
+                  <div class="panel panel--donut">
+                    <div class="panel__head"><b>Категории</b><span>Квартал</span></div>
+                    <div class="donut">
+                      <svg viewBox="0 0 100 100">
+                        <circle class="donut__track" cx="50" cy="50" r="40"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="38" data-offset="0"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="24" data-offset="38"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutC)" data-seg="21" data-offset="62"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutD)" data-seg="17" data-offset="83"/>
+                      </svg>
+                      <div class="donut__center"><div><b>128</b><small>тендеров</small></div></div>
+                    </div>
+                    <ul class="legend">
+                      <li><i style="--c:#2f8bff"></i>Строительство<b>38%</b></li>
+                      <li><i style="--c:#a35bff"></i>Медицина<b>24%</b></li>
+                      <li><i style="--c:#ffd257"></i>IT и связь<b>21%</b></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="dash__row dash__row--2">
+                  <div class="panel">
+                    <div class="panel__head"><b>Последние заявки</b><span>Все</span></div>
+                    <div class="tlist">
+                      <div class="tlist__row tlist__row--head"><span>Тендер</span><span>Дедлайн</span><span>Сумма</span><span>Статус</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i><svg class="icon"><use href="#i-building"/></svg></i><span>Реконструкция школы №14</span></div><span>02.10</span><span class="tlist__sum">24,8 млн</span><span class="status status--win">Победа</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i class="c2"><svg class="icon"><use href="#i-shield"/></svg></i><span>Поставка медоборудования</span></div><span>06.10</span><span class="tlist__sum">12,4 млн</span><span class="status status--review">На оценке</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i class="c3"><svg class="icon"><use href="#i-zap"/></svg></i><span>Модернизация подстанции</span></div><span>11.10</span><span class="tlist__sum">48,0 млн</span><span class="status status--draft">Черновик</span></div>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__head"><b>Ближайшие дедлайны</b><span>3</span></div>
+                    <div class="deadlines">
+                      <div class="deadline"><div class="deadline__date deadline__date--hot"><b>26</b><small>сен</small></div><div class="deadline__body"><b>Ремонт дорожного полотна</b><small>Осталось 2 дня</small></div></div>
+                      <div class="deadline"><div class="deadline__date"><b>30</b><small>сен</small></div><div class="deadline__body"><b>ИТ-инфраструктура вуза</b><small>Осталось 6 дней</small></div></div>
+                      <div class="deadline"><div class="deadline__date"><b>04</b><small>окт</small></div><div class="deadline__body"><b>Поставка спецтехники</b><small>Осталось 10 дней</small></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            <div class="laptop__base"><span class="laptop__notch"></span></div>
+          </div>
+
+          <!-- businessman -->
+          <div class="hero__person" data-reveal>
+            <img src="assets/img/hero-person.webp" alt="Специалист по тендерам с ноутбуком" width="1024" height="1296">
+          </div>
+
+          <!-- floating badges -->
+          <span class="badge badge--blue bw-file" style="--fdl:0s"><svg class="icon"><use href="#i-file"/></svg></span>
+          <span class="badge badge--violet bw-contract" style="--fdl:-1.2s"><svg class="icon"><use href="#i-contract"/></svg></span>
+          <span class="badge badge--sm badge--magenta bw-chart" style="--fdl:-2.1s"><svg class="icon"><use href="#i-chart"/></svg></span>
+          <span class="badge badge--gold bw-money" style="--fdl:-0.6s"><svg class="icon"><use href="#i-money"/></svg></span>
+          <span class="badge badge--sm badge--blue bw-calendar" style="--fdl:-2.8s"><svg class="icon"><use href="#i-calendar"/></svg></span>
+          <span class="badge badge--navy bw-bank" style="--fdl:-1.7s"><svg class="icon"><use href="#i-bank"/></svg></span>
+          <span class="badge badge--green bw-check" style="--fdl:-3.3s"><svg class="icon"><use href="#i-badge"/></svg></span>
+
+          <!-- floating mini cards -->
+          <div class="float-card fc-win">
+            <span class="float-card__ico float-card__ico--green"><svg class="icon"><use href="#i-check"/></svg></span>
+            <span><small data-i="fc_win_l">Итоги тендера</small><strong data-i="fc_win_v">Победа · 12,4 млн ₽</strong></span>
+          </div>
+          <div class="float-card fc-deadline">
+            <span class="float-card__ico float-card__ico--gold"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span><small data-i="fc_dl_l">Дедлайн подачи</small><strong data-i="fc_dl_v">Через 2 дня</strong> <em data-i="fc_dl_e">· готово 92%</em></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ trust ============ -->
-<section class="trust">
+<!-- ============ platform / tabs ============ -->
+<section class="section" id="platform">
   <div class="container">
-    <div class="trust__grid" data-reveal>
-      <div class="trust__cell"><svg class="icon"><use href="#i-globe"/></svg><div><b data-i="tr1_b">15 стран</b><span data-i="tr1_s">Официальные порталы закупок Центральной Азии, СНГ и ЕС</span></div></div>
-      <div class="trust__cell"><svg class="icon"><use href="#i-refresh"/></svg><div><b data-i="tr2_b">Каждые 3 часа</b><span data-i="tr2_s">Автоматическое обновление каталога без дублей</span></div></div>
-      <div class="trust__cell"><svg class="icon"><use href="#i-link"/></svg><div><b data-i="tr3_b">Ссылка на оригинал</b><span data-i="tr3_s">У каждого объявления указан портал-источник</span></div></div>
-      <div class="trust__cell"><svg class="icon"><use href="#i-languages"/></svg><div><b data-i="tr4_b">Три языка</b><span data-i="tr4_s">Русский, английский и таджикский интерфейс</span></div></div>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i="pl_eyebrow">Всё для работы с тендерами</span>
+      <h2 data-i="pl_h">Платформа работает на результат</h2>
+      <p data-i="pl_p">Поиск, аналитика, документы, команда, бюджет и отчёты — единая система, которая закрывает весь цикл участия в закупках.</p>
+    </div>
+
+    <div class="tabs" role="tablist" data-reveal>
+      <button class="tab is-active" role="tab" data-tab="search" aria-selected="true" data-i="tab_search">Поиск тендеров</button>
+      <button class="tab" role="tab" data-tab="analytics" aria-selected="false" data-i="tab_analytics">Аналитика</button>
+      <button class="tab" role="tab" data-tab="docs" aria-selected="false" data-i="tab_docs">Документы</button>
+      <button class="tab" role="tab" data-tab="team" aria-selected="false" data-i="tab_team">Команда</button>
+      <button class="tab" role="tab" data-tab="budget" aria-selected="false" data-i="tab_budget">Бюджет</button>
+      <button class="tab" role="tab" data-tab="reports" aria-selected="false" data-i="tab_reports">Отчёты</button>
+    </div>
+
+    <div class="showcase" data-reveal>
+      <div class="showcase__card">
+
+        <!-- panel: search -->
+        <div class="showcase__panel is-active" data-panel="search">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-search"/></svg> <span data-i="s_e">Поиск и подбор</span></span>
+            <h3 data-i="s_h">Находите подходящие тендеры за минуты</h3>
+            <p data-i="s_p">Система собирает закупки со всех площадок и показывает только те, что подходят вашей компании.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="s_l1">Поиск актуальных тендеров по всем площадкам</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="s_l2">Умные фильтры по отрасли, региону и сумме</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="s_l3">Мгновенные уведомления о новых закупках</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="s_cta">Попробовать поиск</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Результаты поиска <span>1 248 найдено</span></h5>
+              <div class="chip-row"><span class="chip chip--on">Строительство</span><span class="chip">Москва и МО</span><span class="chip">до 50 млн ₽</span></div>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-building"/></svg></i><div><b>Капремонт поликлиники №7</b><small>ЕИС · 18,2 млн ₽ · до 03.10</small></div><span class="status status--review">Новый</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-layers"/></svg></i><div><b>Благоустройство набережной</b><small>Сбер-АСТ · 42,6 млн ₽ · до 09.10</small></div><span class="status status--win">Подходит</span></div>
+              <div class="doc-row"><i class="c3"><svg class="icon"><use href="#i-zap"/></svg></i><div><b>Электромонтаж в ДОУ</b><small>РТС-тендер · 6,9 млн ₽ · до 12.10</small></div><span class="status status--draft">Оценка</span></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Новые сегодня <span>+37</span></h5>
+              <div class="bars" style="height:64px">
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:40%;--i:0"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:55%;--i:1"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:35%;--i:2"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:70%;--i:3"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:60%;--i:4"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:90%;--i:5"></div></div></div>
+              </div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Сохранённые подборки <span>4</span></h5>
+              <div class="doc-row"><i class="c4"><svg class="icon"><use href="#i-bookmark"/></svg></i><div><b>Дорожные работы · Юг</b><small>12 тендеров · обновлено 5 мин назад</small></div></div>
+              <div class="doc-row" style="margin-bottom:0"><i><svg class="icon"><use href="#i-bookmark"/></svg></i><div><b>Медоборудование · 223-ФЗ</b><small>8 тендеров · 2 новых</small></div><span class="status status--review">+2</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: analytics -->
+        <div class="showcase__panel" data-panel="analytics">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-line"/></svg> <span data-i="a_e">Аналитика закупок</span></span>
+            <h3 data-i="a_h">Аналитика, которая показывает, где вы выигрываете</h3>
+            <p data-i="a_p">Понимайте, какие категории, заказчики и суммы приносят победы, и отказывайтесь от невыгодных лотов.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="a_l1">Аналитика по закупкам и конкурентам</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="a_l2">Динамика побед и средний чек по месяцам</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="a_l3">Прогноз вероятности победы по каждому лоту</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="a_cta">Смотреть аналитику</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Динамика побед <span>12 месяцев</span></h5>
+              <svg class="line-chart" viewBox="0 0 300 120" preserveAspectRatio="none">
+                <g class="grid"><line x1="0" y1="20" x2="300" y2="20"/><line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="80" x2="300" y2="80"/><line x1="0" y1="110" x2="300" y2="110"/></g>
+                <path class="area" d="M0 90 C30 86 40 70 60 72 S100 80 120 62 S160 40 180 46 S220 30 240 24 S280 20 300 14 L300 120 L0 120 Z"/>
+                <path class="line" d="M0 90 C30 86 40 70 60 72 S100 80 120 62 S160 40 180 46 S220 30 240 24 S280 20 300 14"/>
+                <circle class="pt" cx="240" cy="24" r="4"/>
+                <g class="tip"><rect x="206" y="0" width="68" height="18" rx="6" fill="#0e1230"/><text x="240" y="12.5" text-anchor="middle" font-size="9" fill="#fff" font-family="Inter, sans-serif" font-weight="600">Побед: 46%</text></g>
+              </svg>
+            </div>
+            <div class="mini mini--b">
+              <h5>Доля побед</h5>
+              <div class="donut">
+                <svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="42" data-offset="0"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="31" data-offset="42"/></svg>
+                <div class="donut__center"><div><b>42%</b><small>побед</small></div></div>
+              </div>
+              <ul class="legend"><li><i style="--c:#a35bff"></i>Выиграно<b>54</b></li><li><i style="--c:#2f8bff"></i>На оценке<b>40</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Конкуренты <span>Топ-3</span></h5>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">СГ</i><div><b>СтройГрад</b><small>участий: 38 · побед 29%</small></div><div class="progress"><i style="--w:29%;--i:0"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#a35bff,#5b21b6)">ТМ</i><div><b>ТехМонтаж</b><small>участий: 26 · побед 23%</small></div><div class="progress"><i style="--w:23%;--i:1"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ЭР</i><div><b>ЭнергоРесурс</b><small>участий: 19 · побед 18%</small></div><div class="progress"><i style="--w:18%;--i:2"></i></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: docs -->
+        <div class="showcase__panel" data-panel="docs">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-folder"/></svg> <span data-i="d_e">Документы заявки</span></span>
+            <h3 data-i="d_h">Все документы заявки — в одном месте</h3>
+            <p data-i="d_p">Шаблоны, версии и согласования. Система сама проверяет комплектность перед подачей.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="d_l1">Шаблоны и версии документов для каждой площадки</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="d_l2">Совместная работа команды и юристов</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="d_l3">Проверка комплектности перед подачей</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="d_cta">Открыть документы</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Заявка № 2417 · Документы <span>9 файлов</span></h5>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-file"/></svg></i><div><b>Коммерческое предложение.pdf</b><small>Версия 3 · Обновил А. Козлов</small></div><span class="status status--win">Готово</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><div><b>Проект договора.docx</b><small>Версия 2 · На проверке юриста</small></div><span class="status status--review">Проверка</span></div>
+              <div class="doc-row"><i class="c3"><svg class="icon"><use href="#i-shield"/></svg></i><div><b>Банковская гарантия.pdf</b><small>Ожидает загрузки</small></div><span class="status status--draft">Ждём</span></div>
+              <div class="doc-row" style="margin-bottom:0"><i class="c4"><svg class="icon"><use href="#i-calc"/></svg></i><div><b>Смета и расчёт цены.xlsx</b><small>Версия 5 · Обновлено 2 ч назад</small></div><span class="status status--win">Готово</span></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Комплектность</h5>
+              <div class="donut"><svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="92" data-offset="0"/></svg><div class="donut__center"><div><b>92%</b><small>готово</small></div></div></div>
+              <ul class="legend"><li><i style="--c:#2f8bff"></i>Загружено<b>8 из 9</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Загрузка файлов</h5>
+              <div style="border:1.5px dashed #c9cfe3;border-radius:12px;padding:14px;text-align:center;color:var(--muted)"><svg class="icon" style="width:22px;height:22px;margin:0 auto 6px;color:var(--violet)"><use href="#i-upload"/></svg>Перетащите файлы сюда<br><small>PDF, DOCX, XLSX до 50 МБ</small></div>
+              <div class="budget-row" style="margin:10px 0 0"><div class="budget-row__top"><span>Лицензия_СРО.pdf</span><b>78%</b></div><div class="progress"><i style="--w:78%"></i></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: team -->
+        <div class="showcase__panel" data-panel="team">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-users"/></svg> <span data-i="t_e">Работа команды</span></span>
+            <h3 data-i="t_h">Команда работает синхронно</h3>
+            <p data-i="t_p">Роли, задачи и сроки по каждой заявке. Руководитель видит статус всех тендеров в одном экране.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="t_l1">Роли и задачи по каждой заявке</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="t_l2">Быстрый контроль команды и загрузки</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="t_l3">Комментарии, упоминания и история изменений</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="t_cta">Подключить команду</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Загрузка команды <span>Эта неделя</span></h5>
+              <div class="team-row"><i>АК</i><div><b>Анна Козлова</b><small>Тендерный специалист · 6 заявок</small></div><div class="progress"><i style="--w:86%;--i:0"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">МС</i><div><b>Максим Соколов</b><small>Юрист · 4 договора</small></div><div class="progress progress--blue"><i style="--w:62%;--i:1"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ДВ</i><div><b>Дарья Волкова</b><small>Сметчик · 3 расчёта</small></div><div class="progress progress--gold"><i style="--w:48%;--i:2"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#34d399,#059669)">ЕЛ</i><div><b>Егор Лебедев</b><small>Руководитель · контроль</small></div><div class="progress progress--green"><i style="--w:35%;--i:3"></i></div></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Задачи <span>12 открыто</span></h5>
+              <div class="chip-row" style="margin-bottom:8px"><span class="chip chip--on">Сегодня</span><span class="chip">Неделя</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-check"/></svg></i><div><b>Проверить смету</b><small>Д. Волкова · до 16:00</small></div></div>
+              <div class="doc-row" style="margin-bottom:0"><i><svg class="icon"><use href="#i-send"/></svg></i><div><b>Подать заявку №2417</b><small>А. Козлова · до 18:00</small></div></div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Лента изменений</h5>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#a35bff,#5b21b6)">МС</i><div><b>Максим согласовал проект договора</b><small>5 минут назад</small></div></div>
+              <div class="team-row"><i>АК</i><div><b>Анна загрузила версию 3 КП</b><small>22 минуты назад</small></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: budget -->
+        <div class="showcase__panel" data-panel="budget">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-wallet"/></svg> <span data-i="b_e">Бюджет и финансы</span></span>
+            <h3 data-i="b_h">Контролируйте бюджет и маржинальность</h3>
+            <p data-i="b_p">Обеспечение заявок, гарантии, оплаты по контрактам и маржа по каждому лоту — в одном финансовом контуре.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="b_l1">Бюджет заявок и обеспечение контрактов</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="b_l2">Расчёт маржи и рентабельности по каждому лоту</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="b_l3">Контроль оплат и дебиторской задолженности</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="b_cta">Настроить бюджет</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Бюджет квартала <span>84,6 из 120 млн ₽</span></h5>
+              <div class="budget-row"><div class="budget-row__top"><span>Обеспечение заявок</span><b>32,4 млн ₽</b></div><div class="progress"><i style="--w:72%;--i:0"></i></div></div>
+              <div class="budget-row"><div class="budget-row__top"><span>Банковские гарантии</span><b>18,9 млн ₽</b></div><div class="progress progress--blue"><i style="--w:54%;--i:1"></i></div></div>
+              <div class="budget-row"><div class="budget-row__top"><span>Исполнение контрактов</span><b>26,1 млн ₽</b></div><div class="progress progress--gold"><i style="--w:63%;--i:2"></i></div></div>
+              <div class="budget-row" style="margin-bottom:0"><div class="budget-row__top"><span>Резерв</span><b>7,2 млн ₽</b></div><div class="progress progress--green"><i style="--w:28%;--i:3"></i></div></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Маржа</h5>
+              <div class="donut"><svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutC)" data-seg="24" data-offset="0"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="52" data-offset="24"/></svg><div class="donut__center"><div><b>24%</b><small>средняя</small></div></div></div>
+              <ul class="legend"><li><i style="--c:#ffd257"></i>Прибыль<b>18,4 млн</b></li><li><i style="--c:#a35bff"></i>Себестоимость<b>58 млн</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Ближайшие платежи <span>3</span></h5>
+              <div class="deadlines">
+                <div class="deadline"><div class="deadline__date"><b>28</b><small>сен</small></div><div class="deadline__body"><b>Аванс по контракту №118</b><small>Ожидается поступление</small></div><span class="deadline__tag">+9,6 млн</span></div>
+                <div class="deadline"><div class="deadline__date deadline__date--hot"><b>01</b><small>окт</small></div><div class="deadline__body"><b>Обеспечение заявки №2417</b><small>Списание</small></div><span class="deadline__tag" style="color:#c22c22">−1,2 млн</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: reports -->
+        <div class="showcase__panel" data-panel="reports">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-report"/></svg> <span data-i="r_e">Отчётность</span></span>
+            <h3 data-i="r_h">Отчёты для руководителя за один клик</h3>
+            <p data-i="r_p">Готовые отчёты по тендерам, заявкам, команде и финансам. Настройте расписание — и отчёт придёт сам.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="r_l1">Готовые отчёты по тендерам и заявкам</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="r_l2">Экспорт в Excel, PDF и Google Sheets</span></li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="r_l3">Автоматическая отправка по расписанию</span></li>
+            </ul>
+            <a href="#cta" class="btn btn--primary"><span data-i="r_cta">Сформировать отчёт</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Готовые отчёты <span>Сентябрь</span></h5>
+              <div class="report-grid">
+                <div class="report"><i><svg class="icon"><use href="#i-chart"/></svg></i><b>Воронка тендеров</b><small>Найдено → подано → выиграно</small></div>
+                <div class="report"><i class="c2"><svg class="icon"><use href="#i-users"/></svg></i><b>Загрузка команды</b><small>Задачи и сроки по людям</small></div>
+                <div class="report"><i class="c3"><svg class="icon"><use href="#i-wallet"/></svg></i><b>Финансовый итог</b><small>Маржа, оплаты, гарантии</small></div>
+                <div class="report"><i class="c4"><svg class="icon"><use href="#i-target"/></svg></i><b>Конкурентный анализ</b><small>Доли и ценовые стратегии</small></div>
+              </div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Отчёты за квартал <span>48</span></h5>
+              <div class="bars" style="height:64px">
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:45%;--i:0"></div></div><span class="bars__label">Июл</span></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:70%;--i:1"></div></div><span class="bars__label">Авг</span></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:95%;--i:2"></div></div><span class="bars__label">Сен</span></div>
+              </div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Расписание отправки</h5>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-mail"/></svg></i><div><b>Еженедельный отчёт директору</b><small>Понедельник, 09:00 · PDF</small></div><span class="status status--win">Вкл</span></div>
+              <div class="doc-row" style="margin-bottom:0"><i class="c2"><svg class="icon"><use href="#i-download"/></svg></i><div><b>Выгрузка в 1С</b><small>Ежедневно, 23:00 · XLSX</small></div><span class="status status--win">Вкл</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ why choose ============ -->
+<section class="why" id="why">
+  <div class="why__wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow eyebrow--light" data-i="why_e">Ваш партнёр в закупках</span>
+      <h2 data-i="why_h">Почему выбирают tenders.best</h2>
+      <p data-i="why_p">Одна система вместо таблиц, почты и мессенджеров. Прозрачный процесс от поиска тендера до подписания контракта.</p>
+    </div>
+    <div class="why__grid">
+      <div class="why__col">
+        <div class="why__item" data-reveal="left" style="--i:0">
+          <span class="why__num">1</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-search"/></svg></div>
+          <h3 data-i="w1_h">Удобный поиск тендеров</h3>
+          <p data-i="w1_p">Агрегация всех площадок, умные фильтры и подборки под профиль вашей компании.</p>
+        </div>
+        <div class="why__item" data-reveal="left" style="--i:1">
+          <span class="why__num">2</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-clock"/></svg></div>
+          <h3 data-i="w2_h">Контроль сроков и заявок</h3>
+          <p data-i="w2_p">Календарь дедлайнов, напоминания и статусы — ни одна заявка не будет просрочена.</p>
+        </div>
+      </div>
+      <div class="why__center" data-reveal="scale">
+        <div class="why__halo" aria-hidden="true"></div>
+        <div class="why__dash">
+          <div class="dash" data-anim>
+            <div class="dash__main">
+              <div class="dash__top"><h4>Обзор тендеров<small>Неделя 39</small></h4><div class="dash__user"><i>ЕЛ</i></div></div>
+              <div class="kpis" style="grid-template-columns:1fr 1fr">
+                <div class="kpi kpi--accent"><div class="kpi__label">Вероятность</div><div class="kpi__value"><span data-count="78">0</span><small>%</small></div><span class="kpi__delta">+6% за неделю</span></div>
+                <div class="kpi"><div class="kpi__label">Заявок в работе</div><div class="kpi__value"><span data-count="17">0</span></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+3</span></div>
+              </div>
+              <div class="panel">
+                <div class="panel__head"><b>Победы по категориям</b><span>2026</span></div>
+                <div class="bars" style="height:72px">
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:55%;--i:0"></div></div><span class="bars__label">Строит.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:80%;--i:1"></div></div><span class="bars__label">Мед.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:62%;--i:2"></div></div><span class="bars__label">IT</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:40%;--i:3"></div></div><span class="bars__label">Логист.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:70%;--i:4"></div></div><span class="bars__label">Энерго</span></div>
+                </div>
+              </div>
+              <div class="deadlines">
+                <div class="deadline"><div class="deadline__date deadline__date--hot"><b>26</b><small>сен</small></div><div class="deadline__body"><b>Подача заявки №2417</b><small>Ремонт дорожного полотна</small></div><span class="status status--review">92%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why__col why__col--r">
+        <div class="why__item" data-reveal="right" style="--i:0">
+          <span class="why__num">3</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-coins"/></svg></div>
+          <h3 data-i="w3_h">Финансовая аналитика</h3>
+          <p data-i="w3_p">Бюджет, обеспечение, маржа и оплаты по контрактам — понятные цифры для решений.</p>
+        </div>
+        <div class="why__item" data-reveal="right" style="--i:1">
+          <span class="why__num">4</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-shield"/></svg></div>
+          <h3 data-i="w4_h">Надёжность и прозрачность</h3>
+          <p data-i="w4_p">История всех действий, роли доступа и защищённое хранение документов заявок.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -212,361 +603,332 @@
 <!-- ============ features ============ -->
 <section class="section" id="features">
   <div class="container">
-    <div class="features__head">
-      <div class="section-head" data-reveal>
-        <span class="eyebrow" data-i="feat_eyebrow">Возможности</span>
-        <h2 data-i="feat_h2">Рабочее пространство тендерного отдела</h2>
-        <p data-i="feat_p">Поиск закупок, подготовка и согласование заявок, контроль сроков, бюджет и отчётность. Ниже показан интерфейс каждого раздела.</p>
-      </div>
-      <div class="tabs" role="tablist" data-reveal>
-        <button class="tab is-active" role="tab" data-tab="search" aria-selected="true" data-i="tab_search">Поиск</button>
-        <button class="tab" role="tab" data-tab="analytics" aria-selected="false" data-i="tab_analytics">Аналитика</button>
-        <button class="tab" role="tab" data-tab="docs" aria-selected="false" data-i="tab_docs">Документы</button>
-        <button class="tab" role="tab" data-tab="team" aria-selected="false" data-i="tab_team">Команда</button>
-        <button class="tab" role="tab" data-tab="budget" aria-selected="false" data-i="tab_budget">Бюджет</button>
-        <button class="tab" role="tab" data-tab="reports" aria-selected="false" data-i="tab_reports">Отчёты</button>
-      </div>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i="ft_e">Три ключевых инструмента</span>
+      <h2 data-i="ft_h">Упростите работу с тендерами и закупками</h2>
+      <p data-i="ft_p">Аналитика, документы и автоматизация — каждый модуль решает конкретную задачу тендерного отдела.</p>
     </div>
+    <div class="features__grid">
 
-    <div class="tab-panels" data-reveal>
-      <div class="tab-panel is-active panel-grid panel-grid--full" data-panel="search">
-        <div class="feature-copy">
-          <div><h3 data-i="s_h">Каталог закупок с фильтрами по стране, отрасли и сумме</h3><p data-i="s_p">Объявления собираются с официальных порталов 15 стран и переводятся на русский и английский. Дубликаты одного тендера с разных площадок отсекаются.</p></div>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="s_1">Поиск по названию, заказчику и региону</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="s_2">Фильтры: страна, отрасль, бюджет в USD, срок подачи</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="s_3">Сохранённые подборки и уведомления о новых закупках</span></li></ul>
+      <article class="feature" data-reveal style="--i:0">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-line"/></svg> <span data-i="f1_e">Аналитика тендеров</span></span>
+          <h3 data-i="f1_h">Метрики, тренды и результаты в одном отчёте</h3>
+          <p data-i="f1_p">Отслеживайте динамику побед, средний чек и активность конкурентов. Гибкие фильтры по отраслям, регионам и заказчикам.</p>
+          <a href="#cta" class="btn btn--outline-brand btn--sm"><span data-i="f1_cta">Смотреть метрики</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
         </div>
-        <div class="frame" data-anim>
-          <div class="app" style="grid-template-columns:200px 1fr;min-height:0">
-            <div class="cat-filters">
-              <div><b>Страна</b><div class="chips"><span class="on">KZ</span><span class="on">UZ</span><span>KG</span><span>TJ</span><span>RU</span><span>PL</span></div></div>
-              <div><b>Отрасль</b><div class="check-row"><i class="on"></i>Строительство<small>412</small></div><div class="check-row"><i class="on"></i>Медицина<small>138</small></div><div class="check-row"><i></i>ИТ и связь<small>96</small></div><div class="check-row"><i></i>Энергетика<small>71</small></div></div>
-              <div><b>Срок подачи</b><div class="check-row"><i class="on"></i>В ближайшие 30 дней</div><div class="check-row"><i></i>Закрывается за 7 дней</div></div>
+        <div class="feature__visual feature__visual--pad" data-anim>
+          <div class="feature__bg"></div>
+          <div class="feature__ui">
+            <h5>Результаты за год <span>2026</span></h5>
+            <div class="feature__ui-kpis">
+              <div><small>Подано заявок</small><b>246</b><em>+21%</em></div>
+              <div><small>Побед</small><b>42%</b><em>+4,1%</em></div>
+              <div><small>Средний чек</small><b>8,4 млн</b><em>+12%</em></div>
             </div>
-            <div class="app__main">
-              <div class="app__top"><h4>Каталог<small>Найдено 550 открытых</small></h4><div class="app__search"><svg class="icon"><use href="#i-search"/></svg>ремонт поликлиники</div><span class="app__btn">Сначала новые</span></div>
-              <table class="table">
-                <thead><tr><th>Закупка</th><th>Заказчик</th><th>Дедлайн</th><th>Сумма</th><th class="keep"></th></tr></thead>
-                <tbody>
-                  <tr><td class="t wrap"><span class="cc"><b>KZ</b></span> Капитальный ремонт поликлиники №7<br><span class="m">Строительство · опубликован 22.09</span></td><td class="wrap">Управление здравоохранения<br><span class="m">Караганда</span></td><td class="num" style="color:var(--danger)">6 дней</td><td class="r num">$38 400<br><span class="m">18,4 млн KZT</span></td><td class="keep"><span class="badge badge--brand">Новый</span></td></tr>
-                  <tr><td class="t wrap"><span class="cc"><b>UZ</b></span> Расходные материалы для отделения реанимации<br><span class="m">Медицина · опубликован 22.09</span></td><td class="wrap">Республиканский центр<br><span class="m">Ташкент</span></td><td class="num">14 дней</td><td class="r num">$96 000<br><span class="m">1,2 млрд UZS</span></td><td class="keep"><span class="badge badge--success">Подходит</span></td></tr>
-                  <tr><td class="t wrap"><span class="cc"><b>KZ</b></span> Благоустройство дворовых территорий, 12 объектов<br><span class="m">Строительство · опубликован 21.09</span></td><td class="wrap">Акимат района<br><span class="m">Астана</span></td><td class="num" style="color:var(--danger)">3 дня</td><td class="r num">$212 000<br><span class="m">101,8 млн KZT</span></td><td class="keep"><span class="badge">Сохранено</span></td></tr>
-                </tbody>
-              </table>
-            </div>
+            <svg class="line-chart" viewBox="0 0 400 130" preserveAspectRatio="none">
+              <g class="grid"><line x1="0" y1="25" x2="400" y2="25"/><line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="95" x2="400" y2="95"/></g>
+              <path class="area" d="M0 100 C40 96 60 84 90 86 S140 70 170 62 S220 56 250 44 S300 40 330 30 S380 22 400 12 L400 130 L0 130 Z"/>
+              <path class="line" d="M0 100 C40 96 60 84 90 86 S140 70 170 62 S220 56 250 44 S300 40 330 30 S380 22 400 12"/>
+              <circle class="pt" cx="330" cy="30" r="4.5"/>
+              <g class="tip"><rect x="292" y="4" width="76" height="18" rx="6" fill="#0e1230"/><text x="330" y="16.5" text-anchor="middle" font-size="9.5" fill="#fff" font-family="Inter, sans-serif" font-weight="600">Сен · 18 побед</text></g>
+            </svg>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tab-panel panel-grid" data-panel="analytics">
-        <div class="feature-copy">
-          <h3 data-i="a_h">Динамика заявок, отрасли и заказчики</h3>
-          <p data-i="a_p">Сколько заявок подано и с каким итогом, в каких отраслях команда участвует чаще, какие заказчики повторяются. Данные из ваших заявок, без внешних оценок.</p>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="a_1">Подано и выиграно по месяцам</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="a_2">Распределение по отраслям и странам</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="a_3">Средняя НМЦ и отклонение цены предложения</span></li></ul>
+      <article class="feature" data-reveal style="--i:1">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-folder"/></svg> <span data-i="f2_e">Управление документами</span></span>
+          <h3 data-i="f2_h">Документы заявки под контролем</h3>
+          <p data-i="f2_p">Быстрый доступ, загрузка, версии и совместная работа. Проверка комплектности перед подачей на площадку.</p>
+          <a href="#cta" class="btn btn--outline-brand btn--sm"><span data-i="f2_cta">Открыть документы</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
         </div>
-        <div class="frame" data-anim>
-          <div class="frame__body">
-            <div class="an-kpis"><div><small>Подано заявок</small><b>64</b></div><div><small>Итог известен</small><b>51</b></div><div><small>Средняя НМЦ</small><b>8,4 млн</b></div></div>
-            <div class="an-grid">
-              <div class="app__panel"><h5 style="margin-bottom:8px">Заявки по месяцам <span>Подано · Выиграно</span></h5>
-                <svg class="line-chart" viewBox="0 0 320 130" preserveAspectRatio="none">
-                  <g class="grid"><line x1="0" y1="20" x2="320" y2="20"/><line x1="0" y1="55" x2="320" y2="55"/><line x1="0" y1="90" x2="320" y2="90"/><line x1="0" y1="125" x2="320" y2="125"/></g>
-                  <path class="area" d="M0 100 C30 96 40 84 64 86 S110 90 128 74 S170 60 192 64 S235 50 256 46 S300 40 320 34 L320 130 L0 130 Z"/>
-                  <path class="line" d="M0 100 C30 96 40 84 64 86 S110 90 128 74 S170 60 192 64 S235 50 256 46 S300 40 320 34"/>
-                  <path class="line line2" d="M0 116 C30 114 40 108 64 110 S110 112 128 102 S170 96 192 98 S235 90 256 86 S300 82 320 78"/>
-                  <circle class="pt" cx="256" cy="46" r="3.5"/>
-                  <g class="tip"><rect x="222" y="18" width="68" height="20" rx="5" fill="#0b1220"/><text x="256" y="31.5" text-anchor="middle" font-size="10" fill="#fff" font-family="Inter, sans-serif" font-weight="600">Авг · 9 из 12</text></g>
-                </svg>
-              </div>
-              <div class="app__panel"><h5 style="margin-bottom:10px">Отрасли <span>доля заявок</span></h5>
-                <div style="display:flex;gap:14px;align-items:center"><div class="donut"><svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="#2b5cf6" data-seg="42" data-offset="0"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="#6d4cf0" data-seg="31" data-offset="42"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="#c9d3e6" data-seg="27" data-offset="73"/></svg><div class="donut__center"><div><b>64</b><small>заявки</small></div></div></div>
-                <ul class="legend" style="flex:1"><li><i style="--c:#2b5cf6"></i>Строительство<b>27</b></li><li><i style="--c:#6d4cf0"></i>Медицина<b>20</b></li><li><i style="--c:#c9d3e6"></i>Прочее<b>17</b></li></ul></div>
-              </div>
+        <div class="feature__visual feature__visual--pad">
+          <div class="feature__bg feature__bg--blue"></div>
+          <div class="docflow">
+            <div class="doc-card doc-card--1">
+              <div class="doc-card__head"><i><svg class="icon"><use href="#i-file"/></svg></i><div><b>Техническое предложение</b><small>Версия 4 · 2,3 МБ</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i><i></i><i></i></div><span class="status status--win">Согласовано</span></div>
             </div>
+            <div class="doc-card doc-card--2">
+              <div class="doc-card__head"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><div><b>Проект договора</b><small>Версия 2 · юрист</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i><i></i></div><span class="status status--review">На проверке</span></div>
+            </div>
+            <div class="doc-card doc-card--3">
+              <div class="doc-card__head"><i class="c3"><svg class="icon"><use href="#i-calc"/></svg></i><div><b>Расчёт цены контракта</b><small>Версия 5 · 480 КБ</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i></div><span class="status status--draft">Черновик</span></div>
+            </div>
+            <div class="docflow__pill"><i><svg class="icon"><use href="#i-check"/></svg></i>Проверено юристом</div>
+            <div class="docflow__pill docflow__pill--2"><i><svg class="icon"><use href="#i-history"/></svg></i>Версия 5 сохранена</div>
           </div>
         </div>
-      </div>
+      </article>
 
-      <div class="tab-panel panel-grid panel-grid--full" data-panel="docs">
-        <div class="feature-copy">
-          <div><h3 data-i="d_h">Документы заявки: версии, статусы и согласование</h3><p data-i="d_p">Каждый файл привязан к заявке и площадке. Видно, кто загрузил версию, кто проверяет и чего не хватает до подачи.</p></div>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="d_1">Версии с историей изменений</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="d_2">Проверка комплектности перед подачей</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="d_3">Шаблоны под требования площадки</span></li></ul>
+      <article class="feature feature--wide" data-reveal style="--i:2">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-workflow"/></svg> <span data-i="f3_e">Автоматизация рабочих процессов</span></span>
+          <h3 data-i="f3_h">Заявка сама проходит нужный маршрут</h3>
+          <p data-i="f3_p">Напоминания, согласования, статусы и маршрутизация задач — настройте процесс один раз, и система будет вести каждую заявку по регламенту.</p>
+          <ul class="checks">
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="f3_l1">Напоминания о дедлайнах и обеспечении</span></li>
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="f3_l2">Многоуровневые согласования и подписи</span></li>
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i><span data-i="f3_l3">Автоматическая смена статусов и уведомления</span></li>
+          </ul>
+          <a href="#cta" class="btn btn--outline-brand btn--sm"><span data-i="f3_cta">Настроить процессы</span> <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
         </div>
-        <div class="frame" data-anim>
-          <div class="app__panel-head" style="padding:12px 16px"><div>Заявка №2417 · Документы <span>· 9 файлов</span></div><div class="app__tabs"><span class="on">Все</span><span>На проверке · 2</span><span>Готово · 6</span></div></div>
-          <table class="table">
-            <thead><tr><th>Документ</th><th>Версия</th><th>Обновил</th><th>Проверяет</th><th>Обновлено</th><th class="keep">Статус</th></tr></thead>
-            <tbody>
-              <tr><td class="t"><span class="cc"><svg class="icon icon--sm" style="color:var(--muted)"><use href="#i-file"/></svg>Коммерческое предложение.pdf</span></td><td class="num">v3</td><td><span class="ava">АК</span> А. Козлова</td><td class="m">—</td><td class="m num">сегодня, 13:42</td><td class="keep"><span class="status status--win">Готово</span></td></tr>
-              <tr><td class="t"><span class="cc"><svg class="icon icon--sm" style="color:var(--muted)"><use href="#i-contract"/></svg>Проект договора.docx</span></td><td class="num">v2</td><td><span class="ava v">МС</span> М. Соколов</td><td><span class="ava v">МС</span> Юрист</td><td class="m num">сегодня, 14:10</td><td class="keep"><span class="status status--review">На проверке</span></td></tr>
-              <tr><td class="t"><span class="cc"><svg class="icon icon--sm" style="color:var(--muted)"><use href="#i-calc"/></svg>Расчёт цены контракта.xlsx</span></td><td class="num">v5</td><td><span class="ava w">ДВ</span> Д. Волкова</td><td class="m">—</td><td class="m num">сегодня, 11:05</td><td class="keep"><span class="status status--win">Готово</span></td></tr>
-              <tr><td class="t"><span class="cc"><svg class="icon icon--sm" style="color:var(--muted)"><use href="#i-shield"/></svg>Банковская гарантия.pdf</span></td><td class="m">—</td><td class="m">—</td><td class="m">—</td><td class="m">—</td><td class="keep"><span class="status status--draft">Ожидает загрузки</span></td></tr>
-              <tr><td class="t"><span class="cc"><svg class="icon icon--sm" style="color:var(--muted)"><use href="#i-file"/></svg>Лицензия СРО.pdf</span></td><td class="num">v1</td><td><span class="ava">АК</span> А. Козлова</td><td class="m">—</td><td class="m num">22 сен</td><td class="keep"><span class="status status--win">Готово</span></td></tr>
-            </tbody>
-          </table>
-          <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;border-top:1px solid var(--line);background:#fbfbfd;font-size:12.5px;color:var(--muted)"><span>Комплектность <b style="color:var(--ink)">8 из 9</b></span><div class="progress" style="flex:1;max-width:220px"><i style="--w:89%"></i></div><span>Проверка перед подачей: 1 документ не загружен</span></div>
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit__ring"></div>
+          <div class="orbit__ring orbit__ring--2"></div>
+          <div class="orbit__ring orbit__ring--3"></div>
+          <svg class="orbit__line" viewBox="0 0 440 440"><path d="M220 100 C300 100 340 140 340 220 S300 340 220 340 S100 300 100 220 S140 100 220 100"/></svg>
+          <div class="orbit__center"><img src="assets/img/logo-mark.png" alt=""></div>
+          <div class="orbit__node" style="left:42.7%;top:-1%;--fd:6s"><svg class="icon"><use href="#i-search"/></svg></div>
+          <div class="orbit__node orbit__node--violet" style="left:80%;top:16%;--fd:7s;--fdl:-1s"><svg class="icon"><use href="#i-bell"/></svg></div>
+          <div class="orbit__node orbit__node--green" style="left:86%;top:57%;--fd:6.5s;--fdl:-2s"><svg class="icon"><use href="#i-badge"/></svg></div>
+          <div class="orbit__node orbit__node--gold" style="left:52%;top:85.5%;--fd:7.5s;--fdl:-3s"><svg class="icon"><use href="#i-contract"/></svg></div>
+          <div class="orbit__node orbit__node--magenta" style="left:9%;top:68%;--fd:6.2s;--fdl:-1.6s"><svg class="icon"><use href="#i-mail"/></svg></div>
+          <div class="orbit__node orbit__node--navy" style="left:3.6%;top:27%;--fd:6.8s;--fdl:-2.6s"><svg class="icon"><use href="#i-clock"/></svg></div>
+          <div class="orbit__node" style="left:27%;top:21%;width:52px;height:52px;--fd:5.8s;--fdl:-0.4s"><svg class="icon" style="width:22px;height:22px"><use href="#i-users"/></svg></div>
+          <div class="orbit__node orbit__node--gold" style="left:61%;top:65.5%;width:52px;height:52px;--fd:6.4s;--fdl:-3.4s"><svg class="icon" style="width:22px;height:22px"><use href="#i-stamp"/></svg></div>
+          <div class="orbit__label" style="left:59.5%;top:3.6%" data-i="orb1">Новый тендер</div>
+          <div class="orbit__label" style="left:72%;top:33%" data-i="orb2">Согласование</div>
+          <div class="orbit__label" style="left:-3%;top:53.6%" data-i="orb3">Напоминание</div>
+          <div class="orbit__label" style="left:68%;top:89%" data-i="orb4">Подписание</div>
         </div>
-      </div>
+      </article>
 
-      <div class="tab-panel panel-grid panel-grid--rev" data-panel="team">
-        <div class="feature-copy">
-          <h3 data-i="t_h">Роли, задачи и история действий по каждой заявке</h3>
-          <p data-i="t_p">Тендерный специалист, юрист, сметчик и руководитель работают в одной заявке. Каждое изменение записано: кто, что и когда.</p>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="t_1">Задачи со сроками и ответственными</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="t_2">Комментарии и упоминания коллег</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="t_3">Лента изменений и версий документов</span></li></ul>
-        </div>
-        <div class="frame" data-anim>
-          <div class="two">
-            <div><h5>Участники <span>4</span></h5>
-              <div class="member"><span class="ava">АК</span><div><b>Анна Козлова</b><small>Ведёт заявку · 3 задачи</small></div><div class="progress"><i style="--w:70%;--i:0"></i></div></div>
-              <div class="member"><span class="ava v">МС</span><div><b>Максим Соколов</b><small>Юрист · проверка договора</small></div><div class="progress progress--violet"><i style="--w:50%;--i:1"></i></div></div>
-              <div class="member"><span class="ava w">ДВ</span><div><b>Дарья Волкова</b><small>Сметчик · расчёт цены</small></div><div class="progress progress--warning"><i style="--w:100%;--i:2"></i></div></div>
-              <div class="member"><span class="ava g">ЕЛ</span><div><b>Егор Лебедев</b><small>Руководитель · утверждение</small></div><div class="progress progress--success"><i style="--w:0%;--i:3"></i></div></div>
-            </div>
-            <div><h5>История <span>сегодня</span></h5>
-              <ul class="timeline">
-                <li class="v">Максим оставил замечание к п. 4.2 договора<small>14:10</small></li>
-                <li>Анна загрузила КП, версия 3<small>13:42</small></li>
-                <li class="g">Дарья завершила расчёт цены контракта<small>11:05</small></li>
-                <li>Создана задача «Запросить банковскую гарантию»<small>10:20</small></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-panel panel-grid" data-panel="budget">
-        <div class="feature-copy">
-          <h3 data-i="b_h">Обеспечение, гарантии и оплаты по контрактам</h3>
-          <p data-i="b_p">Сколько средств заморожено в обеспечении заявок, какие гарантии действуют, когда ожидаются оплаты по подписанным контрактам.</p>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="b_1">Обеспечение заявок и исполнения контрактов</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="b_2">Календарь оплат и возвратов обеспечения</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="b_3">Маржа по каждому лоту из сметы</span></li></ul>
-        </div>
-        <div class="frame" data-anim>
-          <div class="two">
-            <div><h5>Средства в закупках <span>на 24.09</span></h5>
-              <div class="bud-row"><div class="bud-row__top"><span>Обеспечение заявок</span><b>3,4 млн</b></div><div class="progress"><i style="--w:72%;--i:0"></i></div></div>
-              <div class="bud-row"><div class="bud-row__top"><span>Банковские гарантии</span><b>18,9 млн</b></div><div class="progress progress--violet"><i style="--w:54%;--i:1"></i></div></div>
-              <div class="bud-row"><div class="bud-row__top"><span>Обеспечение исполнения</span><b>26,1 млн</b></div><div class="progress progress--warning"><i style="--w:63%;--i:2"></i></div></div>
-              <div class="bud-row" style="margin:0"><div class="bud-row__top"><span>Ожидаемые оплаты</span><b>41,0 млн</b></div><div class="progress progress--success"><i style="--w:40%;--i:3"></i></div></div>
-            </div>
-            <div><h5>Ближайшие движения <span>3</span></h5>
-              <div class="dl-list">
-                <div class="dl"><div class="dl__date"><b>28</b><small>сен</small></div><div class="dl__body"><b>Аванс по контракту №118</b><small>Поступление</small></div><span class="dl__amt pos">+9,6 млн</span></div>
-                <div class="dl"><div class="dl__date dl__date--hot"><b>01</b><small>окт</small></div><div class="dl__body"><b>Обеспечение заявки №2417</b><small>Списание</small></div><span class="dl__amt neg">−1,2 млн</span></div>
-                <div class="dl"><div class="dl__date"><b>09</b><small>окт</small></div><div class="dl__body"><b>Возврат обеспечения №2388</b><small>Поступление</small></div><span class="dl__amt pos">+0,8 млн</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-panel panel-grid panel-grid--rev" data-panel="reports">
-        <div class="feature-copy">
-          <h3 data-i="r_h">Отчёты для руководителя с выгрузкой и расписанием</h3>
-          <p data-i="r_p">Готовые отчёты по заявкам, команде и финансам. Выгрузка в Excel и PDF, отправка по расписанию на почту.</p>
-          <ul><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="r_1">Воронка заявок, загрузка команды, финансы</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="r_2">Выгрузка в XLSX, PDF и CSV</span></li><li><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="r_3">Отправка по расписанию нескольким получателям</span></li></ul>
-        </div>
-        <div class="frame" data-anim>
-          <div class="two">
-            <div><h5>Доступные отчёты <span>сентябрь</span></h5>
-              <div class="rep-row"><div><b>Воронка заявок</b><small>Найдено → подано → итог, по месяцам</small></div><div class="fmt"><span>XLSX</span><span>PDF</span></div><span class="app__btn"><svg class="icon"><use href="#i-download"/></svg>Выгрузить</span></div>
-              <div class="rep-row"><div><b>Загрузка команды</b><small>Задачи и сроки по сотрудникам</small></div><div class="fmt"><span>XLSX</span></div><span class="app__btn"><svg class="icon"><use href="#i-download"/></svg>Выгрузить</span></div>
-              <div class="rep-row"><div><b>Финансы по контрактам</b><small>Обеспечение, гарантии, оплаты</small></div><div class="fmt"><span>XLSX</span><span>PDF</span></div><span class="app__btn"><svg class="icon"><use href="#i-download"/></svg>Выгрузить</span></div>
-              <div class="rep-row"><div><b>Реестр заявок</b><small>Все заявки за период с итогами</small></div><div class="fmt"><span>CSV</span></div><span class="app__btn"><svg class="icon"><use href="#i-download"/></svg>Выгрузить</span></div>
-            </div>
-            <div><h5>Отправка по расписанию</h5>
-              <div class="sched">
-                <div><div class="grow"><b>Еженедельный отчёт руководителю</b><small>Понедельник, 09:00 · PDF · 2 получателя</small></div><span class="toggle"></span></div>
-                <div><div class="grow"><b>Реестр заявок в бухгалтерию</b><small>1-е число месяца · XLSX</small></div><span class="toggle"></span></div>
-                <div><div class="grow"><b>Сводка по дедлайнам</b><small>Ежедневно, 08:30 · письмо</small></div><span class="toggle off"></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ============ how ============ -->
-<section class="section section--alt" id="how">
+<!-- ============ how it works ============ -->
+<section class="section" id="how">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow" data-i="how_eyebrow">Процесс</span>
-      <h2 data-i="how_h2">Как проходит работа с тендером</h2>
-      <p data-i="how_p">Один и тот же путь для каждой закупки: от находки в каталоге до подписанного контракта и возврата обеспечения.</p>
+      <span class="eyebrow" data-i="how_e">Как это работает</span>
+      <h2 data-i="how_h">Три шага до победы</h2>
+      <p data-i="how_p">Простой процесс, в котором каждая заявка проходит одинаково прозрачный путь — от поиска до контракта.</p>
     </div>
-    <div class="steps">
-      <div class="step" data-reveal style="--i:0"><div class="step__top"><span class="step__num">Шаг 1</span><svg class="icon"><use href="#i-search"/></svg></div><h3 data-i="st1_h">Найдите подходящую закупку</h3><p data-i="st1_p">Настройте фильтры под профиль компании и получайте уведомления о новых объявлениях.</p><ul><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st1_1">Каталог по 15 странам</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st1_2">Сохранённые подборки</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st1_3">Оценка сроков и обеспечения</span></li></ul></div>
-      <div class="step" data-reveal style="--i:1"><div class="step__top"><span class="step__num">Шаг 2</span><svg class="icon"><use href="#i-files"/></svg></div><h3 data-i="st2_h">Подготовьте и согласуйте заявку</h3><p data-i="st2_p">Соберите документы по шаблону площадки, передайте юристу и сметчику, проверьте комплектность.</p><ul><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st2_1">Версии документов</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st2_2">Согласование по ролям</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st2_3">Контроль обеспечения заявки</span></li></ul></div>
-      <div class="step" data-reveal style="--i:2"><div class="step__top"><span class="step__num">Шаг 3</span><svg class="icon"><use href="#i-check-circle"/></svg></div><h3 data-i="st3_h">Контролируйте подачу и дальнейшую работу</h3><p data-i="st3_p">Следите за статусом на площадке, итогами, подписанием контракта и оплатами.</p><ul><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st3_1">Статусы и дедлайны</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st3_2">Контракты и оплаты</span></li><li><svg class="icon"><use href="#i-check"/></svg><span data-i="st3_3">Отчёты за период</span></li></ul></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ benefits ============ -->
-<section class="section" id="why">
-  <div class="container">
-    <div class="section-head" data-reveal>
-      <span class="eyebrow" data-i="why_eyebrow">Что даёт tenders.best</span>
-      <h2 data-i="why_h2">Одна рабочая среда вместо таблиц, почты и мессенджеров</h2>
-    </div>
-    <div class="bento">
-      <div class="bento__item bento__item--wide" data-reveal style="--i:0">
-        <div class="bento__icon"><svg class="icon"><use href="#i-globe"/></svg></div>
-        <h3 data-i="wb1_h">Все источники в одном каталоге</h3>
-        <p data-i="wb1_p">Официальные порталы 15 стран, обновление каждые 3 часа, один тендер не показывается дважды.</p>
-        <div class="bento__vis src-row"><span>zakupki.gov.ru</span><span>goszakup.gov.kz</span><span>xarid.uzex.uz</span><span>zakupki.gov.kg</span><span>zakupki.gov.tj</span><span>prozorro.gov.ua</span><span>ted.europa.eu</span><span>ezamowienia.gov.pl</span><span>mtender.gov.md</span><span>etender.gov.az</span><span>icetrade.by</span><span>ungm.org</span></div>
-      </div>
-      <div class="bento__item" data-reveal style="--i:1">
-        <div class="bento__icon"><svg class="icon"><use href="#i-clock"/></svg></div>
-        <h3 data-i="wb2_h">Контроль сроков подачи и обеспечения</h3>
-        <p data-i="wb2_p">Дедлайны по каждой заявке, напоминания ответственным, календарь внесения и возврата обеспечения.</p>
-        <div class="bento__vis"><ul class="mini-list"><li><svg class="icon"><use href="#i-clock"/></svg>Ремонт дорожного полотна<b style="color:var(--danger)">2 дня</b></li><li><svg class="icon"><use href="#i-clock"/></svg>ИТ-инфраструктура вуза<b>6 дней</b></li><li><svg class="icon"><use href="#i-wallet"/></svg>Возврат обеспечения №2388<b>9 окт</b></li></ul></div>
-      </div>
-      <div class="bento__item" data-reveal style="--i:2">
-        <div class="bento__icon"><svg class="icon"><use href="#i-folder"/></svg></div>
-        <h3 data-i="wb3_h">Документы с версиями и историей</h3>
-        <p data-i="wb3_p">Кто загрузил, кто проверил, что изменилось. Проверка комплектности перед подачей на площадку.</p>
-        <div class="bento__vis"><ul class="mini-list"><li><svg class="icon"><use href="#i-file"/></svg>Коммерческое предложение<b>v3 · готово</b></li><li><svg class="icon"><use href="#i-contract"/></svg>Проект договора<b>v2 · юрист</b></li><li><svg class="icon"><use href="#i-shield"/></svg>Банковская гарантия<b>ожидает</b></li></ul></div>
-      </div>
-      <div class="bento__item bento__item--wide" data-reveal style="--i:3">
-        <div class="bento__icon"><svg class="icon"><use href="#i-users"/></svg></div>
-        <h3 data-i="wb4_h">Прозрачная работа команды</h3>
-        <p data-i="wb4_p">Задачи, роли и лента действий по заявке. Руководитель видит состояние всех тендеров без запросов и отчётов вручную.</p>
-        <div class="bento__vis" style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-          <ul class="mini-list"><li><span class="ava">АК</span>Анна Козлова<b>3 задачи</b></li><li><span class="ava v">МС</span>Максим Соколов<b>проверка</b></li></ul>
-          <ul class="mini-list"><li><span class="ava w">ДВ</span>Дарья Волкова<b>расчёт готов</b></li><li><span class="ava g">ЕЛ</span>Егор Лебедев<b>утверждение</b></li></ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ showcase ============ -->
-<section class="showcase" id="showcase">
-  <div class="container">
-    <div class="section-head section-head--center" data-reveal>
-      <span class="eyebrow" data-i="sc_eyebrow">Пример интерфейса</span>
-      <h2 data-i="sc_h2">Карточка заявки: сроки, документы, команда и деньги на одном экране</h2>
-      <p data-i="sc_p">Так выглядит заявка внутри tenders.best. Все разделы связаны: дедлайн, комплект документов, согласование и обеспечение.</p>
-    </div>
-    <div class="showcase__frame" data-reveal>
-      <div class="app" data-anim>
-        <aside class="app__side">
-          <div class="app__ws"><img src="assets/img/logo-mark.png" alt=""><div>Тендерный отдел<small>ООО «Компания»</small></div></div>
-          <a class="app__nav"><svg class="icon"><use href="#i-layout"/></svg>Обзор</a>
-          <a class="app__nav"><svg class="icon"><use href="#i-search"/></svg>Каталог<b>550</b></a>
-          <a class="app__nav is-active"><svg class="icon"><use href="#i-files"/></svg>Заявки<b>17</b></a>
-          <a class="app__nav"><svg class="icon"><use href="#i-folder"/></svg>Документы</a>
-          <a class="app__nav"><svg class="icon"><use href="#i-calendar"/></svg>Календарь<b>5</b></a>
-          <div class="app__group">Финансы</div>
-          <a class="app__nav"><svg class="icon"><use href="#i-wallet"/></svg>Бюджет</a>
-          <a class="app__nav"><svg class="icon"><use href="#i-chart"/></svg>Отчёты</a>
-        </aside>
-        <div class="app__main">
-          <div class="app__top"><h4>Заявка №2417 · Ремонт дорожного полотна, 4,2 км<small>goszakup.gov.kz · НМЦ 24,8 млн KZT · Караганда</small></h4><span class="status status--review" style="margin-left:auto">Согласование</span><span class="app__btn"><svg class="icon"><use href="#i-external"/></svg>На портале</span><span class="app__btn app__btn--primary">Подать заявку</span></div>
-          <div class="app__body">
-            <div class="app__kpis">
-              <div class="kpi"><div class="kpi__label">Срок подачи</div><div class="kpi__value" style="color:var(--danger)">2 дня</div><div class="kpi__delta">26 сен, 10:00</div></div>
-              <div class="kpi"><div class="kpi__label">Документы</div><div class="kpi__value">8<small>/ 9</small></div><div class="kpi__delta">1 не загружен</div></div>
-              <div class="kpi"><div class="kpi__label">Обеспечение заявки</div><div class="kpi__value">1,2<small>млн</small></div><div class="kpi__delta hot">списание 1 окт</div></div>
-              <div class="kpi"><div class="kpi__label">Согласование</div><div class="kpi__value">2<small>/ 3</small></div><div class="kpi__delta">ждёт руководителя</div></div>
-            </div>
-            <div class="an-grid" style="grid-template-columns:1.4fr 1fr">
-              <div class="app__panel">
-                <div class="app__panel-head">Документы <span>9 файлов · комплектность 89%</span></div>
-                <table class="table">
-                  <tbody>
-                    <tr><td class="t">Коммерческое предложение.pdf</td><td class="m num">v3</td><td><span class="ava">АК</span></td><td class="keep"><span class="status status--win">Готово</span></td></tr>
-                    <tr><td class="t">Проект договора.docx</td><td class="m num">v2</td><td><span class="ava v">МС</span></td><td class="keep"><span class="status status--review">На проверке</span></td></tr>
-                    <tr><td class="t">Расчёт цены контракта.xlsx</td><td class="m num">v5</td><td><span class="ava w">ДВ</span></td><td class="keep"><span class="status status--win">Готово</span></td></tr>
-                    <tr><td class="t">Банковская гарантия.pdf</td><td class="m">—</td><td class="m">—</td><td class="keep"><span class="status status--draft">Ожидает</span></td></tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="app__panel">
-                <div class="app__panel-head">История <span>сегодня</span></div>
-                <div style="padding:10px 14px"><ul class="timeline">
-                  <li class="v">Максим оставил замечание к п. 4.2<small>14:10</small></li>
-                  <li>Анна загрузила КП, версия 3<small>13:42</small></li>
-                  <li class="g">Расчёт цены завершён<small>11:05</small></li>
-                  <li>Задача «Запросить гарантию» назначена Анне<small>10:20</small></li>
-                </ul></div>
+    <div class="how__grid">
+      <div class="scene" data-reveal="left">
+        <div class="scene__img">
+          <div class="scene__grid"></div>
+          <div class="scene__window">
+            <div class="scene__window-bar"><i></i><i></i><i></i><span>app.tenders.best/tenders/2417</span></div>
+            <div class="dash" data-anim>
+              <aside class="dash__side">
+                <div class="dash__logo"><img src="assets/img/logo-mark.png" alt="">tenders.best</div>
+                <a class="dash__nav"><svg class="icon"><use href="#i-grid"/></svg> Дашборд</a>
+                <a class="dash__nav is-active"><svg class="icon"><use href="#i-file"/></svg> Заявки</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-folder"/></svg> Документы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-calendar"/></svg> Календарь</a>
+              </aside>
+              <div class="dash__main">
+                <div class="dash__top"><h4>Заявка №2417<small>Ремонт дорожного полотна · 24,8 млн ₽</small></h4><span class="status status--review">Подготовка</span></div>
+                <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+                  <div class="kpi"><div class="kpi__label">Дедлайн</div><div class="kpi__value">2 дня</div></div>
+                  <div class="kpi"><div class="kpi__label">Готовность</div><div class="kpi__value">92<small>%</small></div></div>
+                  <div class="kpi kpi--accent"><div class="kpi__label">Вероятность</div><div class="kpi__value">78<small>%</small></div></div>
+                </div>
+                <div class="panel">
+                  <div class="panel__head"><b>Этапы заявки</b><span>5 из 6</span></div>
+                  <div class="budget-row"><div class="budget-row__top"><span>Документы</span><b>9/9</b></div><div class="progress"><i style="--w:100%;--i:0"></i></div></div>
+                  <div class="budget-row"><div class="budget-row__top"><span>Согласование</span><b>4/5</b></div><div class="progress progress--blue"><i style="--w:80%;--i:1"></i></div></div>
+                  <div class="budget-row" style="margin:0"><div class="budget-row__top"><span>Обеспечение</span><b>1,2 млн</b></div><div class="progress progress--gold"><i style="--w:60%;--i:2"></i></div></div>
+                </div>
+                <div class="tlist">
+                  <div class="tlist__row"><div class="tlist__name"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><span>Проект договора</span></div><span>М. Соколов</span><span class="tlist__sum">v2</span><span class="status status--review">Проверка</span></div>
+                  <div class="tlist__row"><div class="tlist__name"><i class="c3"><svg class="icon"><use href="#i-calc"/></svg></i><span>Расчёт цены</span></div><span>Д. Волкова</span><span class="tlist__sum">v5</span><span class="status status--win">Готово</span></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ sources ============ -->
-<section class="section" id="sources">
-  <div class="container">
-    <div class="sources">
-      <div class="section-head" style="margin:0" data-reveal>
-        <span class="eyebrow" data-i="src_eyebrow">Источники данных</span>
-        <h2 data-i="src_h2">Официальные порталы закупок 15 стран</h2>
-        <p data-i="src_p">Каталог пополняется автоматически каждые 3 часа. Для каждой страны указан источник и время последнего обновления.</p>
-        <div class="sources__meta">
-          <span><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="src_m1">Ссылка на оригинал объявления</span></span>
-          <span><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="src_m2">Суммы в USD и местной валюте</span></span>
-          <span><svg class="icon"><use href="#i-check-circle"/></svg><span data-i="src_m3">Статус сбора виден на странице источников</span></span>
+        <div class="scene__float scene__team">
+          <h6>Команда заявки <span>● онлайн 3</span></h6>
+          <div class="team-row"><i>АК</i><div><b>Анна Козлова</b><small>Ведёт заявку</small></div></div>
+          <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">МС</i><div><b>Максим Соколов</b><small>Юрист</small></div></div>
+          <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ДВ</i><div><b>Дарья Волкова</b><small>Сметчик</small></div></div>
         </div>
-        <a href="/tenders#sources" class="btn btn--secondary" style="margin-top:24px" data-i="src_cta">Список источников и статус сбора</a>
+        <div class="scene__float scene__chart" data-anim>
+          <h6>Вероятность победы</h6>
+          <div class="big">78% <em>+6%</em></div>
+          <svg class="line-chart" viewBox="0 0 200 60" preserveAspectRatio="none">
+            <path class="area" d="M0 48 C25 46 35 36 60 38 S95 28 120 22 S160 16 200 6 L200 60 L0 60 Z"/>
+            <path class="line" d="M0 48 C25 46 35 36 60 38 S95 28 120 22 S160 16 200 6"/>
+            <circle class="pt" cx="200" cy="6" r="3.5"/>
+          </svg>
+        </div>
+        <span class="badge badge--sm badge--violet scene__float" style="left:-14px;top:24px;--fd:6s"><svg class="icon"><use href="#i-file"/></svg></span>
+        <span class="badge badge--sm badge--gold scene__float" style="right:20px;bottom:-16px;--fd:7s;--fdl:-2s"><svg class="icon"><use href="#i-money"/></svg></span>
+        <span class="badge badge--sm badge--green scene__float" style="left:46%;top:-20px;--fd:6.5s;--fdl:-1s"><svg class="icon"><use href="#i-badge"/></svg></span>
       </div>
-      <div class="sources__list" data-reveal>
-        <div class="src"><b>TJ</b><span>Таджикистан</span><small>zakupki.gov.tj</small></div><div class="src"><b>UZ</b><span>Узбекистан</span><small>xarid.uzex.uz</small></div><div class="src"><b>KG</b><span>Кыргызстан</span><small>zakupki.gov.kg</small></div>
-        <div class="src"><b>KZ</b><span>Казахстан</span><small>goszakup.gov.kz</small></div><div class="src"><b>TM</b><span>Туркменистан</span><small>ungm.org</small></div><div class="src"><b>AF</b><span>Афганистан</span><small>ungm.org</small></div>
-        <div class="src"><b>RU</b><span>Россия</span><small>zakupki.gov.ru</small></div><div class="src"><b>BY</b><span>Беларусь</span><small>icetrade.by</small></div><div class="src"><b>UA</b><span>Украина</span><small>prozorro.gov.ua</small></div>
-        <div class="src"><b>MD</b><span>Молдова</span><small>mtender.gov.md</small></div><div class="src"><b>AZ</b><span>Азербайджан</span><small>etender.gov.az</small></div><div class="src"><b>PL</b><span>Польша</span><small>ezamowienia.gov.pl</small></div>
-        <div class="src"><b>CZ</b><span>Чехия</span><small>ted.europa.eu</small></div><div class="src"><b>DE</b><span>Германия</span><small>ted.europa.eu</small></div><div class="src"><b>LT</b><span>Литва</span><small>ted.europa.eu</small></div>
+
+      <div class="steps">
+        <div class="step" data-reveal="right" style="--i:0">
+          <span class="step__num">1</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-search"/></svg></div>
+          <div><h3 data-i="st1_h">Найдите нужный тендер</h3><p data-i="st1_p">Задайте профиль компании — система подберёт подходящие закупки со всех площадок и уведомит о новых.</p></div>
+          <span class="step__line"></span>
+        </div>
+        <div class="step step--accent" data-reveal="right" style="--i:1">
+          <span class="step__num">2</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-send"/></svg></div>
+          <div><h3 data-i="st2_h">Подготовьте и отправьте заявку</h3><p data-i="st2_p">Соберите документы по шаблонам, согласуйте с юристом и сметчиком, проверьте комплектность и подайте заявку.</p></div>
+          <span class="step__line"></span>
+        </div>
+        <div class="step" data-reveal="right" style="--i:2">
+          <span class="step__num">3</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-badge"/></svg></div>
+          <div><h3 data-i="st3_h">Контролируйте сроки, документы и результат</h3><p data-i="st3_p">Следите за статусом, дедлайнами и оплатами. Аналитика покажет, что повысит процент побед в следующий раз.</p></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ cta ============ -->
-<section class="cta" id="cta">
+<!-- ============ testimonials ============ -->
+<section class="section testi" id="reviews">
   <div class="container">
-    <div class="cta__box" data-reveal>
-      <div>
-        <h2 data-i="cta_h2">Начните работу с тендерами в tenders.best</h2>
-        <p data-i="cta_p">Откройте каталог, сохраните первую подборку и подключите команду к заявке. Подписка оформляется в личном кабинете.</p>
+    <div class="section-head" data-reveal>
+      <span class="eyebrow" data-i="rv_e">Отзывы клиентов</span>
+      <h2 data-i="rv_h">Компании уже используют tenders.best</h2>
+      <p data-i="rv_p">Тендерные отделы, строительные компании, поставщики и IT-интеграторы выбирают платформу для ежедневной работы.</p>
+    </div>
+
+    <div class="testi__slider" data-reveal id="testiSlider">
+      <button class="testi__arrow testi__arrow--prev" data-dir="-1" aria-label="Предыдущий отзыв"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+      <button class="testi__arrow testi__arrow--next" data-dir="1" aria-label="Следующий отзыв"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+      <div class="testi__track">
+
+        <div class="testi__slide is-active" data-company="0">
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote" data-i="q1">До tenders.best мы вели тендеры в таблицах и почте: сроки терялись, документы дублировались. Сейчас вся команда работает в одной системе, а процент побед вырос с 18% до 34% за полгода.</p>
+            <div class="testi__author">
+              <span class="ava ava--blue">АМ</span>
+              <div><b>Алексей Морозов</b><small data-i="q1_role">Коммерческий директор, СтройГарант</small></div>
+            </div>
+          </div>
+          <div class="testi__result">
+            <small data-i="q1_rs">Результат за 6 месяцев</small>
+            <b>18% → 34%</b>
+            <span data-i="q1_rv">процент выигранных тендеров</span>
+            <ul><li><span data-i="q1_l1">Заявок в месяц</span> <b>+40%</b></li><li><span data-i="q1_l2">Просроченных дедлайнов</span> <b>0</b></li></ul>
+          </div>
+        </div>
+
+        <div class="testi__slide" data-company="1">
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote" data-i="q2">Аналитика по конкурентам и прогноз вероятности победы помогли отказаться от невыгодных лотов и сосредоточиться на закупках, которые действительно приносят прибыль.</p>
+            <div class="testi__author">
+              <span class="ava ava--violet">МС</span>
+              <div><b>Марина Соколова</b><small data-i="q2_role">Руководитель тендерного отдела, МедТехСнаб</small></div>
+            </div>
+          </div>
+          <div class="testi__result">
+            <small data-i="q2_rs">Результат за квартал</small>
+            <b>+2,4 млн ₽</b>
+            <span data-i="q2_rv">дополнительной маржи</span>
+            <ul><li><span data-i="q2_l1">Отклонено невыгодных лотов</span> <b>31</b></li><li><span data-i="q2_l2">Средняя маржа</span> <b>24%</b></li></ul>
+          </div>
+        </div>
+
+        <div class="testi__slide" data-company="2">
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote" data-i="q3">Напоминания о дедлайнах и автоматические согласования сэкономили нам десятки часов в месяц. Ни одной просроченной заявки за год — для логистики это критично.</p>
+            <div class="testi__author">
+              <span class="ava ava--gold">ДК</span>
+              <div><b>Дмитрий Ковалёв</b><small data-i="q3_role">Директор по закупкам, ЛогистикПро</small></div>
+            </div>
+          </div>
+          <div class="testi__result">
+            <small data-i="q3_rs">Экономия времени</small>
+            <b data-i="q3_rb">38 ч / мес</b>
+            <span data-i="q3_rv">на согласованиях и контроле</span>
+            <ul><li><span data-i="q3_l1">Просроченных заявок за год</span> <b>0</b></li><li><span data-i="q3_l2">Контрактов подписано</span> <b>27</b></li></ul>
+          </div>
+        </div>
+
       </div>
-      <div class="cta__actions">
-        <a href="/admin/login" class="btn btn--primary btn--lg" data-i="buy">Купить подписку</a>
-        <a href="/tenders" class="btn btn--secondary btn--lg" data-i="cta_2">Открыть каталог</a>
-      </div>
+      <div class="testi__dots" id="testiDots"></div>
+    </div>
+
+    <div class="logos" data-reveal>
+      <div class="logo-chip is-active" style="--i:0"><svg class="icon"><use href="#i-building"/></svg>СтройГарант</div>
+      <div class="logo-chip" style="--i:1"><svg class="icon"><use href="#i-shield"/></svg>МедТехСнаб</div>
+      <div class="logo-chip" style="--i:2"><svg class="icon"><use href="#i-globe"/></svg>ЛогистикПро</div>
+      <div class="logo-chip" style="--i:3"><svg class="icon"><use href="#i-layers"/></svg>АгроХолдинг</div>
+      <div class="logo-chip" style="--i:4"><svg class="icon"><use href="#i-zap"/></svg>ЭнергоСеть</div>
+      <div class="logo-chip" style="--i:5"><svg class="icon"><use href="#i-workflow"/></svg>IT Solutions</div>
+      <div class="logo-chip" style="--i:6"><svg class="icon"><use href="#i-target"/></svg>ФармаЛайн</div>
+      <div class="logo-chip" style="--i:7"><svg class="icon"><use href="#i-briefcase"/></svg>ТрансБилд</div>
+      <div class="logo-chip" style="--i:8"><svg class="icon"><use href="#i-database"/></svg>РосМеталл</div>
+      <div class="logo-chip" style="--i:9"><svg class="icon"><use href="#i-cloud"/></svg>ЭкоСервис</div>
     </div>
   </div>
 </section>
 
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer__top">
+<!-- ============ footer ============ -->
+<footer class="footer" id="cta">
+  <div class="footer__card">
+    <div class="footer__top" data-reveal>
       <div class="footer__brand">
-        <a href="/" class="brand"><img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="34" height="34"><span class="brand__name">tenders<b>.best</b></span></a>
-        <p data-i="foot_p">Каталог государственных закупок 15 стран и рабочее пространство для подготовки заявок.</p>
+        <a href="#top" class="brand"><img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="44" height="44"><span class="brand__name">tenders<b>.best</b></span></a>
+        <p data-i="foot_p">Платформа, которая помогает компаниям находить тендеры, управлять заявками и выигрывать закупки быстрее.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Готово ✓';">
+          <input type="email" placeholder="Электронная почта" aria-label="Электронная почта" data-ph="foot_email" required>
+          <button type="submit" class="btn btn--primary btn--sm" data-i="foot_sub">Подписаться</button>
+        </form>
       </div>
-      <div class="footer__col"><h4 data-i="foot_product">Продукт</h4><ul><li><a href="/tenders" data-i="nav_catalog">Каталог тендеров</a></li><li><a href="#features" data-i="nav_features">Возможности</a></li><li><a href="#how" data-i="nav_how">Как проходит работа</a></li><li><a href="/tenders#alerts" data-i="foot_alerts">Уведомления о новых тендерах</a></li></ul></div>
-      <div class="footer__col"><h4 data-i="foot_data">Данные</h4><ul><li><a href="/tenders#sources" data-i="nav_sources">Источники</a></li><li><a href="/api/stats" data-i="foot_api">API</a></li><li><a href="/admin/login" data-i="login">Вход для администратора</a></li></ul></div>
-      <div class="footer__col"><h4 data-i="foot_lang">Язык</h4><ul>
-        <li><button type="button" data-set-lang="ru" aria-selected="true"><span class="flag"><svg><use href="#flag-ru"/></svg></span>Русский</button></li>
-        <li><button type="button" data-set-lang="en" aria-selected="false"><span class="flag"><svg><use href="#flag-en"/></svg></span>English</button></li>
-        <li><button type="button" data-set-lang="tj" aria-selected="false"><span class="flag"><svg><use href="#flag-tj"/></svg></span>Тоҷикӣ</button></li>
-      </ul></div>
+      <div class="footer__col">
+        <h4 data-i="foot_product">Продукт</h4>
+        <ul><li><a href="/tenders" data-i="fp1">Каталог тендеров</a></li><li><a href="#platform" data-i="fp2">Возможности</a></li><li><a href="#" data-i="fp3">Тарифы</a></li><li><a href="#features" data-i="fp4">Решения</a></li><li><a href="#" data-i="fp5">Обновления</a></li><li><a href="#">API</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i="foot_company">Компания</h4>
+        <ul><li><a href="#" data-i="fc1">О нас</a></li><li><a href="#" data-i="fc2">Блог</a></li><li><a href="#" data-i="fc3">Карьера</a></li><li><a href="#" data-i="fc4">Партнёрам</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i="foot_res">Ресурсы</h4>
+        <ul><li><a href="#" data-i="fr1">База знаний</a></li><li><a href="#" data-i="fr2">Вебинары</a></li><li><a href="#" data-i="fr3">Шаблоны заявок</a></li><li><a href="#" data-i="fr4">Поддержка</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4 data-i="foot_contacts">Контакты</h4>
+        <ul><li><a href="mailto:hello@tenders.best">hello@tenders.best</a></li><li><a href="tel:+74951200000">+7 (495) 120-00-00</a></li><li><a href="#">Telegram</a></li><li><a href="#" data-i="fk4">Москва, Пресненская, 12</a></li></ul>
+      </div>
     </div>
+
+    <div class="footer__cta" data-reveal>
+      <div>
+        <span class="eyebrow" data-i="cta_e">Свяжитесь с нами сегодня</span>
+        <h2 data-i="cta_h">Готовы выиграть следующий тендер?</h2>
+      </div>
+      <a href="#" class="cta-circle" aria-label="Начать работу"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+
     <div class="footer__bottom">
-      <span>© 2026 tenders.best</span>
+      <span data-i="foot_copy">© 2026 tenders.best. Все права защищены.</span>
+      <div class="footer__langs" aria-label="Язык">
+        <button type="button" data-set-lang="ru" aria-selected="true"><span class="flag"><svg><use href="#flag-ru"/></svg></span>Русский</button>
+        <button type="button" data-set-lang="en" aria-selected="false"><span class="flag"><svg><use href="#flag-en"/></svg></span>English</button>
+        <button type="button" data-set-lang="tj" aria-selected="false"><span class="flag"><svg><use href="#flag-tj"/></svg></span>Тоҷикӣ</button>
+      </div>
       <nav><a href="#" data-i="foot_privacy">Политика конфиденциальности</a><a href="#" data-i="foot_terms">Условия использования</a></nav>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/i18n.js" defer></script>
+</main>
+
 <script src="assets/js/ui.js" defer></script>
+<script src="assets/js/i18n.js" defer></script>
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>
