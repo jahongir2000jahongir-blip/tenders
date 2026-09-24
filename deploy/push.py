@@ -38,8 +38,9 @@ def open_socket() -> socket.socket:
         if not chunk:
             raise RuntimeError("proxy closed the connection")
         reply += chunk
-    if b" 200 " not in reply.split(b"\r\n")[0]:
-        raise RuntimeError(f"proxy refused CONNECT: {reply.split(b'\r\n')[0].decode()}")
+    status = reply.split(b"\r\n")[0].decode(errors="replace")
+    if " 200 " not in status:
+        raise RuntimeError("proxy refused CONNECT: " + status)
     return s
 
 

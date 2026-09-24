@@ -77,6 +77,22 @@ uvicorn server.app:app --host 0.0.0.0 --port 8000
 селекторы в соответствующих файлах. Парсеры покрыты тестами на образцах ответов:
 `python -m unittest discover -s tests -v`.
 
+## Деплой на сервер
+
+Одной командой с локальной машины (нужен `pip install paramiko`):
+
+```bash
+SSH_HOST=31.130.130.195 SSH_USER=root SSH_PASSWORD='…' DOMAIN=archacrm.twc1.net python deploy/push.py
+```
+
+Или на самом сервере: скопировать репозиторий и выполнить `DOMAIN=archacrm.twc1.net bash deploy/deploy.sh`.
+Скрипт ставит nginx, certbot и Python, создаёт пользователя `tenders`, кладёт код в `/opt/tenders`,
+поднимает systemd-службу `tenders` (веб + сбор каждые 3 ч), настраивает vhost для домена и выпускает
+сертификат Let's Encrypt, если домен уже указывает на этот сервер. Повторный запуск обновляет код.
+
+Полезные команды на сервере: `systemctl status tenders`, `journalctl -u tenders -f`,
+`sudo -u tenders /opt/tenders/.venv/bin/python -m server.collect` (ручной сбор).
+
 ## Публичный API
 
 * `GET /api/tenders?q=&country=KZ&country=RU&category=it&min_usd=&max_usd=&deadline=7|30&status=open|all&sort=new|deadline|amount_desc|amount_asc&page=1&per_page=24&lang=ru|en`
