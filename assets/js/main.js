@@ -39,7 +39,7 @@
   $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
   /* ---------- active nav link ---------- */
-  const navLinks = $$('.nav a');
+  const navLinks = $$('.nav a[href^="#"]');
   const sections = navLinks.map((a) => $(a.getAttribute('href'))).filter(Boolean);
   if ('IntersectionObserver' in window && sections.length) {
     const spy = new IntersectionObserver((entries) => {

@@ -222,7 +222,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .laptop__notch { position: absolute; left: 50%; top: 0; width: 120px; height: 5px; transform: translateX(-50%); border-radius: 0 0 6px 6px; background: #b6bfd3; }
 
-.hero__person { position: absolute; right: -16px; bottom: 0; width: 580px; z-index: 3; pointer-events: none; }
+.hero__person { position: absolute; right: -10px; bottom: 0; width: 520px; z-index: 3; pointer-events: none; }
 .hero__person img { width: 100%; height: auto; filter: drop-shadow(0 24px 30px rgba(16, 24, 72, 0.18)); }
 
 /* floating badges — static by default, gentle float only on hover of the visual */
@@ -677,7 +677,7 @@ ul { margin: 0; padding: 0; list-style: none; }
 /* ---------- responsive ---------- */
 @media (max-width: 1360px) {
   .laptop { width: 480px; }
-  .hero__person { width: 540px; right: -12px; }
+  .hero__person { width: 490px; right: -8px; }
   .bw-money { right: 130px; }
   .bw-chart { left: 190px; top: 40px; }
   .bw-bank { right: -10px; }
@@ -689,7 +689,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero__copy { padding-left: 16px; }
   .hero__visual { height: 620px; }
   .laptop { width: 430px; top: 100px; }
-  .hero__person { width: 480px; right: -6px; }
+  .hero__person { width: 440px; right: -4px; }
   .bw-money { right: 110px; top: 30px; }
   .bw-chart { left: 160px; top: 50px; }
   .bw-calendar { right: 6px; top: 100px; }
@@ -712,7 +712,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .hero__copy { padding: 0 8px 36px; max-width: 640px; }
   .hero__visual { height: 620px; margin-top: 8px; }
   .laptop { width: min(560px, 82%); left: 0; top: 60px; }
-  .hero__person { width: 480px; right: 0; }
+  .hero__person { width: 440px; right: 0; }
   .bw-money { right: auto; left: 44%; top: 0; }
   .bw-calendar { right: 20px; top: 40px; }
   .bw-bank { right: 0; top: 220px; }
@@ -757,7 +757,7 @@ ul { margin: 0; padding: 0; list-style: none; }
   .laptop .dash__side, .laptop .dash__search, .laptop .panel--donut, .laptop .dash__row--2 { display: none; }
   .laptop .kpis { grid-template-columns: repeat(2, 1fr); }
   .laptop .dash__row { grid-template-columns: 1fr; }
-  .hero__person { width: 330px; right: -12px; }
+  .hero__person { width: 300px; right: -8px; }
   .badge { width: 44px; height: 44px; }
   .badge .icon { width: 19px; height: 19px; }
   .badge--sm { width: 38px; height: 38px; }
