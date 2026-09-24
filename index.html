@@ -107,7 +107,7 @@
       </nav>
       <div class="header__actions">
         <a href="#" class="header__login">Войти</a>
-        <a href="#cta" class="btn btn--primary btn--sm">Начать бесплатно <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        <a href="#cta" class="btn btn--primary btn--sm">Купить подписку <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
@@ -119,8 +119,7 @@
   <a href="#features">Решения</a>
   <a href="#how">Как это работает</a>
   <a href="#reviews">Отзывы</a>
-  <a href="#integrations">Интеграции</a>
-  <a href="#cta" class="btn btn--primary btn--lg">Начать работу</a>
+  <a href="#cta" class="btn btn--primary btn--lg">Купить подписку</a>
 </div>
 
 <main id="top">
@@ -128,19 +127,17 @@
 <!-- ============ hero ============ -->
 <section class="hero">
   <div class="hero__card">
-    <div class="hero__glow hero__glow--1"></div>
-    <div class="hero__glow hero__glow--2"></div>
-    <div class="hero__glow hero__glow--3"></div>
-    <div class="blob blob--hero-left" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
 
     <div class="container hero__inner">
       <div class="hero__copy">
-        <span class="eyebrow" data-reveal style="--i:0"><span class="dot"></span> Платформа для тендеров и закупок</span>
-        <h1 class="hero__title" data-reveal style="--i:1">Управляйте тендерами и побеждайте <span class="h-spark">в&nbsp;закупках</span></h1>
+        <span class="eyebrow" data-reveal style="--i:0">Платформа для тендеров и закупок</span>
+        <h1 class="hero__title" data-reveal style="--i:1">Управляйте тендерами и&nbsp;побеждайте в&nbsp;закупках</h1>
         <p class="hero__lead" data-reveal style="--i:2">tenders.best помогает командам находить актуальные тендеры, контролировать сроки подачи, работать с документами, следить за бюджетом и повышать процент побед.</p>
         <div class="hero__cta" data-reveal style="--i:3">
-          <a href="#cta" class="btn btn--primary btn--lg">Начать работу <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
-          <a href="#platform" class="btn btn--ghost btn--lg"><svg class="icon"><use href="#i-play"/></svg> Посмотреть возможности</a>
+          <a href="#platform" class="btn btn--primary btn--lg">Посмотреть возможности <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          <a href="#how" class="btn btn--ghost btn--lg">Как это работает</a>
         </div>
         <div class="hero__proof" data-reveal style="--i:4">
           <div class="avatars"><span>АК</span><span>МС</span><span>ДВ</span><span>ЕЛ</span></div>
@@ -154,8 +151,10 @@
       <div class="hero__visual" id="heroVisual">
         <div class="hero__scene">
           <!-- dashboard -->
-          <div class="hero__dash" data-parallax="0.35" data-reveal="scale">
-            <div class="dash dash--bezel" data-anim>
+          <div class="laptop" data-reveal>
+            <div class="laptop__screen">
+            <span class="laptop__cam"></span>
+            <div class="dash" data-anim>
               <aside class="dash__side">
                 <div class="dash__logo"><img src="assets/img/logo-mark.png" alt="">tenders.best</div>
                 <a class="dash__nav is-active"><svg class="icon"><use href="#i-grid"/></svg> Дашборд</a>
@@ -230,36 +229,32 @@
                 </div>
               </div>
             </div>
-            <div class="hero__dash-stand"></div>
+            </div>
+            <div class="laptop__base"><span class="laptop__notch"></span></div>
           </div>
 
           <!-- businessman -->
-          <div class="hero__person" data-parallax="0.15" data-reveal>
-            <img src="assets/img/person.svg" alt="Специалист по тендерам с ноутбуком" width="400" height="667">
+          <div class="hero__person" data-reveal>
+            <img src="assets/img/hero-person.webp" alt="Специалист по тендерам с ноутбуком" width="768" height="872">
           </div>
 
           <!-- floating badges -->
-          <div class="badge-wrap bw-file" data-parallax="0.9"><span class="badge badge--lg badge--blue" style="--fd:6.5s"><svg class="icon"><use href="#i-file"/></svg></span></div>
-          <div class="badge-wrap bw-contract" data-parallax="0.6"><span class="badge badge--violet" style="--fd:7s;--fdl:-1.5s"><svg class="icon"><use href="#i-contract"/></svg></span></div>
-          <div class="badge-wrap bw-chart" data-parallax="0.8"><span class="badge badge--sm badge--magenta" style="--fd:5.5s;--fdl:-2.4s"><svg class="icon"><use href="#i-chart"/></svg></span></div>
-          <div class="badge-wrap bw-money" data-parallax="0.7"><span class="badge badge--lg badge--gold" style="--fd:7.5s;--fdl:-0.8s"><svg class="icon"><use href="#i-money"/></svg></span></div>
-          <div class="badge-wrap bw-bank" data-parallax="1"><span class="badge badge--navy" style="--fd:6s;--fdl:-3s"><svg class="icon"><use href="#i-bank"/></svg></span></div>
-          <div class="badge-wrap bw-check" data-parallax="0.8"><span class="badge badge--lg badge--green" style="--fd:6.8s;--fdl:-1.2s"><svg class="icon"><use href="#i-badge"/></svg></span></div>
-          <div class="badge-wrap badge-wrap--hide-sm bw-calendar" data-parallax="0.55"><span class="badge badge--sm badge--blue" style="--fd:5.8s;--fdl:-2s"><svg class="icon"><use href="#i-calendar"/></svg></span></div>
-          <div class="badge-wrap bw-bell" data-parallax="0.9"><span class="badge badge--sm badge--red" style="--fd:6.2s;--fdl:-0.5s"><svg class="icon"><use href="#i-bell"/></svg></span></div>
-          <div class="badge-wrap bw-shield" data-parallax="0.65"><span class="badge badge--white" style="--fd:7.2s;--fdl:-3.6s"><svg class="icon"><use href="#i-shield"/></svg></span></div>
-          <div class="badge-wrap badge-wrap--hide-sm bw-gavel" data-parallax="0.75"><span class="badge badge--sm badge--violet" style="--fd:6.4s;--fdl:-1.8s"><svg class="icon"><use href="#i-gavel"/></svg></span></div>
-          <div class="badge-wrap badge-wrap--hide-sm bw-trend" data-parallax="0.5"><span class="badge badge--sm badge--gold" style="--fd:5.6s;--fdl:-2.8s"><svg class="icon"><use href="#i-trend"/></svg></span></div>
-          <div class="badge-wrap badge-wrap--hide-sm bw-brief" data-parallax="0.7"><span class="badge badge--sm badge--navy" style="--fd:6.9s;--fdl:-4s"><svg class="icon"><use href="#i-briefcase"/></svg></span></div>
+          <span class="badge badge--blue bw-file" style="--fdl:0s"><svg class="icon"><use href="#i-file"/></svg></span>
+          <span class="badge badge--violet bw-contract" style="--fdl:-1.2s"><svg class="icon"><use href="#i-contract"/></svg></span>
+          <span class="badge badge--sm badge--magenta bw-chart" style="--fdl:-2.1s"><svg class="icon"><use href="#i-chart"/></svg></span>
+          <span class="badge badge--gold bw-money" style="--fdl:-0.6s"><svg class="icon"><use href="#i-money"/></svg></span>
+          <span class="badge badge--sm badge--blue bw-calendar" style="--fdl:-2.8s"><svg class="icon"><use href="#i-calendar"/></svg></span>
+          <span class="badge badge--navy bw-bank" style="--fdl:-1.7s"><svg class="icon"><use href="#i-bank"/></svg></span>
+          <span class="badge badge--green bw-check" style="--fdl:-3.3s"><svg class="icon"><use href="#i-badge"/></svg></span>
 
           <!-- floating mini cards -->
-          <div class="float-card fc-win" data-parallax="0.45" style="--fd:8s;--fdl:-2s">
+          <div class="float-card fc-win">
             <span class="float-card__ico float-card__ico--green"><svg class="icon"><use href="#i-check"/></svg></span>
             <span><small>Итоги тендера</small><strong>Победа · 12,4 млн ₽</strong></span>
           </div>
-          <div class="float-card fc-deadline" data-parallax="0.5" style="--fd:7s;--fdl:-4s">
+          <div class="float-card fc-deadline">
             <span class="float-card__ico float-card__ico--gold"><svg class="icon"><use href="#i-clock"/></svg></span>
-            <span><small>Дедлайн подачи</small><strong>Через 2 дня</strong> <em>·  готово 92%</em></span>
+            <span><small>Дедлайн подачи</small><strong>Через 2 дня</strong> <em>· готово 92%</em></span>
           </div>
         </div>
       </div>
@@ -271,8 +266,8 @@
 <section class="section" id="platform">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow"><span class="dot"></span> Всё для работы с тендерами</span>
-      <h2><span class="h-spark">Платформа работает на результат</span></h2>
+      <span class="eyebrow">Всё для работы с тендерами</span>
+      <h2>Платформа работает на результат</h2>
       <p>Поиск, аналитика, документы, команда, бюджет и отчёты — единая система, которая закрывает весь цикл участия в закупках.</p>
     </div>
 
@@ -286,8 +281,6 @@
     </div>
 
     <div class="showcase" data-reveal>
-      <div class="showcase__blob" aria-hidden="true"></div>
-      <div class="showcase__blob showcase__blob--2" aria-hidden="true"></div>
       <div class="showcase__card">
 
         <!-- panel: search -->
@@ -524,8 +517,8 @@
 <section class="why" id="why">
   <div class="why__wrap">
     <div class="section-head" data-reveal>
-      <span class="eyebrow eyebrow--light"><span class="dot"></span> Ваш партнёр в закупках</span>
-      <h2><span class="h-spark">Почему выбирают tenders.best</span></h2>
+      <span class="eyebrow eyebrow--light">Ваш партнёр в закупках</span>
+      <h2>Почему выбирают tenders.best</h2>
       <p>Одна система вместо таблиц, почты и мессенджеров. Прозрачный процесс от поиска тендера до подписания контракта.</p>
     </div>
     <div class="why__grid">
@@ -544,8 +537,7 @@
         </div>
       </div>
       <div class="why__center" data-reveal="scale">
-        <div class="orb"></div>
-        <div class="orb orb--2"></div>
+        <div class="why__halo" aria-hidden="true"></div>
         <div class="why__dash">
           <div class="dash" data-anim>
             <div class="dash__main">
@@ -570,8 +562,6 @@
             </div>
           </div>
         </div>
-        <span class="badge badge--sm badge--gold why__ring-badge" style="left:-2%;top:8%;--fd:6s"><svg class="icon"><use href="#i-star"/></svg></span>
-        <span class="badge badge--sm badge--blue why__ring-badge" style="right:4%;bottom:18%;--fd:7s;--fdl:-2s"><svg class="icon"><use href="#i-badge"/></svg></span>
       </div>
       <div class="why__col why__col--r">
         <div class="why__item" data-reveal="right" style="--i:0">
@@ -595,8 +585,8 @@
 <section class="section" id="features">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow"><span class="dot"></span> Три ключевых инструмента</span>
-      <h2>Упростите работу с тендерами <span class="h-spark">и закупками</span></h2>
+      <span class="eyebrow">Три ключевых инструмента</span>
+      <h2>Упростите работу с тендерами и закупками</h2>
       <p>Аналитика, документы и автоматизация — каждый модуль решает конкретную задачу тендерного отдела.</p>
     </div>
     <div class="features__grid">
@@ -700,8 +690,8 @@
 <section class="section" id="how">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow"><span class="dot"></span> Как это работает</span>
-      <h2><span class="h-spark">Три шага до победы</span></h2>
+      <span class="eyebrow">Как это работает</span>
+      <h2>Три шага до победы</h2>
       <p>Простой процесс, в котором каждая заявка проходит одинаково прозрачный путь — от поиска до контракта.</p>
     </div>
     <div class="how__grid">
@@ -786,8 +776,8 @@
 <section class="section testi" id="reviews">
   <div class="container">
     <div class="section-head" data-reveal>
-      <span class="eyebrow"><span class="dot"></span> Отзывы клиентов</span>
-      <h2><span class="h-spark">Компании уже используют tenders.best</span></h2>
+      <span class="eyebrow">Отзывы клиентов</span>
+      <h2>Компании уже используют tenders.best</h2>
       <p>Тендерные отделы, строительные компании, поставщики и IT-интеграторы выбирают платформу для ежедневной работы.</p>
     </div>
 
@@ -797,47 +787,53 @@
       <div class="testi__track">
 
         <div class="testi__slide is-active" data-company="0">
-          <div>
-            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
-            <p class="testi__quote">«До tenders.best мы вели тендеры в таблицах и почте: сроки терялись, документы дублировались. Сейчас вся команда работает в одной системе, а процент побед вырос с 18% до 34% за полгода».</p>
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote">До tenders.best мы вели тендеры в таблицах и почте: сроки терялись, документы дублировались. Сейчас вся команда работает в одной системе, а процент побед вырос с 18% до 34% за полгода.</p>
             <div class="testi__author">
-              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#dbe7ff"/><circle cx="24" cy="19" r="8" fill="#f2c4a2"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#0d6ef0"/><path d="M16 17c0-6 4-9 8-9s8 3 8 9c-2-3-5-4-8-4s-6 1-8 4z" fill="#3d2617"/></svg></span>
-              <div><b>Алексей Морозов</b><small>Коммерческий директор</small></div>
-              <span class="testi__company"><svg class="icon"><use href="#i-building"/></svg>СтройГарант</span>
+              <span class="ava ava--blue">АМ</span>
+              <div><b>Алексей Морозов</b><small>Коммерческий директор, СтройГарант</small></div>
             </div>
           </div>
-          <div class="testi__photo" aria-hidden="true">
-            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f8bff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp1)"/><circle cx="100" cy="82" r="34" fill="#f2c4a2"/><path d="M66 78c0-24 15-36 34-36s34 12 34 36c-8-12-20-16-34-16s-26 4-34 16z" fill="#3d2617"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#fff"/><path d="M92 138l8 20 8-20z" fill="#0d6ef0"/><path d="M78 96c6 8 14 12 22 12s16-4 22-12" fill="none" stroke="#7a3f2c" stroke-width="3" stroke-linecap="round"/><g fill="none" stroke="#2b2b33" stroke-width="2.5"><rect x="72" y="72" width="24" height="18" rx="8"/><rect x="104" y="72" width="24" height="18" rx="8"/><path d="M96 80h8"/></g></svg>
+          <div class="testi__result">
+            <small>Результат за 6 месяцев</small>
+            <b>18% → 34%</b>
+            <span>процент выигранных тендеров</span>
+            <ul><li>Заявок в месяц <b>+40%</b></li><li>Просроченных дедлайнов <b>0</b></li></ul>
           </div>
         </div>
 
         <div class="testi__slide" data-company="1">
-          <div>
-            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
-            <p class="testi__quote">«Аналитика по конкурентам и прогноз вероятности победы помогли отказаться от невыгодных лотов и сосредоточиться на закупках, которые действительно приносят прибыль».</p>
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote">Аналитика по конкурентам и прогноз вероятности победы помогли отказаться от невыгодных лотов и сосредоточиться на закупках, которые действительно приносят прибыль.</p>
             <div class="testi__author">
-              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#f3e3ff"/><circle cx="24" cy="19" r="8" fill="#f6d2b8"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#7c3aed"/><path d="M14 24c0-10 4-16 10-16s10 6 10 16c-2-4-4-6-10-6s-8 2-10 6z" fill="#5a3a24"/></svg></span>
-              <div><b>Марина Соколова</b><small>Руководитель тендерного отдела</small></div>
-              <span class="testi__company"><svg class="icon"><use href="#i-shield"/></svg>МедТехСнаб</span>
+              <span class="ava ava--violet">МС</span>
+              <div><b>Марина Соколова</b><small>Руководитель тендерного отдела, МедТехСнаб</small></div>
             </div>
           </div>
-          <div class="testi__photo" aria-hidden="true">
-            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a35bff"/><stop offset="1" stop-color="#c42be0"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp2)"/><path d="M58 120c-6-40 10-78 42-78s48 38 42 78z" fill="#5a3a24"/><circle cx="100" cy="84" r="32" fill="#f6d2b8"/><path d="M68 74c4-18 16-26 32-26s28 8 32 26c-8-8-18-10-32-10s-24 2-32 10z" fill="#5a3a24"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#fff"/><path d="M82 96c5 6 11 9 18 9s13-3 18-9" fill="none" stroke="#a04a3a" stroke-width="3" stroke-linecap="round"/><circle cx="88" cy="80" r="3" fill="#2a1a10"/><circle cx="112" cy="80" r="3" fill="#2a1a10"/></svg>
+          <div class="testi__result">
+            <small>Результат за квартал</small>
+            <b>+2,4 млн ₽</b>
+            <span>дополнительной маржи</span>
+            <ul><li>Отклонено невыгодных лотов <b>31</b></li><li>Средняя маржа <b>24%</b></li></ul>
           </div>
         </div>
 
         <div class="testi__slide" data-company="2">
-          <div>
-            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
-            <p class="testi__quote">«Напоминания о дедлайнах и автоматические согласования сэкономили нам десятки часов в месяц. Ни одной просроченной заявки за год — для логистики это критично».</p>
+          <div class="testi__main">
+            <span class="testi__mark" aria-hidden="true">“</span>
+            <p class="testi__quote">Напоминания о дедлайнах и автоматические согласования сэкономили нам десятки часов в месяц. Ни одной просроченной заявки за год — для логистики это критично.</p>
             <div class="testi__author">
-              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#fff1cc"/><circle cx="24" cy="19" r="8" fill="#e9b08c"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#f59e0b"/><path d="M16 16c0-5 4-8 8-8s8 3 8 8c-2-2-5-3-8-3s-6 1-8 3z" fill="#2a1a10"/></svg></span>
-              <div><b>Дмитрий Ковалёв</b><small>Директор по закупкам</small></div>
-              <span class="testi__company"><svg class="icon"><use href="#i-globe"/></svg>ЛогистикПро</span>
+              <span class="ava ava--gold">ДК</span>
+              <div><b>Дмитрий Ковалёв</b><small>Директор по закупкам, ЛогистикПро</small></div>
             </div>
           </div>
-          <div class="testi__photo" aria-hidden="true">
-            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd257"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp3)"/><circle cx="100" cy="84" r="33" fill="#e9b08c"/><path d="M68 78c0-20 14-32 32-32s32 12 32 32c-6-10-18-14-32-14s-26 4-32 14z" fill="#2a1a10"/><path d="M76 100c4 10 12 16 24 16s20-6 24-16c-6 6-14 8-24 8s-18-2-24-8z" fill="#2a1a10" opacity=".9"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#0e1230"/><path d="M90 138h20l-10 22z" fill="#fff"/><circle cx="88" cy="82" r="3" fill="#2a1a10"/><circle cx="112" cy="82" r="3" fill="#2a1a10"/></svg>
+          <div class="testi__result">
+            <small>Экономия времени</small>
+            <b>38 ч / мес</b>
+            <span>на согласованиях и контроле</span>
+            <ul><li>Просроченных заявок за год <b>0</b></li><li>Контрактов подписано <b>27</b></li></ul>
           </div>
         </div>
 
@@ -860,37 +856,6 @@
   </div>
 </section>
 
-<!-- ============ integrations ============ -->
-<section class="integrations" id="integrations">
-  <div class="integrations__wrap">
-    <div class="integrations__copy" data-reveal="left">
-      <span class="eyebrow eyebrow--light"><span class="dot"></span> Единая экосистема</span>
-      <h2>Интеграции для <span class="h-spark">эффективной работы</span></h2>
-      <p>Платформа подключается к инструментам, которыми команда уже пользуется: почта, документы, календарь, CRM, банк и учётные системы.</p>
-      <div class="store-btns">
-        <a href="#" class="store-btn"><svg class="icon"><use href="#i-apple"/></svg><span><small>Загрузить в</small><b>App Store</b></span></a>
-        <a href="#" class="store-btn"><svg class="icon"><use href="#i-gplay"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
-      </div>
-    </div>
-    <div class="cluster" data-reveal="right">
-      <div class="cluster__blob" aria-hidden="true"></div>
-      <div class="cluster__item" style="left:4%;top:8%;--fd:6s" title="Почта"><svg class="icon"><use href="#i-mail"/></svg></div>
-      <div class="cluster__item cluster__item--violet" style="left:24%;top:0;--fd:7s;--fdl:-1s" title="Документы"><svg class="icon"><use href="#i-file"/></svg></div>
-      <div class="cluster__item cluster__item--gold" style="left:44%;top:10%;--fd:6.5s;--fdl:-2s" title="Аналитика"><svg class="icon"><use href="#i-chart"/></svg></div>
-      <div class="cluster__item cluster__item--green" style="left:64%;top:2%;--fd:7.2s;--fdl:-3s" title="Финансы"><svg class="icon"><use href="#i-wallet"/></svg></div>
-      <div class="cluster__item cluster__item--magenta" style="left:84%;top:12%;--fd:6.2s;--fdl:-0.6s" title="Календарь"><svg class="icon"><use href="#i-calendar"/></svg></div>
-      <div class="cluster__item cluster__item--navy cluster__item--sm" style="left:12%;top:42%;--fd:6.8s;--fdl:-1.8s" title="CRM"><svg class="icon"><use href="#i-users"/></svg></div>
-      <div class="cluster__item" style="left:32%;top:38%;--fd:7.4s;--fdl:-2.4s" title="Облачное хранилище"><svg class="icon"><use href="#i-cloud"/></svg></div>
-      <div class="cluster__item cluster__item--red" style="left:54%;top:44%;--fd:6.1s;--fdl:-3.2s" title="Уведомления"><svg class="icon"><use href="#i-bell"/></svg></div>
-      <div class="cluster__item cluster__item--violet cluster__item--sm" style="left:76%;top:40%;--fd:6.9s;--fdl:-1.2s" title="Отчёты"><svg class="icon"><use href="#i-report"/></svg></div>
-      <div class="cluster__item cluster__item--navy" style="left:20%;top:72%;--fd:7.1s;--fdl:-2.9s" title="Банк"><svg class="icon"><use href="#i-bank"/></svg></div>
-      <div class="cluster__item cluster__item--green cluster__item--sm" style="left:44%;top:76%;--fd:6.4s;--fdl:-0.9s" title="Мессенджеры"><svg class="icon"><use href="#i-message"/></svg></div>
-      <div class="cluster__item cluster__item--gold" style="left:64%;top:70%;--fd:6.6s;--fdl:-2.1s" title="Учётные системы"><svg class="icon"><use href="#i-database"/></svg></div>
-      <div class="cluster__item cluster__item--sm" style="left:86%;top:74%;--fd:7.3s;--fdl:-3.6s" title="Платежи"><svg class="icon"><use href="#i-card"/></svg></div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ footer ============ -->
 <footer class="footer" id="cta">
   <div class="footer__card">
@@ -905,7 +870,7 @@
       </div>
       <div class="footer__col">
         <h4>Продукт</h4>
-        <ul><li><a href="#platform">Возможности</a></li><li><a href="#">Тарифы</a></li><li><a href="#integrations">Интеграции</a></li><li><a href="#">Обновления</a></li><li><a href="#">API</a></li></ul>
+        <ul><li><a href="#platform">Возможности</a></li><li><a href="#">Тарифы</a></li><li><a href="#features">Решения</a></li><li><a href="#">Обновления</a></li><li><a href="#">API</a></li></ul>
       </div>
       <div class="footer__col">
         <h4>Компания</h4>
@@ -923,7 +888,7 @@
 
     <div class="footer__cta" data-reveal>
       <div>
-        <span class="eyebrow"><span class="dot"></span> Свяжитесь с нами сегодня</span>
+        <span class="eyebrow">Свяжитесь с нами сегодня</span>
         <h2>Готовы выиграть следующий тендер?</h2>
       </div>
       <a href="#" class="cta-circle" aria-label="Начать работу"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
