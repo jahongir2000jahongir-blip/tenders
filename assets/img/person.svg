@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 1000" width="600" height="1000">
+  <defs>
+    <linearGradient id="skin" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6CDB0"/>
+      <stop offset="1" stop-color="#E9B08C"/>
+    </linearGradient>
+    <linearGradient id="skinShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7AB88"/>
+      <stop offset="1" stop-color="#D7987A"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.6" stop-color="#F3F5FA"/>
+      <stop offset="1" stop-color="#E1E6F2"/>
+    </linearGradient>
+    <linearGradient id="shirtShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D7DDEA"/>
+      <stop offset="1" stop-color="#EEF1F7"/>
+    </linearGradient>
+    <linearGradient id="hair" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5A3A24"/>
+      <stop offset="1" stop-color="#3D2617"/>
+    </linearGradient>
+    <linearGradient id="pants" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#D8C3A1"/>
+      <stop offset="0.5" stop-color="#E6D4B5"/>
+      <stop offset="1" stop-color="#CDB58F"/>
+    </linearGradient>
+    <linearGradient id="laptopTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9ECF3"/>
+      <stop offset="1" stop-color="#C5CBD9"/>
+    </linearGradient>
+    <linearGradient id="laptopScreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EDF1FA"/>
+    </linearGradient>
+    <linearGradient id="chartBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0D6EF0"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <radialGradient id="cheek" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#F0A08A" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#F0A08A" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6"/>
+    </filter>
+  </defs>
+
+  <!-- ===== Trousers ===== -->
+  <path d="M176 560 L424 560 L436 700 C442 800 436 900 430 1000 L332 1000 C330 900 322 800 300 690 C278 800 270 900 268 1000 L170 1000 C164 900 158 800 164 700 Z" fill="url(#pants)"/>
+  <path d="M300 690 C278 800 270 900 268 1000 L304 1000 C306 900 308 800 300 690 Z" fill="#C4AA82" opacity="0.45"/>
+  <path d="M176 560 L424 560 L426 592 C380 606 220 606 174 592 Z" fill="#B99E76" opacity="0.35"/>
+  <!-- belt -->
+  <rect x="172" y="546" width="256" height="30" rx="4" fill="#3B2A1E"/>
+  <rect x="284" y="543" width="34" height="36" rx="6" fill="#C9A24A"/>
+  <rect x="291" y="550" width="20" height="22" rx="3" fill="#3B2A1E"/>
+
+  <!-- ===== Shirt body ===== -->
+  <path d="M172 262 C148 276 138 330 150 420 L172 562 L428 562 L450 420 C462 330 452 276 428 262 C400 244 340 236 300 236 C260 236 200 244 172 262 Z" fill="url(#shirt)"/>
+  <!-- torso shading -->
+  <path d="M172 262 C148 276 138 330 150 420 L172 562 L236 562 L226 420 C216 330 212 290 172 262 Z" fill="url(#shirtShade)" opacity="0.65"/>
+  <path d="M428 262 C452 276 462 330 450 420 L428 562 L386 562 L394 420 C400 330 402 290 428 262 Z" fill="#E4E9F3" opacity="0.7"/>
+  <!-- placket & buttons -->
+  <path d="M300 272 L300 560" stroke="#D5DBE8" stroke-width="2"/>
+  <path d="M312 274 L312 560" stroke="#E4E8F1" stroke-width="1.5"/>
+  <g fill="#C8CFDD">
+    <circle cx="306" cy="330" r="3.4"/><circle cx="306" cy="390" r="3.4"/><circle cx="306" cy="450" r="3.4"/><circle cx="306" cy="510" r="3.4"/>
+  </g>
+  <!-- collar -->
+  <path d="M258 236 L300 300 L342 236 L332 232 L300 276 L268 232 Z" fill="#F7F8FC"/>
+  <path d="M254 230 C262 218 274 212 288 210 L300 264 L312 210 C326 212 338 218 346 230 L314 246 L300 300 L286 246 Z" fill="#FFFFFF" stroke="#D9DFEB" stroke-width="2" stroke-linejoin="round"/>
+  <!-- neck -->
+  <path d="M272 196 L328 196 L332 232 C324 246 312 258 300 264 C288 258 276 246 268 232 Z" fill="url(#skinShade)"/>
+
+  <!-- ===== Right side arm (viewer right) holding laptop ===== -->
+  <path d="M426 262 C450 268 468 300 474 350 L486 440 C488 458 480 470 466 472 L450 474 C438 476 430 468 430 456 L424 380 C420 340 416 300 426 262 Z" fill="#F4F6FB"/>
+  <path d="M474 350 L486 440 C488 458 480 470 466 472 L450 474 C438 476 430 468 430 456 L424 380 Z" fill="#E1E6F2" opacity="0.6"/>
+  <!-- rolled sleeve cuff -->
+  <path d="M424 438 C446 452 470 452 490 440 L492 458 C470 472 444 474 424 462 Z" fill="#EEF1F8" stroke="#D9DFEB" stroke-width="2"/>
+  <!-- forearm -->
+  <path d="M430 458 C440 500 424 520 400 528 L370 536 C352 540 342 528 344 512 C346 496 360 486 378 484 L404 478 C418 474 426 466 430 458 Z" fill="url(#skin)"/>
+
+  <!-- ===== Laptop ===== -->
+  <g transform="translate(300 400) rotate(-6)">
+    <!-- screen back -->
+    <path d="M40 -10 L250 -30 L268 120 L60 140 Z" fill="#3A3F52"/>
+    <path d="M52 2 L242 -16 L256 108 L70 124 Z" fill="url(#laptopScreen)"/>
+    <!-- mini UI -->
+    <g opacity="0.95">
+      <rect x="66" y="12" width="60" height="6" rx="3" fill="#0D6EF0" transform="rotate(-5 66 12)"/>
+      <rect x="66" y="26" width="120" height="4" rx="2" fill="#CDD5E5" transform="rotate(-5 66 26)"/>
+      <g transform="translate(74 46) rotate(-5)">
+        <rect x="0" y="34" width="14" height="30" rx="3" fill="#7C3AED"/>
+        <rect x="20" y="20" width="14" height="44" rx="3" fill="#0D6EF0"/>
+        <rect x="40" y="28" width="14" height="36" rx="3" fill="#7C3AED"/>
+        <rect x="60" y="8" width="14" height="56" rx="3" fill="#0D6EF0"/>
+        <rect x="80" y="18" width="14" height="46" rx="3" fill="#F8B800"/>
+        <rect x="100" y="0" width="14" height="64" rx="3" fill="#0D6EF0"/>
+      </g>
+      <g transform="translate(200 40) rotate(-5)">
+        <circle cx="22" cy="22" r="18" fill="none" stroke="#E3E8F4" stroke-width="7"/>
+        <circle cx="22" cy="22" r="18" fill="none" stroke="url(#chartBlue)" stroke-width="7" stroke-dasharray="80 120" stroke-linecap="round" transform="rotate(-90 22 22)"/>
+      </g>
+    </g>
+    <!-- base -->
+    <path d="M60 140 L268 120 L300 150 L60 174 Z" fill="url(#laptopTop)"/>
+    <path d="M60 174 L300 150 L302 158 L62 182 Z" fill="#AEB6C8"/>
+    <rect x="110" y="146" width="120" height="6" rx="3" fill="#9AA3B8" transform="rotate(-6 110 146)" opacity="0.6"/>
+  </g>
+  <!-- hand on laptop (viewer right) -->
+  <path d="M372 536 C388 542 404 540 414 530 L426 516 C432 508 428 496 418 496 C410 496 404 502 400 508 L380 516 C368 520 362 530 372 536 Z" fill="url(#skin)"/>
+
+  <!-- ===== Left side arm (viewer left) thumbs up ===== -->
+  <!-- upper arm sleeve -->
+  <path d="M176 262 C150 270 132 302 128 352 L120 424 C118 442 128 456 146 456 L166 454 C178 452 186 442 186 430 L190 368 C192 330 188 292 176 262 Z" fill="#F7F8FC"/>
+  <path d="M176 262 C150 270 132 302 128 352 L120 424 C119 436 124 446 134 452 L150 380 C158 330 164 292 176 262 Z" fill="url(#shirtShade)" opacity="0.6"/>
+  <!-- rolled cuff -->
+  <path d="M118 416 C140 430 166 430 190 420 L192 438 C168 452 140 452 118 440 Z" fill="#EEF1F8" stroke="#D9DFEB" stroke-width="2"/>
+  <!-- forearm folding up -->
+  <path d="M126 440 C118 400 136 366 160 340 L182 318 C192 308 208 310 214 322 C220 334 216 348 206 356 L186 372 C170 386 166 410 170 440 Z" fill="url(#skin)"/>
+  <path d="M126 440 C118 400 136 366 160 340 L170 330 C160 360 150 400 152 440 Z" fill="#E7AB88" opacity="0.35"/>
+  <!-- fist -->
+  <path d="M170 322 C168 306 178 292 196 290 L212 290 C228 290 238 302 236 318 L234 336 C232 350 220 358 206 358 L190 358 C176 358 170 350 170 340 Z" fill="url(#skin)"/>
+  <path d="M182 312 C196 306 214 306 230 312 M182 328 C196 322 214 322 230 328 M184 344 C196 338 212 338 226 344" stroke="#D9977A" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.55"/>
+  <!-- thumb up -->
+  <path d="M196 292 C194 280 194 268 200 258 C206 248 220 250 224 260 C228 270 226 282 224 294 Z" fill="url(#skin)"/>
+  <path d="M206 262 C209 272 209 282 208 292" stroke="#D9977A" stroke-width="1.6" stroke-linecap="round" opacity="0.5"/>
+
+  <!-- ===== Head ===== -->
+  <!-- hair back -->
+  <path d="M232 132 C232 80 262 52 300 52 C338 52 368 80 368 132 L366 168 L234 168 Z" fill="url(#hair)"/>
+  <!-- ears -->
+  <ellipse cx="236" cy="152" rx="12" ry="17" fill="url(#skinShade)"/>
+  <ellipse cx="364" cy="152" rx="12" ry="17" fill="url(#skinShade)"/>
+  <!-- face -->
+  <path d="M242 118 C242 84 268 66 300 66 C332 66 358 84 358 118 L358 152 C358 196 334 224 300 226 C266 224 242 196 242 152 Z" fill="url(#skin)"/>
+  <!-- beard -->
+  <path d="M244 160 C248 200 268 226 300 228 C332 226 352 200 356 160 C352 178 342 192 332 198 C322 204 312 206 300 206 C288 206 278 204 268 198 C258 192 248 178 244 160 Z" fill="#4A2F1E" opacity="0.92"/>
+  <path d="M258 176 C270 190 284 196 300 196 C316 196 330 190 342 176 C334 200 318 210 300 210 C282 210 266 200 258 176 Z" fill="#3D2617" opacity="0.6"/>
+  <!-- mouth -->
+  <path d="M280 178 C288 190 312 190 320 178 Z" fill="#FFFFFF"/>
+  <path d="M278 176 C290 188 310 188 322 176" stroke="#7A3F2C" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <!-- cheeks -->
+  <circle cx="262" cy="156" r="16" fill="url(#cheek)"/>
+  <circle cx="338" cy="156" r="16" fill="url(#cheek)"/>
+  <!-- nose -->
+  <path d="M300 130 L294 156 C294 160 298 162 302 160" stroke="#D3906F" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- eyebrows -->
+  <path d="M258 116 C268 108 282 108 292 114" stroke="#4A2F1E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M308 114 C318 108 332 108 342 116" stroke="#4A2F1E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- eyes -->
+  <ellipse cx="276" cy="134" rx="6" ry="6.5" fill="#FFFFFF"/>
+  <ellipse cx="324" cy="134" rx="6" ry="6.5" fill="#FFFFFF"/>
+  <circle cx="277" cy="135" r="3.4" fill="#2A1A10"/>
+  <circle cx="325" cy="135" r="3.4" fill="#2A1A10"/>
+  <circle cx="278.3" cy="133.6" r="1.1" fill="#FFF"/>
+  <circle cx="326.3" cy="133.6" r="1.1" fill="#FFF"/>
+  <!-- glasses -->
+  <g fill="none" stroke="#2B2B33" stroke-width="2.6">
+    <rect x="256" y="120" width="40" height="30" rx="12"/>
+    <rect x="304" y="120" width="40" height="30" rx="12"/>
+    <path d="M296 134 L304 134"/>
+    <path d="M256 132 L242 128 M344 132 L358 128"/>
+  </g>
+  <rect x="258" y="122" width="36" height="26" rx="11" fill="#FFFFFF" opacity="0.12"/>
+  <rect x="306" y="122" width="36" height="26" rx="11" fill="#FFFFFF" opacity="0.12"/>
+  <!-- hair front -->
+  <path d="M236 128 C236 90 262 60 300 58 C336 56 366 78 368 118 C356 100 336 90 314 92 C300 94 292 100 284 104 C270 96 250 104 236 128 Z" fill="url(#hair)"/>
+  <path d="M250 94 C266 72 296 64 322 70 C304 74 288 84 278 98 C268 92 258 92 250 94 Z" fill="#6E4A30" opacity="0.6"/>
+</svg>

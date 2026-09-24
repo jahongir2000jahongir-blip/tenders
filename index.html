@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tenders.best — платформа для тендеров и закупок</title>
+  <meta name="description" content="tenders.best помогает компаниям находить тендеры, контролировать сроки, работать с документами, анализировать закупки и повышать процент побед.">
+  <meta property="og:title" content="tenders.best — управляйте тендерами и выигрывайте закупки">
+  <meta property="og:description" content="Поиск тендеров, контроль сроков, документы, бюджет и аналитика — в одной системе.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/manrope-800-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/inter-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/fonts.css">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- ============ icon sprite ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0d6ef0"/><stop offset="1" stop-color="#c42be0"/></linearGradient>
+    <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7c3aed" stop-opacity="0.28"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></linearGradient>
+    <linearGradient id="orbitGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0d6ef0"/><stop offset="1" stop-color="#c42be0"/></linearGradient>
+    <linearGradient id="donutA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f8bff"/><stop offset="1" stop-color="#0b3c8c"/></linearGradient>
+    <linearGradient id="donutB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a35bff"/><stop offset="1" stop-color="#5b21b6"/></linearGradient>
+    <linearGradient id="donutC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd257"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+    <linearGradient id="donutD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e05cf5"/><stop offset="1" stop-color="#9d1fb8"/></linearGradient>
+
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></symbol>
+    <symbol id="i-contract" viewBox="0 0 24 24"><path d="M20 19.5v.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8.5L18 5.5v3"/><path d="M14 2v4h4"/><path d="M8 18h2"/><path d="M18.4 9.6a2 2 0 1 1 3 3L17 17l-4 1 1-4Z"/></symbol>
+    <symbol id="i-money" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24"><path d="M3 22h18"/><path d="M6 18v-7"/><path d="M10 18v-7"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M12 2 2 8h20z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-line" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="M22 7 13.5 15.5 8.5 10.5 2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-gavel" viewBox="0 0 24 24"><path d="m14 13-7.5 7.5a2.12 2.12 0 0 1-3-3L11 10"/><path d="m16 16 6-6"/><path d="m8 8 6-6"/><path d="m9 7 8 8"/><path d="m21 11-8-8"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><path d="M2 13h20"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-pie" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4M12 16h4M8 11h.01M8 16h.01"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="m6 3 14 9-14 9V3z"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.8a2 2 0 0 0 1.3 1.3L21 12l-5.8 1.9a2 2 0 0 0-1.3 1.3L12 21l-1.9-5.8a2 2 0 0 0-1.3-1.3L3 12l5.8-1.9a2 2 0 0 0 1.3-1.3Z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-workflow" viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect x="13" y="13" width="8" height="8" rx="2"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect width="7" height="9" x="3" y="3" rx="1"/><rect width="7" height="5" x="14" y="3" rx="1"/><rect width="7" height="9" x="14" y="12" rx="1"/><rect width="7" height="5" x="3" y="16" rx="1"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+    <symbol id="i-percent" viewBox="0 0 24 24"><path d="M19 5 5 19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 24 24"><circle cx="8" cy="8" r="6"/><path d="M18.09 10.37A6 6 0 1 1 10.34 18"/><path d="M7 6h1v4"/><path d="m16.71 13.88.7.71-2.82 2.82"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+    <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-6 0c0 2 1 2 1 3.5V13"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+    <symbol id="i-calc" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path d="M16.37 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9-.7 0-1.8-.9-3-.8-1.5 0-2.9.9-3.7 2.2-1.6 2.8-.4 6.8 1.1 9 .8 1.1 1.7 2.3 2.8 2.3 1.1 0 1.6-.7 2.9-.7 1.4 0 1.8.7 3 .7s2-1.1 2.8-2.2c.9-1.3 1.2-2.5 1.2-2.6 0 0-2.4-.9-2.2-3.5zM14.1 5.8c.6-.7 1-1.7.9-2.8-.9 0-2 .6-2.6 1.4-.6.7-1.1 1.7-.9 2.7 1 .1 2-.5 2.6-1.3z"/></symbol>
+    <symbol id="i-gplay" viewBox="0 0 24 24"><path d="M4 3.5v17c0 .6.7 1 1.2.7l14.6-8.5c.5-.3.5-1 0-1.3L5.2 2.9C4.7 2.6 4 2.9 4 3.5z"/><path d="M4.3 3.1 14.9 12 4.3 20.9" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1"/></symbol>
+  </defs>
+</svg>
+
+<div class="page-aura" aria-hidden="true"></div>
+
+<!-- ============ header ============ -->
+<header class="header" id="header">
+  <div class="container">
+    <div class="header__bar">
+      <a href="#top" class="brand" aria-label="tenders.best — на главную">
+        <img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="44" height="44">
+        <span class="brand__name">tenders<b>.best</b></span>
+      </a>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#platform">Возможности</a>
+        <a href="#why">Почему мы</a>
+        <a href="#features">Решения</a>
+        <a href="#how">Как это работает</a>
+        <a href="#reviews">Отзывы</a>
+      </nav>
+      <div class="header__actions">
+        <a href="#" class="header__login">Войти</a>
+        <a href="#cta" class="btn btn--primary btn--sm">Начать бесплатно <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#platform">Возможности</a>
+  <a href="#why">Почему мы</a>
+  <a href="#features">Решения</a>
+  <a href="#how">Как это работает</a>
+  <a href="#reviews">Отзывы</a>
+  <a href="#integrations">Интеграции</a>
+  <a href="#cta" class="btn btn--primary btn--lg">Начать работу</a>
+</div>
+
+<main id="top">
+
+<!-- ============ hero ============ -->
+<section class="hero">
+  <div class="hero__card">
+    <div class="hero__glow hero__glow--1"></div>
+    <div class="hero__glow hero__glow--2"></div>
+    <div class="hero__glow hero__glow--3"></div>
+    <div class="blob blob--hero-left" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <span class="eyebrow" data-reveal style="--i:0"><span class="dot"></span> Платформа для тендеров и закупок</span>
+        <h1 class="hero__title" data-reveal style="--i:1">Управляйте тендерами и побеждайте <span class="h-spark">в&nbsp;закупках</span></h1>
+        <p class="hero__lead" data-reveal style="--i:2">tenders.best помогает командам находить актуальные тендеры, контролировать сроки подачи, работать с документами, следить за бюджетом и повышать процент побед.</p>
+        <div class="hero__cta" data-reveal style="--i:3">
+          <a href="#cta" class="btn btn--primary btn--lg">Начать работу <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          <a href="#platform" class="btn btn--ghost btn--lg"><svg class="icon"><use href="#i-play"/></svg> Посмотреть возможности</a>
+        </div>
+        <div class="hero__proof" data-reveal style="--i:4">
+          <div class="avatars"><span>АК</span><span>МС</span><span>ДВ</span><span>ЕЛ</span></div>
+          <div>
+            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+            <b>4.9/5</b> · более 2 400 компаний уже работают в системе
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual" id="heroVisual">
+        <div class="hero__scene">
+          <!-- dashboard -->
+          <div class="hero__dash" data-parallax="0.35" data-reveal="scale">
+            <div class="dash dash--bezel" data-anim>
+              <aside class="dash__side">
+                <div class="dash__logo"><img src="assets/img/logo-mark.png" alt="">tenders.best</div>
+                <a class="dash__nav is-active"><svg class="icon"><use href="#i-grid"/></svg> Дашборд</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-search"/></svg> Тендеры</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-file"/></svg> Заявки</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-folder"/></svg> Документы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-wallet"/></svg> Финансы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-users"/></svg> Команда</a>
+                <div class="dash__side-foot"><b>Pro-тариф</b>Осталось 24 дня<div class="progress" style="margin-top:6px"><i style="--w:68%"></i></div></div>
+              </aside>
+              <div class="dash__main">
+                <div class="dash__top">
+                  <h4>Обзор закупок<small>Сегодня, 24 сентября</small></h4>
+                  <div class="dash__search"><svg class="icon"><use href="#i-search"/></svg> Поиск по тендерам…</div>
+                  <div class="dash__user"><span class="dash__bell"><svg class="icon"><use href="#i-bell"/></svg></span><i>АК</i></div>
+                </div>
+                <div class="kpis">
+                  <div class="kpi"><div class="kpi__label">Тендеры</div><div class="kpi__value"><span data-count="128">0</span></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+12%</span></div>
+                  <div class="kpi"><div class="kpi__label">Процент побед</div><div class="kpi__value"><span data-count="42">0</span><small>%</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+4,1%</span></div>
+                  <div class="kpi"><div class="kpi__label">Бюджет заявок</div><div class="kpi__value"><span data-count="84.6" data-decimals="1">0</span><small>млн ₽</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+8%</span></div>
+                  <div class="kpi kpi--accent"><div class="kpi__label">Контракты</div><div class="kpi__value"><span data-count="312">0</span><small>млн ₽</small></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+18%</span></div>
+                </div>
+                <div class="dash__row">
+                  <div class="panel">
+                    <div class="panel__head"><b>Заявки по месяцам</b><span>Поданы · Выиграны</span></div>
+                    <div class="bars">
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:30%;--i:0"></div><div class="bars__bar" style="--h:22%;--i:0"></div></div><span class="bars__label">Апр</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:34%;--i:1"></div><div class="bars__bar" style="--h:30%;--i:1"></div></div><span class="bars__label">Май</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:26%;--i:2"></div><div class="bars__bar" style="--h:38%;--i:2"></div></div><span class="bars__label">Июн</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:30%;--i:3"></div><div class="bars__bar bars__bar--blue" style="--h:46%;--i:3"></div></div><span class="bars__label">Июл</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:22%;--i:4"></div><div class="bars__bar" style="--h:52%;--i:4"></div></div><span class="bars__label">Авг</span></div>
+                      <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--soft" style="--h:20%;--i:5"></div><div class="bars__bar bars__bar--gold" style="--h:64%;--i:5"></div></div><span class="bars__label">Сен</span></div>
+                    </div>
+                  </div>
+                  <div class="panel panel--donut">
+                    <div class="panel__head"><b>Категории</b><span>Квартал</span></div>
+                    <div class="donut">
+                      <svg viewBox="0 0 100 100">
+                        <circle class="donut__track" cx="50" cy="50" r="40"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="38" data-offset="0"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="24" data-offset="38"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutC)" data-seg="21" data-offset="62"/>
+                        <circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutD)" data-seg="17" data-offset="83"/>
+                      </svg>
+                      <div class="donut__center"><div><b>128</b><small>тендеров</small></div></div>
+                    </div>
+                    <ul class="legend">
+                      <li><i style="--c:#2f8bff"></i>Строительство<b>38%</b></li>
+                      <li><i style="--c:#a35bff"></i>Медицина<b>24%</b></li>
+                      <li><i style="--c:#ffd257"></i>IT и связь<b>21%</b></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="dash__row dash__row--2">
+                  <div class="panel">
+                    <div class="panel__head"><b>Последние заявки</b><span>Все</span></div>
+                    <div class="tlist">
+                      <div class="tlist__row tlist__row--head"><span>Тендер</span><span>Дедлайн</span><span>Сумма</span><span>Статус</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i><svg class="icon"><use href="#i-building"/></svg></i><span>Реконструкция школы №14</span></div><span>02.10</span><span class="tlist__sum">24,8 млн</span><span class="status status--win">Победа</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i class="c2"><svg class="icon"><use href="#i-shield"/></svg></i><span>Поставка медоборудования</span></div><span>06.10</span><span class="tlist__sum">12,4 млн</span><span class="status status--review">На оценке</span></div>
+                      <div class="tlist__row"><div class="tlist__name"><i class="c3"><svg class="icon"><use href="#i-zap"/></svg></i><span>Модернизация подстанции</span></div><span>11.10</span><span class="tlist__sum">48,0 млн</span><span class="status status--draft">Черновик</span></div>
+                    </div>
+                  </div>
+                  <div class="panel">
+                    <div class="panel__head"><b>Ближайшие дедлайны</b><span>3</span></div>
+                    <div class="deadlines">
+                      <div class="deadline"><div class="deadline__date deadline__date--hot"><b>26</b><small>сен</small></div><div class="deadline__body"><b>Ремонт дорожного полотна</b><small>Осталось 2 дня</small></div></div>
+                      <div class="deadline"><div class="deadline__date"><b>30</b><small>сен</small></div><div class="deadline__body"><b>ИТ-инфраструктура вуза</b><small>Осталось 6 дней</small></div></div>
+                      <div class="deadline"><div class="deadline__date"><b>04</b><small>окт</small></div><div class="deadline__body"><b>Поставка спецтехники</b><small>Осталось 10 дней</small></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hero__dash-stand"></div>
+          </div>
+
+          <!-- businessman -->
+          <div class="hero__person" data-parallax="0.15" data-reveal>
+            <img src="assets/img/person.svg" alt="Специалист по тендерам с ноутбуком" width="400" height="667">
+          </div>
+
+          <!-- floating badges -->
+          <div class="badge-wrap bw-file" data-parallax="0.9"><span class="badge badge--lg badge--blue" style="--fd:6.5s"><svg class="icon"><use href="#i-file"/></svg></span></div>
+          <div class="badge-wrap bw-contract" data-parallax="0.6"><span class="badge badge--violet" style="--fd:7s;--fdl:-1.5s"><svg class="icon"><use href="#i-contract"/></svg></span></div>
+          <div class="badge-wrap bw-chart" data-parallax="0.8"><span class="badge badge--sm badge--magenta" style="--fd:5.5s;--fdl:-2.4s"><svg class="icon"><use href="#i-chart"/></svg></span></div>
+          <div class="badge-wrap bw-money" data-parallax="0.7"><span class="badge badge--lg badge--gold" style="--fd:7.5s;--fdl:-0.8s"><svg class="icon"><use href="#i-money"/></svg></span></div>
+          <div class="badge-wrap bw-bank" data-parallax="1"><span class="badge badge--navy" style="--fd:6s;--fdl:-3s"><svg class="icon"><use href="#i-bank"/></svg></span></div>
+          <div class="badge-wrap bw-check" data-parallax="0.8"><span class="badge badge--lg badge--green" style="--fd:6.8s;--fdl:-1.2s"><svg class="icon"><use href="#i-badge"/></svg></span></div>
+          <div class="badge-wrap badge-wrap--hide-sm bw-calendar" data-parallax="0.55"><span class="badge badge--sm badge--blue" style="--fd:5.8s;--fdl:-2s"><svg class="icon"><use href="#i-calendar"/></svg></span></div>
+          <div class="badge-wrap bw-bell" data-parallax="0.9"><span class="badge badge--sm badge--red" style="--fd:6.2s;--fdl:-0.5s"><svg class="icon"><use href="#i-bell"/></svg></span></div>
+          <div class="badge-wrap bw-shield" data-parallax="0.65"><span class="badge badge--white" style="--fd:7.2s;--fdl:-3.6s"><svg class="icon"><use href="#i-shield"/></svg></span></div>
+          <div class="badge-wrap badge-wrap--hide-sm bw-gavel" data-parallax="0.75"><span class="badge badge--sm badge--violet" style="--fd:6.4s;--fdl:-1.8s"><svg class="icon"><use href="#i-gavel"/></svg></span></div>
+          <div class="badge-wrap badge-wrap--hide-sm bw-trend" data-parallax="0.5"><span class="badge badge--sm badge--gold" style="--fd:5.6s;--fdl:-2.8s"><svg class="icon"><use href="#i-trend"/></svg></span></div>
+          <div class="badge-wrap badge-wrap--hide-sm bw-brief" data-parallax="0.7"><span class="badge badge--sm badge--navy" style="--fd:6.9s;--fdl:-4s"><svg class="icon"><use href="#i-briefcase"/></svg></span></div>
+
+          <!-- floating mini cards -->
+          <div class="float-card fc-win" data-parallax="0.45" style="--fd:8s;--fdl:-2s">
+            <span class="float-card__ico float-card__ico--green"><svg class="icon"><use href="#i-check"/></svg></span>
+            <span><small>Итоги тендера</small><strong>Победа · 12,4 млн ₽</strong></span>
+          </div>
+          <div class="float-card fc-deadline" data-parallax="0.5" style="--fd:7s;--fdl:-4s">
+            <span class="float-card__ico float-card__ico--gold"><svg class="icon"><use href="#i-clock"/></svg></span>
+            <span><small>Дедлайн подачи</small><strong>Через 2 дня</strong> <em>·  готово 92%</em></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ platform / tabs ============ -->
+<section class="section" id="platform">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="dot"></span> Всё для работы с тендерами</span>
+      <h2><span class="h-spark">Платформа работает на результат</span></h2>
+      <p>Поиск, аналитика, документы, команда, бюджет и отчёты — единая система, которая закрывает весь цикл участия в закупках.</p>
+    </div>
+
+    <div class="tabs" role="tablist" data-reveal>
+      <button class="tab is-active" role="tab" data-tab="search" aria-selected="true">Поиск тендеров</button>
+      <button class="tab" role="tab" data-tab="analytics" aria-selected="false">Аналитика</button>
+      <button class="tab" role="tab" data-tab="docs" aria-selected="false">Документы</button>
+      <button class="tab" role="tab" data-tab="team" aria-selected="false">Команда</button>
+      <button class="tab" role="tab" data-tab="budget" aria-selected="false">Бюджет</button>
+      <button class="tab" role="tab" data-tab="reports" aria-selected="false">Отчёты</button>
+    </div>
+
+    <div class="showcase" data-reveal>
+      <div class="showcase__blob" aria-hidden="true"></div>
+      <div class="showcase__blob showcase__blob--2" aria-hidden="true"></div>
+      <div class="showcase__card">
+
+        <!-- panel: search -->
+        <div class="showcase__panel is-active" data-panel="search">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-search"/></svg> Поиск и подбор</span>
+            <h3>Находите подходящие тендеры за минуты</h3>
+            <p>Система собирает закупки со всех площадок и показывает только те, что подходят вашей компании.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Поиск актуальных тендеров по всем площадкам</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Умные фильтры по отрасли, региону и сумме</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Мгновенные уведомления о новых закупках</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Попробовать поиск <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Результаты поиска <span>1 248 найдено</span></h5>
+              <div class="chip-row"><span class="chip chip--on">Строительство</span><span class="chip">Москва и МО</span><span class="chip">до 50 млн ₽</span></div>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-building"/></svg></i><div><b>Капремонт поликлиники №7</b><small>ЕИС · 18,2 млн ₽ · до 03.10</small></div><span class="status status--review">Новый</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-layers"/></svg></i><div><b>Благоустройство набережной</b><small>Сбер-АСТ · 42,6 млн ₽ · до 09.10</small></div><span class="status status--win">Подходит</span></div>
+              <div class="doc-row"><i class="c3"><svg class="icon"><use href="#i-zap"/></svg></i><div><b>Электромонтаж в ДОУ</b><small>РТС-тендер · 6,9 млн ₽ · до 12.10</small></div><span class="status status--draft">Оценка</span></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Новые сегодня <span>+37</span></h5>
+              <div class="bars" style="height:64px">
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:40%;--i:0"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:55%;--i:1"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:35%;--i:2"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:70%;--i:3"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:60%;--i:4"></div></div></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:90%;--i:5"></div></div></div>
+              </div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Сохранённые подборки <span>4</span></h5>
+              <div class="doc-row"><i class="c4"><svg class="icon"><use href="#i-bookmark"/></svg></i><div><b>Дорожные работы · Юг</b><small>12 тендеров · обновлено 5 мин назад</small></div></div>
+              <div class="doc-row" style="margin-bottom:0"><i><svg class="icon"><use href="#i-bookmark"/></svg></i><div><b>Медоборудование · 223-ФЗ</b><small>8 тендеров · 2 новых</small></div><span class="status status--review">+2</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: analytics -->
+        <div class="showcase__panel" data-panel="analytics">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-line"/></svg> Аналитика закупок</span>
+            <h3>Аналитика, которая показывает, где вы выигрываете</h3>
+            <p>Понимайте, какие категории, заказчики и суммы приносят победы, и отказывайтесь от невыгодных лотов.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Аналитика по закупкам и конкурентам</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Динамика побед и средний чек по месяцам</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Прогноз вероятности победы по каждому лоту</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Смотреть аналитику <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Динамика побед <span>12 месяцев</span></h5>
+              <svg class="line-chart" viewBox="0 0 300 120" preserveAspectRatio="none">
+                <g class="grid"><line x1="0" y1="20" x2="300" y2="20"/><line x1="0" y1="50" x2="300" y2="50"/><line x1="0" y1="80" x2="300" y2="80"/><line x1="0" y1="110" x2="300" y2="110"/></g>
+                <path class="area" d="M0 90 C30 86 40 70 60 72 S100 80 120 62 S160 40 180 46 S220 30 240 24 S280 20 300 14 L300 120 L0 120 Z"/>
+                <path class="line" d="M0 90 C30 86 40 70 60 72 S100 80 120 62 S160 40 180 46 S220 30 240 24 S280 20 300 14"/>
+                <circle class="pt" cx="240" cy="24" r="4"/>
+                <g class="tip"><rect x="206" y="0" width="68" height="18" rx="6" fill="#0e1230"/><text x="240" y="12.5" text-anchor="middle" font-size="9" fill="#fff" font-family="Inter, sans-serif" font-weight="600">Побед: 46%</text></g>
+              </svg>
+            </div>
+            <div class="mini mini--b">
+              <h5>Доля побед</h5>
+              <div class="donut">
+                <svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="42" data-offset="0"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="31" data-offset="42"/></svg>
+                <div class="donut__center"><div><b>42%</b><small>побед</small></div></div>
+              </div>
+              <ul class="legend"><li><i style="--c:#a35bff"></i>Выиграно<b>54</b></li><li><i style="--c:#2f8bff"></i>На оценке<b>40</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Конкуренты <span>Топ-3</span></h5>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">СГ</i><div><b>СтройГрад</b><small>участий: 38 · побед 29%</small></div><div class="progress"><i style="--w:29%;--i:0"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#a35bff,#5b21b6)">ТМ</i><div><b>ТехМонтаж</b><small>участий: 26 · побед 23%</small></div><div class="progress"><i style="--w:23%;--i:1"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ЭР</i><div><b>ЭнергоРесурс</b><small>участий: 19 · побед 18%</small></div><div class="progress"><i style="--w:18%;--i:2"></i></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: docs -->
+        <div class="showcase__panel" data-panel="docs">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-folder"/></svg> Документы заявки</span>
+            <h3>Все документы заявки — в одном месте</h3>
+            <p>Шаблоны, версии и согласования. Система сама проверяет комплектность перед подачей.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Шаблоны и версии документов для каждой площадки</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Совместная работа команды и юристов</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Проверка комплектности перед подачей</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Открыть документы <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Заявка № 2417 · Документы <span>9 файлов</span></h5>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-file"/></svg></i><div><b>Коммерческое предложение.pdf</b><small>Версия 3 · Обновил А. Козлов</small></div><span class="status status--win">Готово</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><div><b>Проект договора.docx</b><small>Версия 2 · На проверке юриста</small></div><span class="status status--review">Проверка</span></div>
+              <div class="doc-row"><i class="c3"><svg class="icon"><use href="#i-shield"/></svg></i><div><b>Банковская гарантия.pdf</b><small>Ожидает загрузки</small></div><span class="status status--draft">Ждём</span></div>
+              <div class="doc-row" style="margin-bottom:0"><i class="c4"><svg class="icon"><use href="#i-calc"/></svg></i><div><b>Смета и расчёт цены.xlsx</b><small>Версия 5 · Обновлено 2 ч назад</small></div><span class="status status--win">Готово</span></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Комплектность</h5>
+              <div class="donut"><svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutA)" data-seg="92" data-offset="0"/></svg><div class="donut__center"><div><b>92%</b><small>готово</small></div></div></div>
+              <ul class="legend"><li><i style="--c:#2f8bff"></i>Загружено<b>8 из 9</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Загрузка файлов</h5>
+              <div style="border:1.5px dashed #c9cfe3;border-radius:12px;padding:14px;text-align:center;color:var(--muted)"><svg class="icon" style="width:22px;height:22px;margin:0 auto 6px;color:var(--violet)"><use href="#i-upload"/></svg>Перетащите файлы сюда<br><small>PDF, DOCX, XLSX до 50 МБ</small></div>
+              <div class="budget-row" style="margin:10px 0 0"><div class="budget-row__top"><span>Лицензия_СРО.pdf</span><b>78%</b></div><div class="progress"><i style="--w:78%"></i></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: team -->
+        <div class="showcase__panel" data-panel="team">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-users"/></svg> Работа команды</span>
+            <h3>Команда работает синхронно</h3>
+            <p>Роли, задачи и сроки по каждой заявке. Руководитель видит статус всех тендеров в одном экране.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Роли и задачи по каждой заявке</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Быстрый контроль команды и загрузки</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Комментарии, упоминания и история изменений</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Подключить команду <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Загрузка команды <span>Эта неделя</span></h5>
+              <div class="team-row"><i>АК</i><div><b>Анна Козлова</b><small>Тендерный специалист · 6 заявок</small></div><div class="progress"><i style="--w:86%;--i:0"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">МС</i><div><b>Максим Соколов</b><small>Юрист · 4 договора</small></div><div class="progress progress--blue"><i style="--w:62%;--i:1"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ДВ</i><div><b>Дарья Волкова</b><small>Сметчик · 3 расчёта</small></div><div class="progress progress--gold"><i style="--w:48%;--i:2"></i></div></div>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#34d399,#059669)">ЕЛ</i><div><b>Егор Лебедев</b><small>Руководитель · контроль</small></div><div class="progress progress--green"><i style="--w:35%;--i:3"></i></div></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Задачи <span>12 открыто</span></h5>
+              <div class="chip-row" style="margin-bottom:8px"><span class="chip chip--on">Сегодня</span><span class="chip">Неделя</span></div>
+              <div class="doc-row"><i class="c2"><svg class="icon"><use href="#i-check"/></svg></i><div><b>Проверить смету</b><small>Д. Волкова · до 16:00</small></div></div>
+              <div class="doc-row" style="margin-bottom:0"><i><svg class="icon"><use href="#i-send"/></svg></i><div><b>Подать заявку №2417</b><small>А. Козлова · до 18:00</small></div></div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Лента изменений</h5>
+              <div class="team-row"><i style="background:linear-gradient(135deg,#a35bff,#5b21b6)">МС</i><div><b>Максим согласовал проект договора</b><small>5 минут назад</small></div></div>
+              <div class="team-row"><i>АК</i><div><b>Анна загрузила версию 3 КП</b><small>22 минуты назад</small></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: budget -->
+        <div class="showcase__panel" data-panel="budget">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-wallet"/></svg> Бюджет и финансы</span>
+            <h3>Контролируйте бюджет и маржинальность</h3>
+            <p>Обеспечение заявок, гарантии, оплаты по контрактам и маржа по каждому лоту — в одном финансовом контуре.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Бюджет заявок и обеспечение контрактов</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Расчёт маржи и рентабельности по каждому лоту</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Контроль оплат и дебиторской задолженности</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Настроить бюджет <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Бюджет квартала <span>84,6 из 120 млн ₽</span></h5>
+              <div class="budget-row"><div class="budget-row__top"><span>Обеспечение заявок</span><b>32,4 млн ₽</b></div><div class="progress"><i style="--w:72%;--i:0"></i></div></div>
+              <div class="budget-row"><div class="budget-row__top"><span>Банковские гарантии</span><b>18,9 млн ₽</b></div><div class="progress progress--blue"><i style="--w:54%;--i:1"></i></div></div>
+              <div class="budget-row"><div class="budget-row__top"><span>Исполнение контрактов</span><b>26,1 млн ₽</b></div><div class="progress progress--gold"><i style="--w:63%;--i:2"></i></div></div>
+              <div class="budget-row" style="margin-bottom:0"><div class="budget-row__top"><span>Резерв</span><b>7,2 млн ₽</b></div><div class="progress progress--green"><i style="--w:28%;--i:3"></i></div></div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Маржа</h5>
+              <div class="donut"><svg viewBox="0 0 100 100"><circle class="donut__track" cx="50" cy="50" r="40"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutC)" data-seg="24" data-offset="0"/><circle class="donut__seg" cx="50" cy="50" r="40" stroke="url(#donutB)" data-seg="52" data-offset="24"/></svg><div class="donut__center"><div><b>24%</b><small>средняя</small></div></div></div>
+              <ul class="legend"><li><i style="--c:#ffd257"></i>Прибыль<b>18,4 млн</b></li><li><i style="--c:#a35bff"></i>Себестоимость<b>58 млн</b></li></ul>
+            </div>
+            <div class="mini mini--c">
+              <h5>Ближайшие платежи <span>3</span></h5>
+              <div class="deadlines">
+                <div class="deadline"><div class="deadline__date"><b>28</b><small>сен</small></div><div class="deadline__body"><b>Аванс по контракту №118</b><small>Ожидается поступление</small></div><span class="deadline__tag">+9,6 млн</span></div>
+                <div class="deadline"><div class="deadline__date deadline__date--hot"><b>01</b><small>окт</small></div><div class="deadline__body"><b>Обеспечение заявки №2417</b><small>Списание</small></div><span class="deadline__tag" style="color:#c22c22">−1,2 млн</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- panel: reports -->
+        <div class="showcase__panel" data-panel="reports">
+          <div class="showcase__copy">
+            <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-report"/></svg> Отчётность</span>
+            <h3>Отчёты для руководителя за один клик</h3>
+            <p>Готовые отчёты по тендерам, заявкам, команде и финансам. Настройте расписание — и отчёт придёт сам.</p>
+            <ul class="checks">
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Готовые отчёты по тендерам и заявкам</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Экспорт в Excel, PDF и Google Sheets</li>
+              <li><i><svg class="icon"><use href="#i-check"/></svg></i>Автоматическая отправка по расписанию</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary">Сформировать отчёт <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+          </div>
+          <div class="showcase__visual" data-anim>
+            <div class="mini mini--a">
+              <h5>Готовые отчёты <span>Сентябрь</span></h5>
+              <div class="report-grid">
+                <div class="report"><i><svg class="icon"><use href="#i-chart"/></svg></i><b>Воронка тендеров</b><small>Найдено → подано → выиграно</small></div>
+                <div class="report"><i class="c2"><svg class="icon"><use href="#i-users"/></svg></i><b>Загрузка команды</b><small>Задачи и сроки по людям</small></div>
+                <div class="report"><i class="c3"><svg class="icon"><use href="#i-wallet"/></svg></i><b>Финансовый итог</b><small>Маржа, оплаты, гарантии</small></div>
+                <div class="report"><i class="c4"><svg class="icon"><use href="#i-target"/></svg></i><b>Конкурентный анализ</b><small>Доли и ценовые стратегии</small></div>
+              </div>
+            </div>
+            <div class="mini mini--b">
+              <h5>Отчёты за квартал <span>48</span></h5>
+              <div class="bars" style="height:64px">
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:45%;--i:0"></div></div><span class="bars__label">Июл</span></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:70%;--i:1"></div></div><span class="bars__label">Авг</span></div>
+                <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:95%;--i:2"></div></div><span class="bars__label">Сен</span></div>
+              </div>
+            </div>
+            <div class="mini mini--c">
+              <h5>Расписание отправки</h5>
+              <div class="doc-row"><i><svg class="icon"><use href="#i-mail"/></svg></i><div><b>Еженедельный отчёт директору</b><small>Понедельник, 09:00 · PDF</small></div><span class="status status--win">Вкл</span></div>
+              <div class="doc-row" style="margin-bottom:0"><i class="c2"><svg class="icon"><use href="#i-download"/></svg></i><div><b>Выгрузка в 1С</b><small>Ежедневно, 23:00 · XLSX</small></div><span class="status status--win">Вкл</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ why choose ============ -->
+<section class="why" id="why">
+  <div class="why__wrap">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow eyebrow--light"><span class="dot"></span> Ваш партнёр в закупках</span>
+      <h2><span class="h-spark">Почему выбирают tenders.best</span></h2>
+      <p>Одна система вместо таблиц, почты и мессенджеров. Прозрачный процесс от поиска тендера до подписания контракта.</p>
+    </div>
+    <div class="why__grid">
+      <div class="why__col">
+        <div class="why__item" data-reveal="left" style="--i:0">
+          <span class="why__num">1</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-search"/></svg></div>
+          <h3>Удобный поиск тендеров</h3>
+          <p>Агрегация всех площадок, умные фильтры и подборки под профиль вашей компании.</p>
+        </div>
+        <div class="why__item" data-reveal="left" style="--i:1">
+          <span class="why__num">2</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-clock"/></svg></div>
+          <h3>Контроль сроков и заявок</h3>
+          <p>Календарь дедлайнов, напоминания и статусы — ни одна заявка не будет просрочена.</p>
+        </div>
+      </div>
+      <div class="why__center" data-reveal="scale">
+        <div class="orb"></div>
+        <div class="orb orb--2"></div>
+        <div class="why__dash">
+          <div class="dash" data-anim>
+            <div class="dash__main">
+              <div class="dash__top"><h4>Обзор тендеров<small>Неделя 39</small></h4><div class="dash__user"><i>ЕЛ</i></div></div>
+              <div class="kpis" style="grid-template-columns:1fr 1fr">
+                <div class="kpi kpi--accent"><div class="kpi__label">Вероятность</div><div class="kpi__value"><span data-count="78">0</span><small>%</small></div><span class="kpi__delta">+6% за неделю</span></div>
+                <div class="kpi"><div class="kpi__label">Заявок в работе</div><div class="kpi__value"><span data-count="17">0</span></div><span class="kpi__delta"><svg class="icon"><use href="#i-trend"/></svg>+3</span></div>
+              </div>
+              <div class="panel">
+                <div class="panel__head"><b>Победы по категориям</b><span>2026</span></div>
+                <div class="bars" style="height:72px">
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:55%;--i:0"></div></div><span class="bars__label">Строит.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:80%;--i:1"></div></div><span class="bars__label">Мед.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--gold" style="--h:62%;--i:2"></div></div><span class="bars__label">IT</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar bars__bar--blue" style="--h:40%;--i:3"></div></div><span class="bars__label">Логист.</span></div>
+                  <div class="bars__col"><div class="bars__stack"><div class="bars__bar" style="--h:70%;--i:4"></div></div><span class="bars__label">Энерго</span></div>
+                </div>
+              </div>
+              <div class="deadlines">
+                <div class="deadline"><div class="deadline__date deadline__date--hot"><b>26</b><small>сен</small></div><div class="deadline__body"><b>Подача заявки №2417</b><small>Ремонт дорожного полотна</small></div><span class="status status--review">92%</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <span class="badge badge--sm badge--gold why__ring-badge" style="left:-2%;top:8%;--fd:6s"><svg class="icon"><use href="#i-star"/></svg></span>
+        <span class="badge badge--sm badge--blue why__ring-badge" style="right:4%;bottom:18%;--fd:7s;--fdl:-2s"><svg class="icon"><use href="#i-badge"/></svg></span>
+      </div>
+      <div class="why__col why__col--r">
+        <div class="why__item" data-reveal="right" style="--i:0">
+          <span class="why__num">3</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-coins"/></svg></div>
+          <h3>Финансовая аналитика</h3>
+          <p>Бюджет, обеспечение, маржа и оплаты по контрактам — понятные цифры для решений.</p>
+        </div>
+        <div class="why__item" data-reveal="right" style="--i:1">
+          <span class="why__num">4</span>
+          <div class="icon-box"><svg class="icon"><use href="#i-shield"/></svg></div>
+          <h3>Надёжность и прозрачность</h3>
+          <p>История всех действий, роли доступа и защищённое хранение документов заявок.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ features ============ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="dot"></span> Три ключевых инструмента</span>
+      <h2>Упростите работу с тендерами <span class="h-spark">и закупками</span></h2>
+      <p>Аналитика, документы и автоматизация — каждый модуль решает конкретную задачу тендерного отдела.</p>
+    </div>
+    <div class="features__grid">
+
+      <article class="feature" data-reveal style="--i:0">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-line"/></svg> Аналитика тендеров</span>
+          <h3>Метрики, тренды и результаты в одном отчёте</h3>
+          <p>Отслеживайте динамику побед, средний чек и активность конкурентов. Гибкие фильтры по отраслям, регионам и заказчикам.</p>
+          <a href="#cta" class="btn btn--outline-brand btn--sm">Смотреть метрики <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+        <div class="feature__visual feature__visual--pad" data-anim>
+          <div class="feature__bg"></div>
+          <div class="feature__ui">
+            <h5>Результаты за год <span>2026</span></h5>
+            <div class="feature__ui-kpis">
+              <div><small>Подано заявок</small><b>246</b><em>+21%</em></div>
+              <div><small>Побед</small><b>42%</b><em>+4,1%</em></div>
+              <div><small>Средний чек</small><b>8,4 млн</b><em>+12%</em></div>
+            </div>
+            <svg class="line-chart" viewBox="0 0 400 130" preserveAspectRatio="none">
+              <g class="grid"><line x1="0" y1="25" x2="400" y2="25"/><line x1="0" y1="60" x2="400" y2="60"/><line x1="0" y1="95" x2="400" y2="95"/></g>
+              <path class="area" d="M0 100 C40 96 60 84 90 86 S140 70 170 62 S220 56 250 44 S300 40 330 30 S380 22 400 12 L400 130 L0 130 Z"/>
+              <path class="line" d="M0 100 C40 96 60 84 90 86 S140 70 170 62 S220 56 250 44 S300 40 330 30 S380 22 400 12"/>
+              <circle class="pt" cx="330" cy="30" r="4.5"/>
+              <g class="tip"><rect x="292" y="4" width="76" height="18" rx="6" fill="#0e1230"/><text x="330" y="16.5" text-anchor="middle" font-size="9.5" fill="#fff" font-family="Inter, sans-serif" font-weight="600">Сен · 18 побед</text></g>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature" data-reveal style="--i:1">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-folder"/></svg> Управление документами</span>
+          <h3>Документы заявки под контролем</h3>
+          <p>Быстрый доступ, загрузка, версии и совместная работа. Проверка комплектности перед подачей на площадку.</p>
+          <a href="#cta" class="btn btn--outline-brand btn--sm">Открыть документы <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+        <div class="feature__visual feature__visual--pad">
+          <div class="feature__bg feature__bg--blue"></div>
+          <div class="docflow">
+            <div class="doc-card doc-card--1">
+              <div class="doc-card__head"><i><svg class="icon"><use href="#i-file"/></svg></i><div><b>Техническое предложение</b><small>Версия 4 · 2,3 МБ</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i><i></i><i></i></div><span class="status status--win">Согласовано</span></div>
+            </div>
+            <div class="doc-card doc-card--2">
+              <div class="doc-card__head"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><div><b>Проект договора</b><small>Версия 2 · юрист</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i><i></i></div><span class="status status--review">На проверке</span></div>
+            </div>
+            <div class="doc-card doc-card--3">
+              <div class="doc-card__head"><i class="c3"><svg class="icon"><use href="#i-calc"/></svg></i><div><b>Расчёт цены контракта</b><small>Версия 5 · 480 КБ</small></div></div>
+              <div class="doc-card__lines"><span></span><span></span><span></span></div>
+              <div class="doc-card__foot"><div class="doc-card__avatars"><i></i></div><span class="status status--draft">Черновик</span></div>
+            </div>
+            <div class="docflow__pill"><i><svg class="icon"><use href="#i-check"/></svg></i>Проверено юристом</div>
+            <div class="docflow__pill docflow__pill--2"><i><svg class="icon"><use href="#i-history"/></svg></i>Версия 5 сохранена</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="feature feature--wide" data-reveal style="--i:2">
+        <div class="feature__copy">
+          <span class="eyebrow eyebrow--blue"><svg class="icon" style="width:14px;height:14px"><use href="#i-workflow"/></svg> Автоматизация рабочих процессов</span>
+          <h3>Заявка сама проходит нужный маршрут</h3>
+          <p>Напоминания, согласования, статусы и маршрутизация задач — настройте процесс один раз, и система будет вести каждую заявку по регламенту.</p>
+          <ul class="checks">
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i>Напоминания о дедлайнах и обеспечении</li>
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i>Многоуровневые согласования и подписи</li>
+            <li><i><svg class="icon"><use href="#i-check"/></svg></i>Автоматическая смена статусов и уведомления</li>
+          </ul>
+          <a href="#cta" class="btn btn--outline-brand btn--sm">Настроить процессы <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        </div>
+        <div class="orbit" aria-hidden="true">
+          <div class="orbit__ring"></div>
+          <div class="orbit__ring orbit__ring--2"></div>
+          <div class="orbit__ring orbit__ring--3"></div>
+          <svg class="orbit__line" viewBox="0 0 440 440"><path d="M220 100 C300 100 340 140 340 220 S300 340 220 340 S100 300 100 220 S140 100 220 100"/></svg>
+          <div class="orbit__center"><img src="assets/img/logo-mark.png" alt=""></div>
+          <div class="orbit__node" style="left:42.7%;top:-1%;--fd:6s"><svg class="icon"><use href="#i-search"/></svg></div>
+          <div class="orbit__node orbit__node--violet" style="left:80%;top:16%;--fd:7s;--fdl:-1s"><svg class="icon"><use href="#i-bell"/></svg></div>
+          <div class="orbit__node orbit__node--green" style="left:86%;top:57%;--fd:6.5s;--fdl:-2s"><svg class="icon"><use href="#i-badge"/></svg></div>
+          <div class="orbit__node orbit__node--gold" style="left:52%;top:85.5%;--fd:7.5s;--fdl:-3s"><svg class="icon"><use href="#i-contract"/></svg></div>
+          <div class="orbit__node orbit__node--magenta" style="left:9%;top:68%;--fd:6.2s;--fdl:-1.6s"><svg class="icon"><use href="#i-mail"/></svg></div>
+          <div class="orbit__node orbit__node--navy" style="left:3.6%;top:27%;--fd:6.8s;--fdl:-2.6s"><svg class="icon"><use href="#i-clock"/></svg></div>
+          <div class="orbit__node" style="left:27%;top:21%;width:52px;height:52px;--fd:5.8s;--fdl:-0.4s"><svg class="icon" style="width:22px;height:22px"><use href="#i-users"/></svg></div>
+          <div class="orbit__node orbit__node--gold" style="left:61%;top:65.5%;width:52px;height:52px;--fd:6.4s;--fdl:-3.4s"><svg class="icon" style="width:22px;height:22px"><use href="#i-stamp"/></svg></div>
+          <div class="orbit__label" style="left:59.5%;top:3.6%">Новый тендер</div>
+          <div class="orbit__label" style="left:72%;top:33%">Согласование</div>
+          <div class="orbit__label" style="left:-3%;top:53.6%">Напоминание</div>
+          <div class="orbit__label" style="left:68%;top:89%">Подписание</div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ how it works ============ -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="dot"></span> Как это работает</span>
+      <h2><span class="h-spark">Три шага до победы</span></h2>
+      <p>Простой процесс, в котором каждая заявка проходит одинаково прозрачный путь — от поиска до контракта.</p>
+    </div>
+    <div class="how__grid">
+      <div class="scene" data-reveal="left">
+        <div class="scene__img">
+          <div class="scene__grid"></div>
+          <div class="scene__window">
+            <div class="scene__window-bar"><i></i><i></i><i></i><span>app.tenders.best/tenders/2417</span></div>
+            <div class="dash" data-anim>
+              <aside class="dash__side">
+                <div class="dash__logo"><img src="assets/img/logo-mark.png" alt="">tenders.best</div>
+                <a class="dash__nav"><svg class="icon"><use href="#i-grid"/></svg> Дашборд</a>
+                <a class="dash__nav is-active"><svg class="icon"><use href="#i-file"/></svg> Заявки</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-folder"/></svg> Документы</a>
+                <a class="dash__nav"><svg class="icon"><use href="#i-calendar"/></svg> Календарь</a>
+              </aside>
+              <div class="dash__main">
+                <div class="dash__top"><h4>Заявка №2417<small>Ремонт дорожного полотна · 24,8 млн ₽</small></h4><span class="status status--review">Подготовка</span></div>
+                <div class="kpis" style="grid-template-columns:repeat(3,1fr)">
+                  <div class="kpi"><div class="kpi__label">Дедлайн</div><div class="kpi__value">2 дня</div></div>
+                  <div class="kpi"><div class="kpi__label">Готовность</div><div class="kpi__value">92<small>%</small></div></div>
+                  <div class="kpi kpi--accent"><div class="kpi__label">Вероятность</div><div class="kpi__value">78<small>%</small></div></div>
+                </div>
+                <div class="panel">
+                  <div class="panel__head"><b>Этапы заявки</b><span>5 из 6</span></div>
+                  <div class="budget-row"><div class="budget-row__top"><span>Документы</span><b>9/9</b></div><div class="progress"><i style="--w:100%;--i:0"></i></div></div>
+                  <div class="budget-row"><div class="budget-row__top"><span>Согласование</span><b>4/5</b></div><div class="progress progress--blue"><i style="--w:80%;--i:1"></i></div></div>
+                  <div class="budget-row" style="margin:0"><div class="budget-row__top"><span>Обеспечение</span><b>1,2 млн</b></div><div class="progress progress--gold"><i style="--w:60%;--i:2"></i></div></div>
+                </div>
+                <div class="tlist">
+                  <div class="tlist__row"><div class="tlist__name"><i class="c2"><svg class="icon"><use href="#i-contract"/></svg></i><span>Проект договора</span></div><span>М. Соколов</span><span class="tlist__sum">v2</span><span class="status status--review">Проверка</span></div>
+                  <div class="tlist__row"><div class="tlist__name"><i class="c3"><svg class="icon"><use href="#i-calc"/></svg></i><span>Расчёт цены</span></div><span>Д. Волкова</span><span class="tlist__sum">v5</span><span class="status status--win">Готово</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="scene__float scene__team">
+          <h6>Команда заявки <span>● онлайн 3</span></h6>
+          <div class="team-row"><i>АК</i><div><b>Анна Козлова</b><small>Ведёт заявку</small></div></div>
+          <div class="team-row"><i style="background:linear-gradient(135deg,#3b8dff,#0b3c8c)">МС</i><div><b>Максим Соколов</b><small>Юрист</small></div></div>
+          <div class="team-row"><i style="background:linear-gradient(135deg,#ffd257,#f59e0b);color:#3d2900">ДВ</i><div><b>Дарья Волкова</b><small>Сметчик</small></div></div>
+        </div>
+        <div class="scene__float scene__chart" data-anim>
+          <h6>Вероятность победы</h6>
+          <div class="big">78% <em>+6%</em></div>
+          <svg class="line-chart" viewBox="0 0 200 60" preserveAspectRatio="none">
+            <path class="area" d="M0 48 C25 46 35 36 60 38 S95 28 120 22 S160 16 200 6 L200 60 L0 60 Z"/>
+            <path class="line" d="M0 48 C25 46 35 36 60 38 S95 28 120 22 S160 16 200 6"/>
+            <circle class="pt" cx="200" cy="6" r="3.5"/>
+          </svg>
+        </div>
+        <span class="badge badge--sm badge--violet scene__float" style="left:-14px;top:24px;--fd:6s"><svg class="icon"><use href="#i-file"/></svg></span>
+        <span class="badge badge--sm badge--gold scene__float" style="right:20px;bottom:-16px;--fd:7s;--fdl:-2s"><svg class="icon"><use href="#i-money"/></svg></span>
+        <span class="badge badge--sm badge--green scene__float" style="left:46%;top:-20px;--fd:6.5s;--fdl:-1s"><svg class="icon"><use href="#i-badge"/></svg></span>
+      </div>
+
+      <div class="steps">
+        <div class="step" data-reveal="right" style="--i:0">
+          <span class="step__num">1</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-search"/></svg></div>
+          <div><h3>Найдите нужный тендер</h3><p>Задайте профиль компании — система подберёт подходящие закупки со всех площадок и уведомит о новых.</p></div>
+          <span class="step__line"></span>
+        </div>
+        <div class="step step--accent" data-reveal="right" style="--i:1">
+          <span class="step__num">2</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-send"/></svg></div>
+          <div><h3>Подготовьте и отправьте заявку</h3><p>Соберите документы по шаблонам, согласуйте с юристом и сметчиком, проверьте комплектность и подайте заявку.</p></div>
+          <span class="step__line"></span>
+        </div>
+        <div class="step" data-reveal="right" style="--i:2">
+          <span class="step__num">3</span>
+          <div class="step__ico"><svg class="icon"><use href="#i-badge"/></svg></div>
+          <div><h3>Контролируйте сроки, документы и результат</h3><p>Следите за статусом, дедлайнами и оплатами. Аналитика покажет, что повысит процент побед в следующий раз.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ testimonials ============ -->
+<section class="section testi" id="reviews">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow"><span class="dot"></span> Отзывы клиентов</span>
+      <h2><span class="h-spark">Компании уже используют tenders.best</span></h2>
+      <p>Тендерные отделы, строительные компании, поставщики и IT-интеграторы выбирают платформу для ежедневной работы.</p>
+    </div>
+
+    <div class="testi__slider" data-reveal id="testiSlider">
+      <button class="testi__arrow testi__arrow--prev" data-dir="-1" aria-label="Предыдущий отзыв"><svg class="icon"><use href="#i-chevron-left"/></svg></button>
+      <button class="testi__arrow testi__arrow--next" data-dir="1" aria-label="Следующий отзыв"><svg class="icon"><use href="#i-chevron-right"/></svg></button>
+      <div class="testi__track">
+
+        <div class="testi__slide is-active" data-company="0">
+          <div>
+            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+            <p class="testi__quote">«До tenders.best мы вели тендеры в таблицах и почте: сроки терялись, документы дублировались. Сейчас вся команда работает в одной системе, а процент побед вырос с 18% до 34% за полгода».</p>
+            <div class="testi__author">
+              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#dbe7ff"/><circle cx="24" cy="19" r="8" fill="#f2c4a2"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#0d6ef0"/><path d="M16 17c0-6 4-9 8-9s8 3 8 9c-2-3-5-4-8-4s-6 1-8 4z" fill="#3d2617"/></svg></span>
+              <div><b>Алексей Морозов</b><small>Коммерческий директор</small></div>
+              <span class="testi__company"><svg class="icon"><use href="#i-building"/></svg>СтройГарант</span>
+            </div>
+          </div>
+          <div class="testi__photo" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f8bff"/><stop offset="1" stop-color="#7c3aed"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp1)"/><circle cx="100" cy="82" r="34" fill="#f2c4a2"/><path d="M66 78c0-24 15-36 34-36s34 12 34 36c-8-12-20-16-34-16s-26 4-34 16z" fill="#3d2617"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#fff"/><path d="M92 138l8 20 8-20z" fill="#0d6ef0"/><path d="M78 96c6 8 14 12 22 12s16-4 22-12" fill="none" stroke="#7a3f2c" stroke-width="3" stroke-linecap="round"/><g fill="none" stroke="#2b2b33" stroke-width="2.5"><rect x="72" y="72" width="24" height="18" rx="8"/><rect x="104" y="72" width="24" height="18" rx="8"/><path d="M96 80h8"/></g></svg>
+          </div>
+        </div>
+
+        <div class="testi__slide" data-company="1">
+          <div>
+            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+            <p class="testi__quote">«Аналитика по конкурентам и прогноз вероятности победы помогли отказаться от невыгодных лотов и сосредоточиться на закупках, которые действительно приносят прибыль».</p>
+            <div class="testi__author">
+              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#f3e3ff"/><circle cx="24" cy="19" r="8" fill="#f6d2b8"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#7c3aed"/><path d="M14 24c0-10 4-16 10-16s10 6 10 16c-2-4-4-6-10-6s-8 2-10 6z" fill="#5a3a24"/></svg></span>
+              <div><b>Марина Соколова</b><small>Руководитель тендерного отдела</small></div>
+              <span class="testi__company"><svg class="icon"><use href="#i-shield"/></svg>МедТехСнаб</span>
+            </div>
+          </div>
+          <div class="testi__photo" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a35bff"/><stop offset="1" stop-color="#c42be0"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp2)"/><path d="M58 120c-6-40 10-78 42-78s48 38 42 78z" fill="#5a3a24"/><circle cx="100" cy="84" r="32" fill="#f6d2b8"/><path d="M68 74c4-18 16-26 32-26s28 8 32 26c-8-8-18-10-32-10s-24 2-32 10z" fill="#5a3a24"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#fff"/><path d="M82 96c5 6 11 9 18 9s13-3 18-9" fill="none" stroke="#a04a3a" stroke-width="3" stroke-linecap="round"/><circle cx="88" cy="80" r="3" fill="#2a1a10"/><circle cx="112" cy="80" r="3" fill="#2a1a10"/></svg>
+          </div>
+        </div>
+
+        <div class="testi__slide" data-company="2">
+          <div>
+            <span class="stars"><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg><svg class="icon"><use href="#i-star"/></svg></span>
+            <p class="testi__quote">«Напоминания о дедлайнах и автоматические согласования сэкономили нам десятки часов в месяц. Ни одной просроченной заявки за год — для логистики это критично».</p>
+            <div class="testi__author">
+              <span class="ava"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="24" fill="#fff1cc"/><circle cx="24" cy="19" r="8" fill="#e9b08c"/><path d="M8 44c2-10 9-14 16-14s14 4 16 14z" fill="#f59e0b"/><path d="M16 16c0-5 4-8 8-8s8 3 8 8c-2-2-5-3-8-3s-6 1-8 3z" fill="#2a1a10"/></svg></span>
+              <div><b>Дмитрий Ковалёв</b><small>Директор по закупкам</small></div>
+              <span class="testi__company"><svg class="icon"><use href="#i-globe"/></svg>ЛогистикПро</span>
+            </div>
+          </div>
+          <div class="testi__photo" aria-hidden="true">
+            <svg viewBox="0 0 200 200"><defs><linearGradient id="tp3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffd257"/><stop offset="1" stop-color="#f59e0b"/></linearGradient></defs><rect width="200" height="200" fill="url(#tp3)"/><circle cx="100" cy="84" r="33" fill="#e9b08c"/><path d="M68 78c0-20 14-32 32-32s32 12 32 32c-6-10-18-14-32-14s-26 4-32 14z" fill="#2a1a10"/><path d="M76 100c4 10 12 16 24 16s20-6 24-16c-6 6-14 8-24 8s-18-2-24-8z" fill="#2a1a10" opacity=".9"/><path d="M30 200c4-42 34-62 70-62s66 20 70 62z" fill="#0e1230"/><path d="M90 138h20l-10 22z" fill="#fff"/><circle cx="88" cy="82" r="3" fill="#2a1a10"/><circle cx="112" cy="82" r="3" fill="#2a1a10"/></svg>
+          </div>
+        </div>
+
+      </div>
+      <div class="testi__dots" id="testiDots"></div>
+    </div>
+
+    <div class="logos" data-reveal>
+      <div class="logo-chip is-active" style="--i:0"><svg class="icon"><use href="#i-building"/></svg>СтройГарант</div>
+      <div class="logo-chip" style="--i:1"><svg class="icon"><use href="#i-shield"/></svg>МедТехСнаб</div>
+      <div class="logo-chip" style="--i:2"><svg class="icon"><use href="#i-globe"/></svg>ЛогистикПро</div>
+      <div class="logo-chip" style="--i:3"><svg class="icon"><use href="#i-layers"/></svg>АгроХолдинг</div>
+      <div class="logo-chip" style="--i:4"><svg class="icon"><use href="#i-zap"/></svg>ЭнергоСеть</div>
+      <div class="logo-chip" style="--i:5"><svg class="icon"><use href="#i-workflow"/></svg>IT Solutions</div>
+      <div class="logo-chip" style="--i:6"><svg class="icon"><use href="#i-target"/></svg>ФармаЛайн</div>
+      <div class="logo-chip" style="--i:7"><svg class="icon"><use href="#i-briefcase"/></svg>ТрансБилд</div>
+      <div class="logo-chip" style="--i:8"><svg class="icon"><use href="#i-database"/></svg>РосМеталл</div>
+      <div class="logo-chip" style="--i:9"><svg class="icon"><use href="#i-cloud"/></svg>ЭкоСервис</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ integrations ============ -->
+<section class="integrations" id="integrations">
+  <div class="integrations__wrap">
+    <div class="integrations__copy" data-reveal="left">
+      <span class="eyebrow eyebrow--light"><span class="dot"></span> Единая экосистема</span>
+      <h2>Интеграции для <span class="h-spark">эффективной работы</span></h2>
+      <p>Платформа подключается к инструментам, которыми команда уже пользуется: почта, документы, календарь, CRM, банк и учётные системы.</p>
+      <div class="store-btns">
+        <a href="#" class="store-btn"><svg class="icon"><use href="#i-apple"/></svg><span><small>Загрузить в</small><b>App Store</b></span></a>
+        <a href="#" class="store-btn"><svg class="icon"><use href="#i-gplay"/></svg><span><small>Доступно в</small><b>Google Play</b></span></a>
+      </div>
+    </div>
+    <div class="cluster" data-reveal="right">
+      <div class="cluster__blob" aria-hidden="true"></div>
+      <div class="cluster__item" style="left:4%;top:8%;--fd:6s" title="Почта"><svg class="icon"><use href="#i-mail"/></svg></div>
+      <div class="cluster__item cluster__item--violet" style="left:24%;top:0;--fd:7s;--fdl:-1s" title="Документы"><svg class="icon"><use href="#i-file"/></svg></div>
+      <div class="cluster__item cluster__item--gold" style="left:44%;top:10%;--fd:6.5s;--fdl:-2s" title="Аналитика"><svg class="icon"><use href="#i-chart"/></svg></div>
+      <div class="cluster__item cluster__item--green" style="left:64%;top:2%;--fd:7.2s;--fdl:-3s" title="Финансы"><svg class="icon"><use href="#i-wallet"/></svg></div>
+      <div class="cluster__item cluster__item--magenta" style="left:84%;top:12%;--fd:6.2s;--fdl:-0.6s" title="Календарь"><svg class="icon"><use href="#i-calendar"/></svg></div>
+      <div class="cluster__item cluster__item--navy cluster__item--sm" style="left:12%;top:42%;--fd:6.8s;--fdl:-1.8s" title="CRM"><svg class="icon"><use href="#i-users"/></svg></div>
+      <div class="cluster__item" style="left:32%;top:38%;--fd:7.4s;--fdl:-2.4s" title="Облачное хранилище"><svg class="icon"><use href="#i-cloud"/></svg></div>
+      <div class="cluster__item cluster__item--red" style="left:54%;top:44%;--fd:6.1s;--fdl:-3.2s" title="Уведомления"><svg class="icon"><use href="#i-bell"/></svg></div>
+      <div class="cluster__item cluster__item--violet cluster__item--sm" style="left:76%;top:40%;--fd:6.9s;--fdl:-1.2s" title="Отчёты"><svg class="icon"><use href="#i-report"/></svg></div>
+      <div class="cluster__item cluster__item--navy" style="left:20%;top:72%;--fd:7.1s;--fdl:-2.9s" title="Банк"><svg class="icon"><use href="#i-bank"/></svg></div>
+      <div class="cluster__item cluster__item--green cluster__item--sm" style="left:44%;top:76%;--fd:6.4s;--fdl:-0.9s" title="Мессенджеры"><svg class="icon"><use href="#i-message"/></svg></div>
+      <div class="cluster__item cluster__item--gold" style="left:64%;top:70%;--fd:6.6s;--fdl:-2.1s" title="Учётные системы"><svg class="icon"><use href="#i-database"/></svg></div>
+      <div class="cluster__item cluster__item--sm" style="left:86%;top:74%;--fd:7.3s;--fdl:-3.6s" title="Платежи"><svg class="icon"><use href="#i-card"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ footer ============ -->
+<footer class="footer" id="cta">
+  <div class="footer__card">
+    <div class="footer__top" data-reveal>
+      <div class="footer__brand">
+        <a href="#top" class="brand"><img class="brand__mark" src="assets/img/logo-mark.png" alt="" width="44" height="44"><span class="brand__name">tenders<b>.best</b></span></a>
+        <p>Платформа, которая помогает компаниям находить тендеры, управлять заявками и выигрывать закупки быстрее.</p>
+        <form class="newsletter" onsubmit="event.preventDefault(); this.querySelector('input').value=''; this.querySelector('button').textContent='Готово ✓';">
+          <input type="email" placeholder="Электронная почта" aria-label="Электронная почта" required>
+          <button type="submit" class="btn btn--primary btn--sm">Подписаться</button>
+        </form>
+      </div>
+      <div class="footer__col">
+        <h4>Продукт</h4>
+        <ul><li><a href="#platform">Возможности</a></li><li><a href="#">Тарифы</a></li><li><a href="#integrations">Интеграции</a></li><li><a href="#">Обновления</a></li><li><a href="#">API</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4>Компания</h4>
+        <ul><li><a href="#">О нас</a></li><li><a href="#">Блог</a></li><li><a href="#">Карьера</a></li><li><a href="#">Партнёрам</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4>Ресурсы</h4>
+        <ul><li><a href="#">База знаний</a></li><li><a href="#">Вебинары</a></li><li><a href="#">Шаблоны заявок</a></li><li><a href="#">Поддержка</a></li></ul>
+      </div>
+      <div class="footer__col">
+        <h4>Контакты</h4>
+        <ul><li><a href="mailto:hello@tenders.best">hello@tenders.best</a></li><li><a href="tel:+74951200000">+7 (495) 120-00-00</a></li><li><a href="#">Telegram</a></li><li><a href="#">Москва, Пресненская, 12</a></li></ul>
+      </div>
+    </div>
+
+    <div class="footer__cta" data-reveal>
+      <div>
+        <span class="eyebrow"><span class="dot"></span> Свяжитесь с нами сегодня</span>
+        <h2>Готовы выиграть следующий тендер?</h2>
+      </div>
+      <a href="#" class="cta-circle" aria-label="Начать работу"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© 2026 tenders.best. Все права защищены.</span>
+      <nav><a href="#">Политика конфиденциальности</a><a href="#">Условия использования</a></nav>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
