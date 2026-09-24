@@ -24,6 +24,8 @@
     <symbol id="i-filter" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54L22 3z"/></symbol>
     <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
     <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
   </defs>
 </svg>
@@ -32,29 +34,45 @@
   <div class="container">
     <div class="header__bar">
       <a href="/" class="brand" aria-label="tenders.best — на главную">
-        <img class="brand__mark" src="/assets/img/logo-mark.png" alt="" width="44" height="44">
+        <img class="brand__mark" src="/assets/img/logo-mark.png" alt="" width="36" height="36">
         <span class="brand__name">tenders<b>.best</b></span>
       </a>
       <nav class="nav" aria-label="Основная навигация">
-        <a href="/tenders" class="is-active" data-i="nav_tenders">Тендеры</a>
-        <a href="/#platform" data-i="nav_platform">Возможности</a>
-        <a href="/#how" data-i="nav_how">Как это работает</a>
+        <a href="/tenders" class="is-active" data-i="nav_tenders">Каталог тендеров</a>
+        <a href="/#features" data-i="nav_platform">Возможности</a>
+        <a href="/#how" data-i="nav_how">Как проходит работа</a>
         <a href="#sources" data-i="nav_sources">Источники</a>
       </nav>
       <div class="header__actions">
-        <div class="seg" role="group" aria-label="Язык"><button type="button" data-lang="ru" aria-pressed="true">RU</button><button type="button" data-lang="en" aria-pressed="false">EN</button></div>
-        <a href="/#cta" class="btn btn--primary btn--sm" data-i="buy">Купить подписку <svg class="icon icon--arrow"><use href="#i-arrow-up-right"/></svg></a>
+        <div class="lang" id="lang">
+          <button type="button" class="lang__btn" aria-haspopup="listbox" aria-expanded="false"><span class="flag flag--ru" data-flag></span><span data-lang-label>RU</span><svg class="icon chev"><use href="#i-chevron-down"/></svg></button>
+          <div class="lang__menu" role="listbox">
+            <button type="button" role="option" data-lang="ru"><span class="flag flag--ru"></span>Русский<svg class="icon"><use href="#i-check"/></svg></button>
+            <button type="button" role="option" data-lang="en"><span class="flag flag--en"></span>English<svg class="icon"><use href="#i-check"/></svg></button>
+            <button type="button" role="option" data-lang="tj"><span class="flag flag--tj"></span>Тоҷикӣ<svg class="icon"><use href="#i-check"/></svg></button>
+          </div>
+        </div>
+        <a href="/admin/login" class="header__login" data-i="login">Войти</a>
+        <a href="/#cta" class="btn btn--primary btn--sm" data-i="buy">Купить подписку</a>
         <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
     </div>
   </div>
 </header>
 <div class="mobile-menu" id="mobileMenu">
-  <a href="/tenders">Тендеры</a>
-  <a href="/#platform">Возможности</a>
-  <a href="/#how">Как это работает</a>
-  <a href="#sources">Источники</a>
-  <a href="/#cta" class="btn btn--primary btn--lg">Купить подписку</a>
+  <a href="/tenders" data-i="nav_tenders">Каталог тендеров</a>
+  <a href="/#features" data-i="nav_platform">Возможности</a>
+  <a href="/#how" data-i="nav_how">Как проходит работа</a>
+  <a href="#sources" data-i="nav_sources">Источники</a>
+  <div class="mobile-menu__langs">
+    <button type="button" data-lang="ru"><span class="flag flag--ru"></span>RU</button>
+    <button type="button" data-lang="en"><span class="flag flag--en"></span>EN</button>
+    <button type="button" data-lang="tj"><span class="flag flag--tj"></span>TJ</button>
+  </div>
+  <div class="mobile-menu__row">
+    <a href="/admin/login" class="btn btn--secondary" data-i="login">Войти</a>
+    <a href="/#cta" class="btn btn--primary" data-i="buy">Купить подписку</a>
+  </div>
 </div>
 
 <main>
@@ -63,9 +81,9 @@
       <div class="container">
         <div class="chero__grid">
           <div class="chero__copy">
-            <span class="eyebrow" data-i="eyebrow">Госзакупки 15 стран</span>
-            <h1 data-i="h1">Тендеры пятнадцати стран в одном поиске</h1>
-            <p data-i="lead">Центральная Азия, Россия, Беларусь, Украина, Молдова, Азербайджан и страны ЕС. Ищите по отрасли, бюджету и сроку подачи, сравнивайте суммы в долларах.</p>
+            <span class="eyebrow" data-i="eyebrow">Каталог тендеров</span>
+            <h1 data-i="h1">Каталог закупок пятнадцати стран</h1>
+            <p data-i="lead">Центральная Азия, Россия, Беларусь, Украина, Молдова, Азербайджан и страны ЕС. Фильтры по отрасли, бюджету и сроку подачи, суммы в долларах и местной валюте, ссылка на оригинал каждого объявления.</p>
             <form class="search" id="searchForm" role="search">
               <svg class="icon"><use href="#i-search"/></svg>
               <input id="q" type="search" autocomplete="off" placeholder="Например: школьная мебель, трансформатор, ремонт дороги">
@@ -118,7 +136,7 @@
   <section class="cblock container" id="alerts">
     <div class="subscribe">
       <div>
-        <span class="eyebrow eyebrow--blue" data-i="sub_eyebrow">Уведомления</span>
+        <span class="eyebrow" data-i="sub_eyebrow">Уведомления</span>
         <h2 data-i="sub_h">Новые тендеры на почту</h2>
         <p data-i="sub_p">Выберите страны и ключевые слова. Как только на порталах появится подходящий тендер, пришлём письмо.</p>
       </div>
@@ -143,7 +161,7 @@
 
 <footer class="cfooter container">
   <span>© 2026 tenders.best</span>
-  <nav><a href="/">Главная</a><a href="/tenders">Тендеры</a><a href="#sources">Источники</a><a href="/admin/login">Вход</a></nav>
+  <nav><a href="/" data-i="nav_home">Главная</a><a href="#sources" data-i="nav_sources">Источники</a><a href="/admin/login" data-i="login">Вход</a></nav>
 </footer>
 
 <div class="scrim" id="scrim"></div>

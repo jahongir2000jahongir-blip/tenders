@@ -7,16 +7,16 @@
   /* ---------- i18n ---------- */
   const T = {
     ru: {
-      nav_tenders: 'Тендеры', nav_platform: 'Возможности', nav_how: 'Как это работает', nav_sources: 'Источники', buy: 'Купить подписку',
-      eyebrow: 'Госзакупки 15 стран', h1: 'Тендеры пятнадцати стран в одном поиске',
-      lead: 'Центральная Азия, Россия, Беларусь, Украина, Молдова, Азербайджан и страны ЕС. Ищите по отрасли, бюджету и сроку подачи, сравнивайте суммы в долларах.',
+      nav_tenders: 'Каталог тендеров', nav_platform: 'Возможности', nav_how: 'Как проходит работа', nav_sources: 'Источники', nav_home: 'Главная', login: 'Войти', buy: 'Купить подписку', done: 'Готово',
+      eyebrow: 'Каталог тендеров', h1: 'Каталог закупок пятнадцати стран',
+      lead: 'Центральная Азия, Россия, Беларусь, Украина, Молдова, Азербайджан и страны ЕС. Фильтры по отрасли, бюджету и сроку подачи, суммы в долларах и местной валюте, ссылка на оригинал каждого объявления.',
       find: 'Найти', search_ph: 'Например: школьная мебель, трансформатор, ремонт дороги',
       updated: 'Обновлено', next: 'следующее обновление', never: 'сбор ещё не запускался', demo: 'Демо-данные',
       open_n: 'открытых', filters: 'Фильтры', reset: 'Сбросить', country: 'Страна', category: 'Отрасль', budget: 'Бюджет, USD',
       from: 'от', to: 'до', deadline: 'Срок подачи', any: 'Любой', d7: 'Закрывается за 7 дней', d30: 'В ближайшие 30 дней',
       only_open: 'Только открытые', favs_only: 'Только избранное', cur_local: 'Местная',
       s_new: 'Сначала новые', s_dead: 'Ближайший срок подачи', s_bud_d: 'Бюджет: больше', s_bud_a: 'Бюджет: меньше',
-      found: 'Найдено', more: 'Показать ещё', done: 'Готово', empty: 'По этим условиям тендеров нет. Уберите часть фильтров или измените запрос.',
+      found: 'Найдено', more: 'Показать ещё', empty: 'По этим условиям тендеров нет. Уберите часть фильтров или измените запрос.',
       today: 'закрывается сегодня', closed: 'приём завершён', left: 'осталось', days: ['день', 'дня', 'дней'], tenders: ['тендер', 'тендера', 'тендеров'],
       no_deadline: 'срок не указан', no_sum: 'сумма не указана', published: 'Опубликован', deadline_at: 'Приём заявок до', customer: 'Заказчик',
       location: 'Место поставки', method: 'Способ закупки', source: 'Источник', number: 'Номер', open_portal: 'Открыть на портале',
@@ -27,16 +27,16 @@
       src_country: 'Страна', src_portal: 'Источник', src_note: 'Кто публикует', src_status: 'Последнее обновление', st_ok: 'обновлено', st_err: 'ошибка при сборе', st_none: 'ещё не собирался',
     },
     en: {
-      nav_tenders: 'Tenders', nav_platform: 'Features', nav_how: 'How it works', nav_sources: 'Sources', buy: 'Subscribe',
-      eyebrow: 'Public procurement, 15 countries', h1: 'Tenders from fifteen countries in one search',
-      lead: 'Central Asia, Russia, Belarus, Ukraine, Moldova, Azerbaijan and EU countries. Filter by sector, budget and deadline, compare amounts in US dollars.',
+      nav_tenders: 'Tender catalogue', nav_platform: 'Features', nav_how: 'How it works', nav_sources: 'Sources', nav_home: 'Home', login: 'Sign in', buy: 'Buy subscription', done: 'Done',
+      eyebrow: 'Tender catalogue', h1: 'Procurement catalogue of fifteen countries',
+      lead: 'Central Asia, Russia, Belarus, Ukraine, Moldova, Azerbaijan and EU countries. Filters by sector, budget and deadline, amounts in USD and local currency, a link to the original of every notice.',
       find: 'Search', search_ph: 'e.g. school furniture, transformer, road repair',
       updated: 'Updated', next: 'next update', never: 'not collected yet', demo: 'Demo data',
       open_n: 'open', filters: 'Filters', reset: 'Reset', country: 'Country', category: 'Sector', budget: 'Budget, USD',
       from: 'from', to: 'to', deadline: 'Deadline', any: 'Any', d7: 'Closes within 7 days', d30: 'Within 30 days',
       only_open: 'Open only', favs_only: 'Saved only', cur_local: 'Local',
       s_new: 'Newest first', s_dead: 'Closing soonest', s_bud_d: 'Budget: high to low', s_bud_a: 'Budget: low to high',
-      found: 'Found', more: 'Show more', done: 'Done', empty: 'No tenders match these conditions. Remove some filters or change the search.',
+      found: 'Found', more: 'Show more', empty: 'No tenders match these conditions. Remove some filters or change the search.',
       today: 'closes today', closed: 'closed', left: 'left', days: ['day', 'days', 'days'], tenders: ['tender', 'tenders', 'tenders'],
       no_deadline: 'no deadline', no_sum: 'amount not stated', published: 'Published', deadline_at: 'Bids due', customer: 'Buyer',
       location: 'Delivery location', method: 'Procedure', source: 'Source', number: 'Number', open_portal: 'Open on portal',
@@ -46,6 +46,26 @@
       src_eyebrow: 'Sources', src_h: 'Where tenders come from', src_p: 'Notices are collected from official portals every 3 hours. Duplicates of one tender from different sources are hidden.',
       src_country: 'Country', src_portal: 'Source', src_note: 'Publisher', src_status: 'Last update', st_ok: 'updated', st_err: 'collection error', st_none: 'not collected yet',
     },
+  tj: {
+      nav_tenders: 'Феҳристи тендерҳо', nav_platform: 'Имкониятҳо', nav_how: 'Ҷараёни кор', nav_sources: 'Манбаъҳо', nav_home: 'Асосӣ', login: 'Ворид шудан', buy: 'Харидани обуна', done: 'Тайёр',
+      eyebrow: 'Феҳристи тендерҳо', h1: 'Феҳристи хариди понздаҳ кишвар',
+      lead: 'Осиёи Марказӣ, Русия, Беларус, Украина, Молдова, Озарбойҷон ва кишварҳои ИА. Филтр аз рӯи соҳа, буҷет ва мӯҳлати пешниҳод, маблағҳо бо доллар ва асъори маҳаллӣ, пайванд ба асли ҳар эълон.',
+      find: 'Ҷустуҷӯ', search_ph: 'Масалан: мебели мактабӣ, трансформатор, таъмири роҳ',
+      updated: 'Навсозӣ шуд', next: 'навсозии оянда', never: 'ҷамъоварӣ ҳанӯз оғоз нашудааст', demo: 'Маълумоти намунавӣ',
+      open_n: 'кушода', filters: 'Филтрҳо', reset: 'Тоза кардан', country: 'Кишвар', category: 'Соҳа', budget: 'Буҷет, USD',
+      from: 'аз', to: 'то', deadline: 'Мӯҳлати пешниҳод', any: 'Ҳар кадом', d7: 'Дар 7 рӯз баста мешавад', d30: 'Дар 30 рӯзи наздик',
+      only_open: 'Танҳо кушода', favs_only: 'Танҳо интихобшуда', cur_local: 'Маҳаллӣ',
+      s_new: 'Аввал навҳо', s_dead: 'Мӯҳлати наздиктарин', s_bud_d: 'Буҷет: бештар', s_bud_a: 'Буҷет: камтар',
+      found: 'Ёфт шуд', more: 'Боз нишон додан', empty: 'Аз рӯи ин шартҳо тендер нест. Қисми филтрҳоро бардоред ё дархостро тағйир диҳед.',
+      today: 'имрӯз баста мешавад', closed: 'қабул анҷом ёфт', left: 'монд', days: ['рӯз', 'рӯз', 'рӯз'], tenders: ['тендер', 'тендер', 'тендер'],
+      no_deadline: 'мӯҳлат нишон дода нашудааст', no_sum: 'маблағ нишон дода нашудааст', published: 'Нашр шуд', deadline_at: 'Қабули дархостҳо то', customer: 'Фармоишгар',
+      location: 'Ҷои таҳвил', method: 'Усули харид', source: 'Манбаъ', number: 'Рақам', open_portal: 'Кушодан дар портал',
+      fav_add: 'Ба интихобшуда', fav_rm: 'Аз интихобшуда бардоштан', copy: 'Нусхаи рақам', copied: 'Рақам нусхабардорӣ шуд', demo_note: 'Сабти намунавӣ, пайванд ба портал нест',
+      sub_eyebrow: 'Огоҳиномаҳо', sub_h: 'Тендерҳои нав ба почта', sub_p: 'Кишварҳо ва калидвожаҳоро интихоб кунед. Ҳамин ки дар порталҳо тендери мувофиқ пайдо шавад, мактуб мефиристем.',
+      email: 'Почтаи электронӣ', keywords: 'Калидвожаҳо бо вергул', sub_btn: 'Обуна шудан', sub_ok: 'Обуна захира шуд.', sub_err: 'Суроғаи дурусти почтаро нависед.', sub_err2: 'Ақаллан як кишварро интихоб кунед.',
+      src_eyebrow: 'Манбаъҳо', src_h: 'Тендерҳо аз куҷо меоянд', src_p: 'Эълонҳо ҳар 3 соат аз порталҳои расмӣ ҷамъ оварда мешаванд. Такрори як тендер аз манбаъҳои гуногун нишон дода намешавад.',
+      src_country: 'Кишвар', src_portal: 'Манбаъ', src_note: 'Кӣ нашр мекунад', src_status: 'Навсозии охирин', st_ok: 'навсозӣ шуд', st_err: 'хатои ҷамъоварӣ', st_none: 'ҳанӯз ҷамъ нашудааст',
+    },
   };
   const state = {
     lang: localStorage.getItem('tb_lang') || 'ru', cur: localStorage.getItem('tb_cur') || 'usd',
@@ -53,9 +73,9 @@
     page: 1, total: 0, items: [], meta: null, stats: null, sources: [],
     favs: new Set(JSON.parse(localStorage.getItem('tb_favs') || '[]')),
   };
-  const t = (k) => T[state.lang][k];
+  const t = (k) => (T[state.lang] && T[state.lang][k] != null ? T[state.lang][k] : T.ru[k]);
   const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const plural = (n, forms) => { n = Math.abs(n) % 100; const n1 = n % 10; if (state.lang === 'en') return n === 1 ? forms[0] : forms[1]; if (n > 10 && n < 20) return forms[2]; if (n1 > 1 && n1 < 5) return forms[1]; if (n1 === 1) return forms[0]; return forms[2]; };
+  const plural = (n, forms) => { n = Math.abs(n) % 100; const n1 = n % 10; if (state.lang === 'en') return n === 1 ? forms[0] : forms[1]; if (state.lang === 'tj') return forms[0]; if (n > 10 && n < 20) return forms[2]; if (n1 > 1 && n1 < 5) return forms[1]; if (n1 === 1) return forms[0]; return forms[2]; };
   const fmtNum = (n) => Math.round(n).toLocaleString(state.lang === 'en' ? 'en-US' : 'ru-RU');
   const fmtDate = (s) => s ? new Date(s).toLocaleDateString(state.lang === 'en' ? 'en-GB' : 'ru-RU', { day: '2-digit', month: 'short', year: 'numeric' }) : '—';
   const fmtDt = (s) => s ? new Date(s).toLocaleString(state.lang === 'en' ? 'en-GB' : 'ru-RU', { day: '2-digit', month: 'short', hour: '2-digit', minute: '2-digit' }) : '—';
@@ -63,11 +83,13 @@
   const toast = (m) => { const el = $('#toast'); el.textContent = m; el.classList.add('show'); setTimeout(() => el.classList.remove('show'), 2400); };
 
   function applyLang() {
-    document.documentElement.lang = state.lang;
+    document.documentElement.lang = state.lang === 'tj' ? 'tg' : state.lang;
     $$('[data-i]').forEach((el) => { const v = t(el.dataset.i); if (v == null) return; if (el.tagName === 'OPTION' || !el.querySelector('svg')) el.textContent = v; else el.firstChild.nodeValue = v; });
     $$('[data-ph]').forEach((el) => { el.placeholder = t(el.dataset.ph); });
     $('#q').placeholder = t('search_ph');
-    $$('[data-lang]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
+    $$('[data-lang]').forEach((b) => { b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)); b.setAttribute('aria-current', String(b.dataset.lang === state.lang)); });
+    $$('[data-lang-label]').forEach((el) => { el.textContent = state.lang.toUpperCase(); });
+    $$('[data-flag]').forEach((el) => { el.className = 'flag flag--' + state.lang; });
     $$('[data-cur]').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.cur === state.cur)));
   }
 
@@ -124,11 +146,11 @@
   function renderCountries() {
     const s = state.stats; if (!s) return;
     $('#countryStrip').innerHTML = s.countries.map((c) => `<button type="button" class="cty" data-country="${c.code}" aria-pressed="${state.countries.has(c.code)}">
-      <span class="code">${c.code}</span><span class="name">${esc(c[state.lang])}</span><span class="num">${fmtNum(c.open)}</span><span class="sub">${t('open_n')}${c.usd ? ' · $' + fmtNum(c.usd / 1e6 * 10) / 10 + 'M' : ''}</span></button>`).join('');
-    $('#fCountries').innerHTML = s.countries.map((c) => `<button type="button" data-fc="${c.code}" aria-pressed="${state.countries.has(c.code)}" title="${esc(c[state.lang])}">${c.code}</button>`).join('');
+      <span class="code">${c.code}</span><span class="name">${esc(c[state.lang] || c.ru)}</span><span class="num">${fmtNum(c.open)}</span><span class="sub">${t('open_n')}${c.usd ? ' · $' + fmtNum(c.usd / 1e6 * 10) / 10 + 'M' : ''}</span></button>`).join('');
+    $('#fCountries').innerHTML = s.countries.map((c) => `<button type="button" data-fc="${c.code}" aria-pressed="${state.countries.has(c.code)}" title="${esc(c[state.lang] || c.ru)}">${c.code}</button>`).join('');
     $('#subCountries').innerHTML = s.countries.map((c) => `<button type="button" data-sc="${c.code}" aria-pressed="false">${c.code}</button>`).join('');
     const cats = state.meta.categories;
-    $('#fCats').innerHTML = Object.keys(cats).map((k) => `<label class="fcheck"><input type="checkbox" data-cat="${k}" ${state.cats.has(k) ? 'checked' : ''}><span>${esc(cats[k][state.lang])}</span><span class="n">${s.categories[k] || 0}</span></label>`).join('');
+    $('#fCats').innerHTML = Object.keys(cats).map((k) => `<label class="fcheck"><input type="checkbox" data-cat="${k}" ${state.cats.has(k) ? 'checked' : ''}><span>${esc(cats[k][state.lang] || cats[k].ru)}</span><span class="n">${s.categories[k] || 0}</span></label>`).join('');
     const meta = [];
     if (s.last_collect_at) meta.push(`<span>${t('updated')}: <b>${fmtDt(s.last_collect_at)}</b></span>`); else meta.push(`<span>${t('never')}</span>`);
     if (s.next_collect_at) meta.push(`<span>${t('next')}: <b>${fmtDt(s.next_collect_at)}</b></span>`);
@@ -138,7 +160,7 @@
   function renderSources() {
     const rows = state.sources.map((s) => {
       const st = s.last_status === 'ok' ? `<span class="st st--ok">${t('st_ok')} ${fmtDt(s.last_run_at)}</span>` : s.last_status === 'error' ? `<span class="st st--err">${t('st_err')}</span>` : `<span class="st st--none">${t('st_none')}</span>`;
-      return `<tr><td class="c"><i>${s.country}</i>${esc(s['country_' + state.lang])}</td><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></td><td>${esc(s['publisher_' + state.lang])}</td><td>${st}</td></tr>`;
+      return `<tr><td class="c"><i>${s.country}</i>${esc(s['country_' + state.lang] || s.country_ru)}</td><td><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.name)}</a></td><td>${esc(s['publisher_' + state.lang] || s.publisher_ru)}</td><td>${st}</td></tr>`;
     });
     $('#srcTable').innerHTML = `<tr><th>${t('src_country')}</th><th>${t('src_portal')}</th><th>${t('src_note')}</th><th>${t('src_status')}</th></tr>` + rows.join('');
   }
@@ -153,7 +175,7 @@
     if (state.max !== '') p.set('max_usd', state.max);
     if (state.dl) p.set('deadline', state.dl);
     p.set('status', state.open ? 'open' : 'all');
-    p.set('sort', state.sort); p.set('page', state.page); p.set('per_page', 24); p.set('lang', state.lang);
+    p.set('sort', state.sort); p.set('page', state.page); p.set('per_page', 24); p.set('lang', state.lang === 'en' ? 'en' : 'ru');
     return p.toString();
   }
   async function load(append = false) {
@@ -201,7 +223,8 @@
   /* ---------- events ---------- */
   document.addEventListener('click', (e) => {
     const b = e.target.closest('button, a'); if (!b) return;
-    if (b.dataset.lang) { state.lang = b.dataset.lang; localStorage.setItem('tb_lang', state.lang); applyLang(); renderCountries(); renderSources(); load(); return; }
+    if (b.dataset.lang) { state.lang = b.dataset.lang; localStorage.setItem('tb_lang', state.lang); applyLang(); renderCountries(); renderSources(); load(); $('#lang')?.classList.remove('is-open'); return; }
+    if (b.classList.contains('lang__btn')) { const l = $('#lang'); const open = !l.classList.contains('is-open'); l.classList.toggle('is-open', open); b.setAttribute('aria-expanded', String(open)); return; }
     if (b.dataset.cur) { state.cur = b.dataset.cur; localStorage.setItem('tb_cur', state.cur); applyLang(); renderList(false); return; }
     if (b.dataset.country || b.dataset.fc) { const c = b.dataset.country || b.dataset.fc; state.countries.has(c) ? state.countries.delete(c) : state.countries.add(c); renderCountries(); load(); return; }
     if (b.dataset.sc) { b.setAttribute('aria-pressed', String(b.getAttribute('aria-pressed') !== 'true')); return; }
@@ -217,6 +240,7 @@
   $('#list').addEventListener('click', (e) => { if (e.target.closest('.fav')) return; const c = e.target.closest('.card'); if (c) openDrawer(+c.dataset.id); });
   $('#list').addEventListener('keydown', (e) => { if (e.key === 'Enter' && e.target.classList.contains('card')) openDrawer(+e.target.dataset.id); });
   $('#scrim').addEventListener('click', closeDrawer);
+  document.addEventListener('click', (e) => { const l = $('#lang'); if (l && !l.contains(e.target)) l.classList.remove('is-open'); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeDrawer(); $('#filters').classList.remove('is-open'); } });
   $('#searchForm').addEventListener('submit', (e) => { e.preventDefault(); state.q = $('#q').value.trim(); load(); $('#tenders').scrollIntoView({ behavior: 'smooth', block: 'start' }); });
   $('#fCats').addEventListener('change', (e) => { const k = e.target.dataset.cat; if (!k) return; e.target.checked ? state.cats.add(k) : state.cats.delete(k); load(); });

@@ -1,117 +1,110 @@
-/* tenders.best — interactions */
+/* tenders.best — landing interactions */
 (function () {
   'use strict';
-
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const $ = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
-  /* ---------- header: compact after scroll, hidden on scroll down, shown on scroll up ---------- */
+  /* ---------- language ---------- */
+  const LANGS = { ru: 'RU', en: 'EN', tj: 'TJ' };
+  const original = new Map();
+  const applyLang = (lang) => {
+    if (!LANGS[lang]) lang = 'ru';
+    const dict = (window.TB_I18N || {})[lang] || {};
+    $$('[data-i]').forEach((el) => {
+      if (!original.has(el)) original.set(el, el.innerHTML);
+      const v = dict[el.dataset.i];
+      el.innerHTML = lang === 'ru' || v == null ? original.get(el) : v;
+    });
+    document.documentElement.lang = lang === 'tj' ? 'tg' : lang;
+    $$('[data-set-lang]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.setLang === lang)));
+    $$('[data-lang-label]').forEach((el) => { el.textContent = LANGS[lang]; });
+    $$('[data-flag]').forEach((el) => { el.className = 'flag flag--' + lang; });
+    try { localStorage.setItem('tb_lang', lang); } catch (e) { /* ignore */ }
+  };
+  let saved = 'ru';
+  try { saved = localStorage.getItem('tb_lang') || 'ru'; } catch (e) { /* ignore */ }
+  applyLang(saved);
+
+  const lang = $('#lang');
+  if (lang) {
+    const btn = $('.lang__btn', lang);
+    const toggle = (open) => { lang.classList.toggle('is-open', open); btn.setAttribute('aria-expanded', String(open)); };
+    btn.addEventListener('click', () => toggle(!lang.classList.contains('is-open')));
+    document.addEventListener('click', (e) => { if (!lang.contains(e.target)) toggle(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') toggle(false); });
+  }
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-set-lang]');
+    if (!b) return;
+    applyLang(b.dataset.setLang);
+    if (lang) lang.classList.remove('is-open');
+  });
+
+  /* ---------- header: compact after scroll, hidden on scroll down ---------- */
   const header = $('#header');
   const menu = $('#mobileMenu');
-  let lastY = window.scrollY;
-  let ticking = false;
+  let lastY = window.scrollY, ticking = false;
   const updateHeader = () => {
     const y = window.scrollY;
-    header.classList.toggle('is-scrolled', y > 24);
-    const goingDown = y > lastY + 4;
-    const goingUp = y < lastY - 4;
-    if (goingDown && y > 160 && !menu.classList.contains('is-open')) header.classList.add('is-hidden');
-    else if (goingUp || y < 80) header.classList.remove('is-hidden');
-    lastY = y;
-    ticking = false;
+    header.classList.toggle('is-scrolled', y > 8);
+    if (y > lastY + 6 && y > 200 && !menu.classList.contains('is-open')) header.classList.add('is-hidden');
+    else if (y < lastY - 6 || y < 120) header.classList.remove('is-hidden');
+    lastY = y; ticking = false;
   };
-  window.addEventListener('scroll', () => {
-    if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; }
-  }, { passive: true });
+  window.addEventListener('scroll', () => { if (!ticking) { requestAnimationFrame(updateHeader); ticking = true; } }, { passive: true });
   updateHeader();
 
   /* ---------- mobile menu ---------- */
   const burger = $('#burger');
   const setMenu = (open) => {
-    burger.classList.toggle('is-open', open);
-    menu.classList.toggle('is-open', open);
-    burger.setAttribute('aria-expanded', String(open));
-    document.body.style.overflow = open ? 'hidden' : '';
+    burger.classList.toggle('is-open', open); menu.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : '';
     if (open) header.classList.remove('is-hidden');
   };
   burger.addEventListener('click', () => setMenu(!menu.classList.contains('is-open')));
   $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
 
-  /* ---------- active nav link ---------- */
+  /* ---------- scroll spy ---------- */
   const navLinks = $$('.nav a[href^="#"]');
   const sections = navLinks.map((a) => $(a.getAttribute('href'))).filter(Boolean);
   if ('IntersectionObserver' in window && sections.length) {
     const spy = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
-        }
-      });
-    }, { rootMargin: '-40% 0px -55% 0px' });
+      entries.forEach((e) => { if (e.isIntersecting) navLinks.forEach((a) => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id)); });
+    }, { rootMargin: '-35% 0px -55% 0px' });
     sections.forEach((s) => spy.observe(s));
   }
 
-  /* ---------- counters ---------- */
-  const fmt = (n, decimals) => n.toFixed(decimals).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
-  const runCounter = (el) => {
-    if (el.dataset.done) return;
-    el.dataset.done = '1';
-    const target = parseFloat(el.dataset.count);
-    const decimals = parseInt(el.dataset.decimals || '0', 10);
-    if (reduceMotion) { el.textContent = fmt(target, decimals); return; }
-    const dur = 1100;
-    const start = performance.now();
-    const step = (t) => {
-      const p = Math.min(1, (t - start) / dur);
-      const eased = 1 - Math.pow(1 - p, 3);
-      el.textContent = fmt(target * eased, decimals);
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-
-  /* ---------- donuts ---------- */
+  /* ---------- charts ---------- */
   const C = 2 * Math.PI * 40;
   const runDonut = (svg) => {
     if (svg.dataset.done) return;
     svg.dataset.done = '1';
     $$('.donut__seg', svg).forEach((seg, i) => {
-      const pct = parseFloat(seg.dataset.seg) || 0;
-      const off = parseFloat(seg.dataset.offset) || 0;
-      seg.style.transitionDelay = (i * 100) + 'ms';
+      const pct = parseFloat(seg.dataset.seg) || 0, off = parseFloat(seg.dataset.offset) || 0;
+      seg.style.transitionDelay = (i * 80) + 'ms';
       seg.style.strokeDashoffset = String(-(off / 100) * C);
       requestAnimationFrame(() => { seg.style.strokeDasharray = `${(pct / 100) * C} ${C}`; });
     });
   };
-
-  /* ---------- reveal on scroll (one-shot, subtle) ---------- */
-  const animateIn = (root) => {
-    root.classList.add('is-in');
-    $$('[data-count]', root).forEach(runCounter);
-    $$('.donut svg', root).forEach(runDonut);
-  };
-  const revealTargets = $$('[data-reveal], [data-anim]');
+  const animateIn = (root) => { root.classList.add('is-in'); $$('.donut svg', root).forEach(runDonut); };
+  const targets = $$('[data-reveal], [data-anim]');
   if ('IntersectionObserver' in window && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) { animateIn(e.target); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
-    revealTargets.forEach((el) => io.observe(el));
+      entries.forEach((e) => { if (e.isIntersecting) { animateIn(e.target); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    targets.forEach((el) => io.observe(el));
   } else {
-    revealTargets.forEach(animateIn);
+    targets.forEach(animateIn);
   }
 
-  /* ---------- tabs ---------- */
-  const tabs = $$('.tab');
-  const panels = $$('.showcase__panel');
+  /* ---------- feature tabs ---------- */
+  const tabs = $$('.tab'), panels = $$('.tab-panel');
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       if (tab.classList.contains('is-active')) return;
       tabs.forEach((t) => { t.classList.remove('is-active'); t.setAttribute('aria-selected', 'false'); });
-      tab.classList.add('is-active');
-      tab.setAttribute('aria-selected', 'true');
+      tab.classList.add('is-active'); tab.setAttribute('aria-selected', 'true');
       panels.forEach((p) => {
         const on = p.dataset.panel === tab.dataset.tab;
         p.classList.toggle('is-active', on);
@@ -119,47 +112,12 @@
         const vis = $('[data-anim]', p);
         if (!vis) return;
         vis.classList.remove('is-in');
-        $$('.donut svg', vis).forEach((s) => {
-          delete s.dataset.done;
-          $$('.donut__seg', s).forEach((seg) => { seg.style.strokeDasharray = '0 999'; });
-        });
+        $$('.donut svg', vis).forEach((s) => { delete s.dataset.done; $$('.donut__seg', s).forEach((seg) => { seg.style.strokeDasharray = '0 999'; }); });
         void vis.offsetWidth;
-        setTimeout(() => animateIn(vis), 50);
+        setTimeout(() => animateIn(vis), 40);
       });
     });
   });
-
-  /* ---------- testimonial slider (manual) ---------- */
-  const slider = $('#testiSlider');
-  if (slider) {
-    const slides = $$('.testi__slide', slider);
-    const chips = $$('.logo-chip');
-    const dotsWrap = $('#testiDots');
-    let idx = 0;
-    slides.forEach((_, i) => {
-      const b = document.createElement('button');
-      b.type = 'button';
-      b.setAttribute('aria-label', 'Отзыв ' + (i + 1));
-      if (i === 0) b.classList.add('is-active');
-      b.addEventListener('click', () => go(i));
-      dotsWrap.appendChild(b);
-    });
-    const dots = $$('button', dotsWrap);
-    const go = (n) => {
-      const next = (n + slides.length) % slides.length;
-      if (next === idx) return;
-      const cur = slides[idx];
-      cur.classList.add('is-leaving');
-      cur.classList.remove('is-active');
-      setTimeout(() => cur.classList.remove('is-leaving'), 500);
-      slides[next].classList.add('is-active');
-      dots.forEach((d, i) => d.classList.toggle('is-active', i === next));
-      const company = parseInt(slides[next].dataset.company || '-1', 10);
-      chips.forEach((c, i) => c.classList.toggle('is-active', i === company));
-      idx = next;
-    };
-    $$('.testi__arrow', slider).forEach((b) => b.addEventListener('click', () => go(idx + parseInt(b.dataset.dir, 10))));
-  }
 
   /* ---------- smooth anchors ---------- */
   $$('a[href^="#"]').forEach((a) => {
@@ -169,8 +127,7 @@
       const target = $(id);
       if (!target) return;
       e.preventDefault();
-      const y = target.getBoundingClientRect().top + window.scrollY - 24;
-      window.scrollTo({ top: y, behavior: reduceMotion ? 'auto' : 'smooth' });
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 80, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   });
 })();
